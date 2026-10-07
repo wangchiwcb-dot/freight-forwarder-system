@@ -26,6 +26,21 @@ pnpm preview
 
 不要使用 `Deploy from a branch` 发布源码根目录或 `/docs`：源码中的 `index.html` 引用 `src/main.tsx`，浏览器不能直接运行。`base: './'` 与 Hash Router 已支持 GitHub Pages 的仓库子路径，无需另外修改资源地址。更新报价后提交 JSON 并推送 `main` 即可触发网站更新。
 
+## Cloudflare Workers 发布
+
+现有 Cloudflare 项目使用 Workers 的静态资源托管。仓库根目录的 `wrangler.jsonc` 明确将 `dist/` 作为发布目录，不需要 Worker 后端入口或 Cloudflare Vite 插件。
+
+Cloudflare 的 Git 构建设置：
+
+- 生产分支：`main`
+- 根目录：`/`
+- 构建命令：`pnpm build`
+- 部署命令：`npx wrangler deploy`
+
+推送到 `main` 后自动构建并发布。Hash Router 不需要服务端路由回退；缺失的 JSON 或其他文件保持返回 404，便于识别数据加载问题。
+
+如果部署日志出现自动配置 Vite、安装 Wrangler，随后报 `ERR_PNPM_IGNORED_BUILDS: workerd`，应检查该次构建是否包含 `wrangler.jsonc`，以及根目录是否正确。已有配置会让 Wrangler 直接上传构建产物，避免在部署阶段自动改造项目。不要通过关闭 pnpm 的依赖脚本检查来绕过该错误。
+
 ## 数据架构
 
 - `public/data/catalog.json`：数据版本、文件清单、按国家拆分的 JSON 分片索引和覆盖统计。
