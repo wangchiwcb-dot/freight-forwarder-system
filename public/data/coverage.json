@@ -1,0 +1,4090 @@
+[
+  {
+    "id": "27cb4ae325be",
+    "name": "20261008广东鸿莱国际价格表-平替快递_就选鸿莱(1).xlsx",
+    "providerId": "honglai",
+    "providerName": "广东鸿莱",
+    "sha256": "0d50dfdf777cce95a59a1d2d14c585689183cae45161b65dc118185843b07fed",
+    "sheets": 10,
+    "hiddenSheets": 0,
+    "quoteCount": 15,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "首页",
+        "state": "visible",
+        "rows": 39,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "美国空运快线",
+        "state": "visible",
+        "rows": 167,
+        "quotes": 5,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国空运敏感线",
+        "state": "visible",
+        "rows": 200,
+        "quotes": 5,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国空运经济线",
+        "state": "visible",
+        "rows": 203,
+        "quotes": 5,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "香港UPS红单特快渠道",
+        "state": "visible",
+        "rows": 25,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "香港UPS红单渠道",
+        "state": "visible",
+        "rows": 25,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "亚马逊地址库",
+        "state": "visible",
+        "rows": 419,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "FDA申报清单",
+        "state": "visible",
+        "rows": 199,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "反倾销名单",
+        "state": "visible",
+        "rows": 191,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "赔偿责任说明",
+        "state": "visible",
+        "rows": 198,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "c75763427172",
+    "name": "B梁鑫国际-10月6号-VIP报价表.xlsx",
+    "providerId": "liangxin",
+    "providerName": "梁鑫国际",
+    "sha256": "b2b164ae062c4a2ae546c19a67f467350347c0351bb1a412a589a06ab712af04",
+    "sheets": 36,
+    "hiddenSheets": 10,
+    "quoteCount": 5737,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "注意事项",
+        "state": "visible",
+        "rows": 74,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "目录",
+        "state": "visible",
+        "rows": 38,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "船期表",
+        "state": "visible",
+        "rows": 75,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "快捷查询最新",
+        "state": "visible",
+        "rows": 23,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "渠道汇总",
+        "state": "hidden",
+        "rows": 11401,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "锁仓服务",
+        "state": "hidden",
+        "rows": 55,
+        "quotes": 24,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "海外仓自提",
+        "state": "visible",
+        "rows": 58,
+        "quotes": 42,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "海运快递派",
+        "state": "visible",
+        "rows": 94,
+        "quotes": 36,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美森限时达卡派",
+        "state": "visible",
+        "rows": 115,
+        "quotes": 390,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西EXX卡派",
+        "state": "visible",
+        "rows": 115,
+        "quotes": 390,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "洛杉矶以星卡派",
+        "state": "visible",
+        "rows": 197,
+        "quotes": 645,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "洛杉矶合德",
+        "state": "visible",
+        "rows": 125,
+        "quotes": 225,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "洛杉矶OA",
+        "state": "visible",
+        "rows": 145,
+        "quotes": 522,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "洛杉矶特惠",
+        "state": "visible",
+        "rows": 145,
+        "quotes": 522,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东海铁快线",
+        "state": "visible",
+        "rows": 151,
+        "quotes": 141,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东纽约OA",
+        "state": "visible",
+        "rows": 139,
+        "quotes": 492,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东纽约特惠",
+        "state": "visible",
+        "rows": 127,
+        "quotes": 456,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "奥克兰-关停",
+        "state": "visible",
+        "rows": 69,
+        "quotes": 0,
+        "reason": "渠道暂停，未加入报价",
+        "sampled": false
+      },
+      {
+        "name": "芝加哥",
+        "state": "visible",
+        "rows": 96,
+        "quotes": 234,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "西雅图卡派",
+        "state": "hidden",
+        "rows": 51,
+        "quotes": 6,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "休斯顿",
+        "state": "visible",
+        "rows": 71,
+        "quotes": 126,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "萨凡纳",
+        "state": "visible",
+        "rows": 98,
+        "quotes": 282,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东极速达十二仓",
+        "state": "hidden",
+        "rows": 54,
+        "quotes": 36,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "休斯顿直航线",
+        "state": "hidden",
+        "rows": 64,
+        "quotes": 66,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "上海合德快船20天",
+        "state": "hidden",
+        "rows": 138,
+        "quotes": 263,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "EMC定提18天",
+        "state": "hidden",
+        "rows": 141,
+        "quotes": 275,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "华东快船18天",
+        "state": "hidden",
+        "rows": 111,
+        "quotes": 105,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "上海EXX快船17天",
+        "state": "hidden",
+        "rows": 138,
+        "quotes": 263,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美森极速达12天提",
+        "state": "hidden",
+        "rows": 122,
+        "quotes": 196,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "仓库操作费",
+        "state": "visible",
+        "rows": 24,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "美国对华反倾销产品目录表",
+        "state": "visible",
+        "rows": 133,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "附加费",
+        "state": "visible",
+        "rows": 72,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "亚马逊偏远",
+        "state": "visible",
+        "rows": 376,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "亚马逊地址库",
+        "state": "visible",
+        "rows": 412,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "渠道代码",
+        "state": "visible",
+        "rows": 166,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "墨西哥库内增值服务",
+        "state": "visible",
+        "rows": 25,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "5f1c74e85f37",
+    "name": "B梁鑫国际-10月6号-商卡报价表.xls",
+    "providerId": "liangxin",
+    "providerName": "梁鑫国际",
+    "sha256": "ace9387dd5cfc32e99f24fb35872ece141784bce2bab8a40c7cd2eb8fec76d52",
+    "sheets": 13,
+    "hiddenSheets": 1,
+    "quoteCount": 114,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "快捷查询",
+        "state": "visible",
+        "rows": 17,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "汇总",
+        "state": "hidden",
+        "rows": 3353,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "美森限时达",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西EXX",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西以星捷达",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 5,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西以星-不带托",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西合德-不带托",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 5,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西OA",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "洛杉矶特惠",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东海铁快线",
+        "state": "visible",
+        "rows": 36,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东纽约",
+        "state": "visible",
+        "rows": 36,
+        "quotes": 20,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "芝加哥",
+        "state": "visible",
+        "rows": 33,
+        "quotes": 14,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "休斯顿",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "2d8323c35ec4",
+    "name": "中航环球欧加线9.28.xlsx",
+    "providerId": "zhonghang",
+    "providerName": "中航环球",
+    "sha256": "ef4d50a49c4e07d25c519e6f024e81ca3c45166ee839e495ae258f7f61983d83",
+    "sheets": 25,
+    "hiddenSheets": 11,
+    "quoteCount": 251,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "目录",
+        "state": "visible",
+        "rows": 113,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "渠道船期指导",
+        "state": "hidden",
+        "rows": 13,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "附加费",
+        "state": "hidden",
+        "rows": 59,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "普船卡派-西雅图",
+        "state": "hidden",
+        "rows": 17,
+        "quotes": 3,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "普船卡派-奥克兰",
+        "state": "hidden",
+        "rows": 14,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "普船卡派-休斯敦",
+        "state": "hidden",
+        "rows": 11,
+        "quotes": 8,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲海运包税",
+        "state": "visible",
+        "rows": 39,
+        "quotes": 20,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲海运递延",
+        "state": "visible",
+        "rows": 36,
+        "quotes": 16,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲铁路包税（优客）",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 24,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲铁路递延（优客）",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 24,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "英国铁路（优客）",
+        "state": "visible",
+        "rows": 33,
+        "quotes": 12,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲卡航包税（航乐）",
+        "state": "visible",
+        "rows": 28,
+        "quotes": 20,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲卡航（路贸通）",
+        "state": "visible",
+        "rows": 29,
+        "quotes": 23,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大空运",
+        "state": "hidden",
+        "rows": 52,
+        "quotes": 14,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "英国卡航（路贸通）",
+        "state": "visible",
+        "rows": 25,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大限时达KS",
+        "state": "visible",
+        "rows": 53,
+        "quotes": 11,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大限时达HD",
+        "state": "visible",
+        "rows": 53,
+        "quotes": 11,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大限时达KD",
+        "state": "visible",
+        "rows": 53,
+        "quotes": 11,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大拼箱",
+        "state": "hidden",
+        "rows": 32,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大海派A价 ",
+        "state": "visible",
+        "rows": 42,
+        "quotes": 5,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大超大件",
+        "state": "hidden",
+        "rows": 52,
+        "quotes": 5,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大直航UPS",
+        "state": "visible",
+        "rows": 49,
+        "quotes": 8,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大卡派",
+        "state": "hidden",
+        "rows": 42,
+        "quotes": 5,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大集运",
+        "state": "hidden",
+        "rows": 34,
+        "quotes": 4,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大纯电",
+        "state": "hidden",
+        "rows": 52,
+        "quotes": 16,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "a9894752b75d",
+    "name": "中航美线报价表26.10.8更新.xlsx",
+    "providerId": "zhonghang",
+    "providerName": "中航环球",
+    "sha256": "a201a096ec35133f68d203dacf8c73ba28c1933f6a1ba3112d2412775246c267",
+    "sheets": 16,
+    "hiddenSheets": 0,
+    "quoteCount": 142,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "目录",
+        "state": "visible",
+        "rows": 63,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "美国渠道船期指导",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "附加费",
+        "state": "visible",
+        "rows": 59,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "美国海派",
+        "state": "visible",
+        "rows": 28,
+        "quotes": 12,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国限时达卡派",
+        "state": "visible",
+        "rows": 26,
+        "quotes": 13,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "OA普船、直送卡派-洛杉矶",
+        "state": "visible",
+        "rows": 21,
+        "quotes": 24,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "义乌-洛杉矶卡派",
+        "state": "visible",
+        "rows": 19,
+        "quotes": 22,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "普船卡派-特价",
+        "state": "visible",
+        "rows": 18,
+        "quotes": 20,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西卡派90-92邮编",
+        "state": "visible",
+        "rows": 91,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "以星IPI-纽约",
+        "state": "visible",
+        "rows": 14,
+        "quotes": 6,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "普船卡派-芝加哥",
+        "state": "visible",
+        "rows": 13,
+        "quotes": 11,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "普船卡派-纽约",
+        "state": "visible",
+        "rows": 19,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "普船卡派-萨凡纳",
+        "state": "visible",
+        "rows": 16,
+        "quotes": 14,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "普船卡派-休斯敦",
+        "state": "visible",
+        "rows": 12,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "普船卡派-奥克兰-渠道暂停",
+        "state": "visible",
+        "rows": 12,
+        "quotes": 0,
+        "reason": "渠道暂停，未加入报价",
+        "sampled": false
+      },
+      {
+        "name": "美国亚马逊常见偏远地址",
+        "state": "visible",
+        "rows": 42,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "4ac5705f394d",
+    "name": "亿阳国际-一件代发-2026年10月7号执行价格表.xls",
+    "providerId": "yiyang",
+    "providerName": "亿阳国际",
+    "sha256": "919fcbd513cbd54062746d63b67b4245d19bf1919a99c43b9836e5a48f538199",
+    "sheets": 11,
+    "hiddenSheets": 0,
+    "quoteCount": 4,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "   目录      ",
+        "state": "visible",
+        "rows": 17,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "相关负责人联系方式",
+        "state": "visible",
+        "rows": 17,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "发货须知",
+        "state": "visible",
+        "rows": 45,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "一件代发",
+        "state": "visible",
+        "rows": 74,
+        "quotes": 4,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "Y2换单服务",
+        "state": "visible",
+        "rows": 50,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "退件服务",
+        "state": "visible",
+        "rows": 62,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "增值服务",
+        "state": "visible",
+        "rows": 91,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "FedEx-Ground",
+        "state": "visible",
+        "rows": 160,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "UPS-Ground",
+        "state": "visible",
+        "rows": 155,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "FEDEX邮编分区表",
+        "state": "visible",
+        "rows": 43594,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "UPS邮编分区表",
+        "state": "visible",
+        "rows": 910,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      }
+    ]
+  },
+  {
+    "id": "b160e8080a15",
+    "name": "亿阳国际-加拿大价格表2026年10月7号执行.xls",
+    "providerId": "yiyang",
+    "providerName": "亿阳国际",
+    "sha256": "dd70e1a5ca189b2face6dd19c2fa8b44b81186700287dfb6f02cd0dd49cb0b59",
+    "sheets": 11,
+    "hiddenSheets": 2,
+    "quoteCount": 104,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "   目录      ",
+        "state": "visible",
+        "rows": 21,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "相关负责人联系方式",
+        "state": "visible",
+        "rows": 17,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "加拿大发货须知及附加费",
+        "state": "visible",
+        "rows": 427,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "加拿大船期表",
+        "state": "visible",
+        "rows": 23,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "卡派价格汇总表",
+        "state": "hidden",
+        "rows": 960,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "商私卡价格汇总表",
+        "state": "hidden",
+        "rows": 1399,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "YY美转加海派",
+        "state": "visible",
+        "rows": 50,
+        "quotes": 24,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "YY美转加海卡",
+        "state": "visible",
+        "rows": 61,
+        "quotes": 22,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "YY加拿大海派",
+        "state": "visible",
+        "rows": 57,
+        "quotes": 24,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "YY加拿大海卡",
+        "state": "visible",
+        "rows": 67,
+        "quotes": 34,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大UPS偏远地址邮编",
+        "state": "visible",
+        "rows": 1133,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      }
+    ]
+  },
+  {
+    "id": "0cd53d8e5f01",
+    "name": "亿阳国际-美国价格表2026年10月7号执行.xls",
+    "providerId": "yiyang",
+    "providerName": "亿阳国际",
+    "sha256": "1295ce24538f966c2b18e9c1a6806aac17f9369ef8ff40e1e790c1e5802520f8",
+    "sheets": 30,
+    "hiddenSheets": 2,
+    "quoteCount": 5652,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "   目录      ",
+        "state": "visible",
+        "rows": 60,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "联系方式",
+        "state": "visible",
+        "rows": 17,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "发货需知",
+        "state": "visible",
+        "rows": 55,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "船期表",
+        "state": "visible",
+        "rows": 72,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "FBA快查",
+        "state": "visible",
+        "rows": 49,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "私卡快查",
+        "state": "visible",
+        "rows": 38,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "卡派价格汇总表",
+        "state": "hidden",
+        "rows": 908,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "商私卡价格汇总表",
+        "state": "hidden",
+        "rows": 2540,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "海外仓自提",
+        "state": "visible",
+        "rows": 62,
+        "quotes": 70,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "海派渠道",
+        "state": "visible",
+        "rows": 55,
+        "quotes": 38,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西快线海卡",
+        "state": "visible",
+        "rows": 118,
+        "quotes": 360,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西普船海卡",
+        "state": "visible",
+        "rows": 70,
+        "quotes": 200,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美中快线海卡",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 56,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美中普船海卡",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 56,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东快线海卡",
+        "state": "visible",
+        "rows": 71,
+        "quotes": 104,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东普船海卡",
+        "state": "visible",
+        "rows": 53,
+        "quotes": 124,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "芝加哥快线商私卡",
+        "state": "visible",
+        "rows": 628,
+        "quotes": 904,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "芝加哥普船商私卡",
+        "state": "visible",
+        "rows": 628,
+        "quotes": 904,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "休斯顿快线商私卡",
+        "state": "visible",
+        "rows": 492,
+        "quotes": 930,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "休斯顿普船商私卡",
+        "state": "visible",
+        "rows": 492,
+        "quotes": 930,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "纽约快线商私卡",
+        "state": "visible",
+        "rows": 96,
+        "quotes": 138,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "纽约普船商私卡",
+        "state": "visible",
+        "rows": 96,
+        "quotes": 138,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "萨凡纳商私卡",
+        "state": "visible",
+        "rows": 241,
+        "quotes": 416,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "TIKTOK＆谷仓",
+        "state": "visible",
+        "rows": 89,
+        "quotes": 284,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "TIKTOK＆谷仓地址库",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "海外仓服务",
+        "state": "visible",
+        "rows": 20,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "UPS偏远地址邮编",
+        "state": "visible",
+        "rows": 3420,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "FEDEX偏远地址邮编",
+        "state": "visible",
+        "rows": 3444,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "亚马逊偏远地址",
+        "state": "visible",
+        "rows": 56,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "亚马逊仓库地址",
+        "state": "visible",
+        "rows": 466,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "9c756c7c801e",
+    "name": "全球顺集运同行VIP报价表-09-07号执行.xlsx",
+    "providerId": "quanqiushun",
+    "providerName": "全球顺集运",
+    "sha256": "8287cfd7951b072899963873af10ef0ac8d7b639728f3106167cd530336eb123",
+    "sheets": 4,
+    "hiddenSheets": 0,
+    "quoteCount": 12,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "目录",
+        "state": "visible",
+        "rows": 41,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "普船特货集运",
+        "state": "visible",
+        "rows": 27,
+        "quotes": 3,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "以星-合德特货集运",
+        "state": "visible",
+        "rows": 27,
+        "quotes": 3,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "普货海运",
+        "state": "visible",
+        "rows": 45,
+        "quotes": 6,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "bb632d35afea",
+    "name": "加捷达国际-加拿大VIP报价2026.10.6.xlsx",
+    "providerId": "jiajieda",
+    "providerName": "加捷达国际",
+    "sha256": "cbfff7ce2db4612e0c0ecf32f4dcfa688d5608d19ddca0a3e2a8813bc6ef1584",
+    "sheets": 9,
+    "hiddenSheets": 0,
+    "quoteCount": 50,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "目录",
+        "state": "visible",
+        "rows": 17,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "船期表",
+        "state": "visible",
+        "rows": 76,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "附加及发货通知",
+        "state": "visible",
+        "rows": 62,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "加拿大-美转加-UPS",
+        "state": "visible",
+        "rows": 39,
+        "quotes": 15,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大-美转加-海卡",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 15,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大-OA直航",
+        "state": "visible",
+        "rows": 23,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大-特惠直航",
+        "state": "visible",
+        "rows": 23,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "亚马逊分区对照表",
+        "state": "visible",
+        "rows": 23,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "加拿大偏远对照表",
+        "state": "visible",
+        "rows": 1341,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      }
+    ]
+  },
+  {
+    "id": "9c99d9d078da",
+    "name": "卓凡英国欧洲海运卡航铁路最新报价10.5 14：00点生效.xlsx",
+    "providerId": "zhuofan",
+    "providerName": "卓凡国际",
+    "sha256": "f18cf27e29ac047bfe6f73d34da282283b160a7d31e3543d5876a3766c1f2bb6",
+    "sheets": 27,
+    "hiddenSheets": 0,
+    "quoteCount": 320,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "渠道导航目录",
+        "state": "visible",
+        "rows": 344,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "英国渠道出货须知",
+        "state": "visible",
+        "rows": 78,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "欧盟渠道出货须知",
+        "state": "visible",
+        "rows": 91,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "英国卡航系列",
+        "state": "visible",
+        "rows": 51,
+        "quotes": 30,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "英国海运特惠系",
+        "state": "visible",
+        "rows": 36,
+        "quotes": 21,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "卡航商私地址纸箱货",
+        "state": "visible",
+        "rows": 29,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "卡航商私地址超大件",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "海卡商私地址纸箱货",
+        "state": "visible",
+        "rows": 29,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "海卡商私地址超大件",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "自营海外仓",
+        "state": "visible",
+        "rows": 16,
+        "quotes": 2,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "英国铁路",
+        "state": "visible",
+        "rows": 33,
+        "quotes": 24,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲卡航含税快递+卡派",
+        "state": "visible",
+        "rows": 43,
+        "quotes": 37,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲卡航递延快递+卡派",
+        "state": "visible",
+        "rows": 43,
+        "quotes": 37,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧盟海运含税系列",
+        "state": "visible",
+        "rows": 50,
+        "quotes": 39,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧盟海运递延KG系列",
+        "state": "visible",
+        "rows": 33,
+        "quotes": 21,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧盟海运递延CBM系列",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 19,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲铁路",
+        "state": "visible",
+        "rows": 50,
+        "quotes": 50,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "英国含税附加费",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "欧盟含税附加费",
+        "state": "visible",
+        "rows": 20,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "国內仓库操作费",
+        "state": "visible",
+        "rows": 19,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "DPD欧洲境内的岛屿和地区",
+        "state": "visible",
+        "rows": 16,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "英欧钢铁产品新规",
+        "state": "visible",
+        "rows": 13,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "英国赔偿方案及风险规避",
+        "state": "visible",
+        "rows": 44,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "欧洲赔偿方案及风险规避",
+        "state": "visible",
+        "rows": 38,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "英国-DPD 偏远邮编",
+        "state": "visible",
+        "rows": 589,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "交接清单",
+        "state": "visible",
+        "rows": 19,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "新发票模板",
+        "state": "visible",
+        "rows": 20,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "dcd822904600",
+    "name": "壹号小包价格2026.08.31VIP.xlsx",
+    "providerId": "yihao",
+    "providerName": "壹号小包",
+    "sha256": "83c5234e494d6198fd38042f5ed727ad4ce6932cfaf46181620ac1d51609515e",
+    "sheets": 45,
+    "hiddenSheets": 0,
+    "quoteCount": 227,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "目录",
+        "state": "visible",
+        "rows": 53,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "标准线（含税)",
+        "state": "visible",
+        "rows": 119,
+        "quotes": 8,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "TK扫一枪 预上网渠道",
+        "state": "visible",
+        "rows": 66,
+        "quotes": 3,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "SP渠道",
+        "state": "visible",
+        "rows": 84,
+        "quotes": 6,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "标准线(直出末端含税)）",
+        "state": "visible",
+        "rows": 104,
+        "quotes": 7,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "690快线（含税))",
+        "state": "visible",
+        "rows": 93,
+        "quotes": 5,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "690预上网（含税)）",
+        "state": "visible",
+        "rows": 82,
+        "quotes": 6,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "WD渠道",
+        "state": "visible",
+        "rows": 70,
+        "quotes": 4,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "Y2渠道",
+        "state": "visible",
+        "rows": 69,
+        "quotes": 3,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "墨西哥专线",
+        "state": "visible",
+        "rows": 46,
+        "quotes": 3,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "以色列专线小包",
+        "state": "visible",
+        "rows": 61,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "加拿大专线小包",
+        "state": "visible",
+        "rows": 98,
+        "quotes": 7,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "英国专线小包",
+        "state": "visible",
+        "rows": 94115,
+        "quotes": 5,
+        "reason": "已提取可识别价格区块",
+        "sampled": true
+      },
+      {
+        "name": "欧洲专线小包",
+        "state": "visible",
+        "rows": 877,
+        "quotes": 150,
+        "reason": "已提取可识别价格区块",
+        "sampled": true
+      },
+      {
+        "name": "澳大利亚专线小包",
+        "state": "visible",
+        "rows": 109,
+        "quotes": 20,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲集运专线",
+        "state": "visible",
+        "rows": 139,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "【禁寄物品目录】对应处理标准及费用",
+        "state": "visible",
+        "rows": 54,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "异形件示例",
+        "state": "visible",
+        "rows": 16,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "导入模板",
+        "state": "visible",
+        "rows": 3,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "SP渠道邮编",
+        "state": "visible",
+        "rows": 58022,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": true
+      },
+      {
+        "name": "加拿大偏远附加费",
+        "state": "visible",
+        "rows": 823,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "澳洲小包专线邮编分区",
+        "state": "visible",
+        "rows": 9093,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "新西兰偏远邮编",
+        "state": "visible",
+        "rows": 8890,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "英国偏远邮编",
+        "state": "visible",
+        "rows": 13328,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "意大利偏远邮编",
+        "state": "visible",
+        "rows": 505,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "以色列违禁品",
+        "state": "visible",
+        "rows": 29,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "DDU&DDP Tax Calculation",
+        "state": "visible",
+        "rows": 9,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "Sheet2",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet1",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet3",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet4",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet5",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet7",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet6",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet8",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet9",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet10",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet11",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet12",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet13",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet14",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet15",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet16",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet17",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "Sheet18",
+        "state": "visible",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "211626268246",
+    "name": "星航物流-美国海运vip价-2026.10.6  V2.0.xlsx",
+    "providerId": "xinghang",
+    "providerName": "星航物流",
+    "sha256": "21038b9c5cdeb37b477ede9e475d8781bb88c3729bd539ad63f2ef69c29bef98",
+    "sheets": 24,
+    "hiddenSheets": 1,
+    "quoteCount": 635,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "目录",
+        "state": "visible",
+        "rows": 93,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "发货须知&通讯录",
+        "state": "visible",
+        "rows": 41,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "赔偿责任说明&禁运产品",
+        "state": "visible",
+        "rows": 176,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "FBA仓库价格快捷查询",
+        "state": "visible",
+        "rows": 27,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "美国海派",
+        "state": "visible",
+        "rows": 46,
+        "quotes": 26,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国美森海派",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 16,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美森限时达CLX13日达卡派",
+        "state": "visible",
+        "rows": 93,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "正班、MAX卡派",
+        "state": "visible",
+        "rows": 95,
+        "quotes": 28,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "以星合德卡派",
+        "state": "visible",
+        "rows": 46,
+        "quotes": 80,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国FBA卡派",
+        "state": "visible",
+        "rows": 50,
+        "quotes": 49,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国FBA超惠卡派",
+        "state": "visible",
+        "rows": 50,
+        "quotes": 49,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "休斯顿FBA卡派",
+        "state": "visible",
+        "rows": 42,
+        "quotes": 20,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "奥克兰FBA卡派",
+        "state": "hidden",
+        "rows": 42,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "纽约OA卡派",
+        "state": "visible",
+        "rows": 79,
+        "quotes": 89,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "纽约特惠卡派",
+        "state": "visible",
+        "rows": 75,
+        "quotes": 52,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "纽约FBA稳速达",
+        "state": "visible",
+        "rows": 60,
+        "quotes": 32,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "萨瓦纳FBA海卡",
+        "state": "visible",
+        "rows": 61,
+        "quotes": 40,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "芝加哥FBA海卡",
+        "state": "visible",
+        "rows": 40,
+        "quotes": 44,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国超大件卡派",
+        "state": "visible",
+        "rows": 74,
+        "quotes": 32,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国超大件洛杉矶卡派",
+        "state": "visible",
+        "rows": 84,
+        "quotes": 44,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "海外仓自提",
+        "state": "visible",
+        "rows": 20,
+        "quotes": 24,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国反倾销表",
+        "state": "visible",
+        "rows": 77,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "美国UPS&联邦偏远邮编",
+        "state": "visible",
+        "rows": 206868,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "带磁产品表",
+        "state": "visible",
+        "rows": 47,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "2c338a3fe475",
+    "name": "枫舟供应链2026年10月6日报价.xlsx",
+    "providerId": "fengzhou",
+    "providerName": "枫舟供应链",
+    "sha256": "e8bd3d49ee860f41de80506fbfbe55a6a346bcd8bd8a7be4e80875181c524290",
+    "sheets": 14,
+    "hiddenSheets": 0,
+    "quoteCount": 70,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "首页",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "船期表",
+        "state": "visible",
+        "rows": 179,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "价格快捷查询",
+        "state": "visible",
+        "rows": 18,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "美转加限时达",
+        "state": "visible",
+        "rows": 67,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美转加准时达",
+        "state": "visible",
+        "rows": 67,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美转加定时达",
+        "state": "visible",
+        "rows": 67,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美转加稳速达",
+        "state": "visible",
+        "rows": 67,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大直航快线",
+        "state": "visible",
+        "rows": 72,
+        "quotes": 15,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大直航经济线",
+        "state": "visible",
+        "rows": 72,
+        "quotes": 15,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大多伦多商卡",
+        "state": "visible",
+        "rows": 58,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "200区城市对照表",
+        "state": "visible",
+        "rows": 29,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "亚马逊分区对照表",
+        "state": "visible",
+        "rows": 23,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "加拿大海外操作费",
+        "state": "visible",
+        "rows": 25,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "加拿大偏远对照表",
+        "state": "visible",
+        "rows": 1341,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      }
+    ]
+  },
+  {
+    "id": "e14c7bbb1f6d",
+    "name": "欧广云硕8.21美国特货VIP价格.xlsx",
+    "providerId": "ouguang",
+    "providerName": "欧广云硕",
+    "sha256": "84338ec23f2035b21900a42b5c39d5e4c9b49f1b1d134d0a48ee59db2d84d1ba",
+    "sheets": 1,
+    "hiddenSheets": 0,
+    "quoteCount": 6,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "美国敏货",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 6,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "002fa4d1a265",
+    "name": "浙江衡璇国际全国各网点加拿大专线报价表 2026.09.15.xlsx",
+    "providerId": "hengxuan",
+    "providerName": "浙江衡璇",
+    "sha256": "c162da3e8e8ec4c72088936d30d75709a3a27999b40f78a34f0ba9535c126d01",
+    "sheets": 8,
+    "hiddenSheets": 0,
+    "quoteCount": 80,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "首页",
+        "state": "visible",
+        "rows": 28,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "加拿大附加说明",
+        "state": "visible",
+        "rows": 37,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "注意事项&赔偿责任",
+        "state": "visible",
+        "rows": 8,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "美转加CLX+",
+        "state": "visible",
+        "rows": 36,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "美转加定时达",
+        "state": "visible",
+        "rows": 36,
+        "quotes": 20,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大特惠直航",
+        "state": "visible",
+        "rows": 27,
+        "quotes": 30,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大精品直航",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 30,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "加拿大UPS偏远表",
+        "state": "visible",
+        "rows": 2137,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      }
+    ]
+  },
+  {
+    "id": "055d42a0c51a",
+    "name": "浙江衡璇国际全国各网点美国专线报价表 2026.10.07.xlsx",
+    "providerId": "hengxuan",
+    "providerName": "浙江衡璇",
+    "sha256": "698400ad2dafb01e98e6e8bcf18ddf87150afb49367c8b6d6743a8d3f5f88064",
+    "sheets": 15,
+    "hiddenSheets": 0,
+    "quoteCount": 594,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "目录",
+        "state": "visible",
+        "rows": 34,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "自助查价表",
+        "state": "visible",
+        "rows": 24,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "发货须知",
+        "state": "visible",
+        "rows": 61,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "渠道下单代码",
+        "state": "visible",
+        "rows": 20,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "海外仓自提汇总",
+        "state": "visible",
+        "rows": 41,
+        "quotes": 48,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "HX快船海卡渠道汇总",
+        "state": "visible",
+        "rows": 99,
+        "quotes": 272,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "HX普船海卡渠道汇总",
+        "state": "visible",
+        "rows": 96,
+        "quotes": 232,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国海派UPSFedEx报价汇总",
+        "state": "visible",
+        "rows": 83,
+        "quotes": 42,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "普船以星EXX美森整柜",
+        "state": "visible",
+        "rows": 19,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "发票模板",
+        "state": "visible",
+        "rows": 33,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "亚马逊常见偏远地址",
+        "state": "visible",
+        "rows": 19,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "偏远邮编",
+        "state": "visible",
+        "rows": 1982,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "海外仓报价",
+        "state": "visible",
+        "rows": 65,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "夏威夷&阿拉斯加邮编无服务",
+        "state": "visible",
+        "rows": 28,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "FBA地址",
+        "state": "visible",
+        "rows": 270,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "625a4ee3b4dc",
+    "name": "英美跨境-加拿大公布价-2026年10月7日 00：00生效.xlsx",
+    "providerId": "yingmei",
+    "providerName": "英美跨境",
+    "sha256": "ce111432fb387505c2d869125f8789515c018d3c524b1fa2c4f77deca1b58e79",
+    "sheets": 14,
+    "hiddenSheets": 0,
+    "quoteCount": 256,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "发货必读",
+        "state": "visible",
+        "rows": 1048576,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "直航统配特惠",
+        "state": "visible",
+        "rows": 49,
+        "quotes": 60,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "直航快船",
+        "state": "visible",
+        "rows": 49,
+        "quotes": 60,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "商私地址卡派",
+        "state": "visible",
+        "rows": 40,
+        "quotes": 16,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "COSCO美转加",
+        "state": "visible",
+        "rows": 39,
+        "quotes": 40,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "合德美转加",
+        "state": "visible",
+        "rows": 39,
+        "quotes": 40,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美森美转加",
+        "state": "visible",
+        "rows": 37,
+        "quotes": 40,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "200区商业地址",
+        "state": "visible",
+        "rows": 24,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "分区表",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "产品附加费",
+        "state": "visible",
+        "rows": 12,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "偏远地址附加费",
+        "state": "visible",
+        "rows": 916,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "反倾销货物及禁止出口物品",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "仓库通讯录",
+        "state": "visible",
+        "rows": 22,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "华东内陆义乌",
+        "state": "visible",
+        "rows": 65531,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": true
+      }
+    ]
+  },
+  {
+    "id": "17297cca4940",
+    "name": "英美跨境-华南美线公布价-2026年10月7日 18：00生效.xlsx",
+    "providerId": "yingmei",
+    "providerName": "英美跨境",
+    "sha256": "2e014e2cc16e22d94a745d99abd5396e3d695789b96b7c261d5059ca619a8aaa",
+    "sheets": 32,
+    "hiddenSheets": 3,
+    "quoteCount": 1784,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "Config",
+        "state": "hidden",
+        "rows": 32,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "辅助",
+        "state": "hidden",
+        "rows": 18,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "系统下单指引",
+        "state": "visible",
+        "rows": 25,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "海卡快捷查价",
+        "state": "visible",
+        "rows": 720,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "发货必读",
+        "state": "visible",
+        "rows": 52,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "GCC与CPC认证类别HTS编码表",
+        "state": "visible",
+        "rows": 122,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "船期表",
+        "state": "visible",
+        "rows": 19,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "赔偿标准和免赔声明",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "海外仓自提",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 18,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国海派",
+        "state": "visible",
+        "rows": 78,
+        "quotes": 42,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "超大件快递派",
+        "state": "visible",
+        "rows": 68,
+        "quotes": 30,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美森海卡",
+        "state": "visible",
+        "rows": 34,
+        "quotes": 40,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "EXX海卡",
+        "state": "visible",
+        "rows": 24,
+        "quotes": 20,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "合德以星海卡",
+        "state": "visible",
+        "rows": 41,
+        "quotes": 48,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东纽约快线",
+        "state": "visible",
+        "rows": 34,
+        "quotes": 40,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西普船海卡渠道",
+        "state": "visible",
+        "rows": 47,
+        "quotes": 48,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美中普船海卡渠道",
+        "state": "visible",
+        "rows": 60,
+        "quotes": 56,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东普船海卡渠道",
+        "state": "visible",
+        "rows": 62,
+        "quotes": 24,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "合德以星私人商业地址",
+        "state": "visible",
+        "rows": 59,
+        "quotes": 84,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "洛杉矶私人商业地址",
+        "state": "visible",
+        "rows": 59,
+        "quotes": 84,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "纽约私人商业地址",
+        "state": "visible",
+        "rows": 347,
+        "quotes": 660,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "萨凡纳私人商业地址",
+        "state": "visible",
+        "rows": 227,
+        "quotes": 416,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "芝加哥私人商业地址",
+        "state": "visible",
+        "rows": 104,
+        "quotes": 174,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "仓库通讯录",
+        "state": "visible",
+        "rows": 10,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "国内仓库增值服务",
+        "state": "visible",
+        "rows": 18,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "海外仓收费标准",
+        "state": "visible",
+        "rows": 44,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "偏远查询",
+        "state": "visible",
+        "rows": 31163,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "美国亚马逊仓库邮编地址",
+        "state": "visible",
+        "rows": 261,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "产品认证清单",
+        "state": "visible",
+        "rows": 41,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "拒收产品清单",
+        "state": "visible",
+        "rows": 72,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "美国对华反倾销产品目录",
+        "state": "visible",
+        "rows": 161,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "WpsReserved_CellImgList",
+        "state": "veryHidden",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "2b9732fcb160",
+    "name": "英美跨境-美线（华东东中华北区公布价）-2026年10月7日 09：00生效.XLSX",
+    "providerId": "yingmei",
+    "providerName": "英美跨境",
+    "sha256": "358dca0cb1767c403aa09bd156a7a988179972eadd03f75e212fd1e400b4acc7",
+    "sheets": 31,
+    "hiddenSheets": 3,
+    "quoteCount": 2445,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "Config",
+        "state": "hidden",
+        "rows": 32,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "系统下单指引",
+        "state": "visible",
+        "rows": 25,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "海卡快捷查价",
+        "state": "visible",
+        "rows": 719,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "辅助",
+        "state": "hidden",
+        "rows": 17,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "发货必读",
+        "state": "visible",
+        "rows": 46,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "GCC与CPC认证类别HTS编码表",
+        "state": "visible",
+        "rows": 122,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "船期表",
+        "state": "visible",
+        "rows": 47,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "赔偿标准和免赔声明",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "海外仓自提",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 66,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国海派",
+        "state": "visible",
+        "rows": 68,
+        "quotes": 63,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美森海卡",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 108,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "EXX海卡",
+        "state": "visible",
+        "rows": 26,
+        "quotes": 72,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "合德以星海卡",
+        "state": "visible",
+        "rows": 45,
+        "quotes": 162,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东纽约快线",
+        "state": "visible",
+        "rows": 28,
+        "quotes": 84,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美西普船海卡渠道",
+        "state": "visible",
+        "rows": 52,
+        "quotes": 232,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美中普船海卡渠道",
+        "state": "visible",
+        "rows": 46,
+        "quotes": 150,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美东普船海卡渠道",
+        "state": "visible",
+        "rows": 62,
+        "quotes": 90,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "合德以星私人商业地址",
+        "state": "visible",
+        "rows": 59,
+        "quotes": 84,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "洛杉矶私人商业地址",
+        "state": "visible",
+        "rows": 59,
+        "quotes": 84,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "纽约私人商业地址",
+        "state": "visible",
+        "rows": 347,
+        "quotes": 660,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "萨凡纳私人商业地址",
+        "state": "visible",
+        "rows": 227,
+        "quotes": 416,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "芝加哥私人商业地址",
+        "state": "visible",
+        "rows": 104,
+        "quotes": 174,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "仓库通讯录",
+        "state": "visible",
+        "rows": 20,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "国内仓库增值服务",
+        "state": "visible",
+        "rows": 18,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "海外仓收费标准",
+        "state": "visible",
+        "rows": 44,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "偏远查询",
+        "state": "visible",
+        "rows": 31163,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "美国亚马逊仓库邮编地址",
+        "state": "visible",
+        "rows": 261,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "产品认证清单",
+        "state": "visible",
+        "rows": 41,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "拒收产品清单",
+        "state": "visible",
+        "rows": 72,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "美国对华反倾销产品目录",
+        "state": "visible",
+        "rows": 161,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "WpsReserved_CellImgList",
+        "state": "veryHidden",
+        "rows": 1,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "79c80267d669",
+    "name": "英美跨境空派公布价 -2026年10月7日14：00生效1..xlsx",
+    "providerId": "yingmei",
+    "providerName": "英美跨境",
+    "sha256": "f5c1209ff6731338d6b2999b214d8e68bc3eeb3974b9425ad6acab26b33c82a6",
+    "sheets": 12,
+    "hiddenSheets": 0,
+    "quoteCount": 70,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "发货必读",
+        "state": "visible",
+        "rows": 37,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "欧洲空派包税",
+        "state": "visible",
+        "rows": 56,
+        "quotes": 28,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲空卡包税",
+        "state": "visible",
+        "rows": 35,
+        "quotes": 8,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "美国空派普货",
+        "state": "visible",
+        "rows": 127,
+        "quotes": 9,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "英国空派普货5日提",
+        "state": "visible",
+        "rows": 34,
+        "quotes": 3,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "英国空派普货经济线",
+        "state": "visible",
+        "rows": 39,
+        "quotes": 3,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "英国空派带电",
+        "state": "visible",
+        "rows": 33,
+        "quotes": 3,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲英国附加费",
+        "state": "visible",
+        "rows": 26,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "美国附加费",
+        "state": "visible",
+        "rows": 8,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "仓库通讯录",
+        "state": "visible",
+        "rows": 21,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "加拿大空派普货",
+        "state": "visible",
+        "rows": 91,
+        "quotes": 4,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "欧洲空派递延",
+        "state": "visible",
+        "rows": 43,
+        "quotes": 12,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      }
+    ]
+  },
+  {
+    "id": "527a068001e8",
+    "name": "领航锦运-墨西哥VIP报价表-10月06日.xlsx",
+    "providerId": "linghang",
+    "providerName": "领航锦运",
+    "sha256": "51e78f571d1a4f384ede401b18f36e2211fada1151e281f76531a72a6d79ac30",
+    "sheets": 16,
+    "hiddenSheets": 0,
+    "quoteCount": 7,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "目录",
+        "state": "visible",
+        "rows": 50,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "美转墨海运-统配",
+        "state": "visible",
+        "rows": 83,
+        "quotes": 4,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "墨西哥<南沙线>",
+        "state": "visible",
+        "rows": 81,
+        "quotes": 2,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "注意事项&赔偿责任",
+        "state": "visible",
+        "rows": 9,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "NOM认证说明",
+        "state": "visible",
+        "rows": 23,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "海外仓规则说明",
+        "state": "visible",
+        "rows": 8,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "赔偿条款",
+        "state": "visible",
+        "rows": 12,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "整柜散货入库",
+        "state": "visible",
+        "rows": 14,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "库内增值服务",
+        "state": "visible",
+        "rows": 25,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "一件代发",
+        "state": "visible",
+        "rows": 15,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "Imile 墨西哥本地派送尾端费",
+        "state": "visible",
+        "rows": 44,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "J&T 派送尾端费",
+        "state": "visible",
+        "rows": 34,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "FedEx本地派送尾端费",
+        "state": "visible",
+        "rows": 14,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "Imile 邮编及分区",
+        "state": "visible",
+        "rows": 27412,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "极兔邮编及分区",
+        "state": "visible",
+        "rows": 27412,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": " FedEx偏远地址邮编",
+        "state": "visible",
+        "rows": 7029,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      }
+    ]
+  },
+  {
+    "id": "d1722d360486",
+    "name": "领讯-大客户价 20260914.xlsx",
+    "providerId": "lingxun",
+    "providerName": "领讯物流",
+    "sha256": "a9e0ba81fcbe02bfaa9029daae64da12e196f3258a10341fb8fc037b96e99a40",
+    "sheets": 61,
+    "hiddenSheets": 13,
+    "quoteCount": 744,
+    "status": "partial",
+    "warnings": [
+      "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+    ],
+    "sheetCoverage": [
+      {
+        "name": "目录",
+        "state": "visible",
+        "rows": 50,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "领讯物流查询与赔偿方案",
+        "state": "visible",
+        "rows": 36,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "领讯物流运输协议说明",
+        "state": "visible",
+        "rows": 13,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "ERP系统对接渠道代码及名称",
+        "state": "visible",
+        "rows": 38,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "通讯录、公司地址",
+        "state": "visible",
+        "rows": 12,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "本次报价表变动通知",
+        "state": "visible",
+        "rows": 53,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-超敏感",
+        "state": "visible",
+        "rows": 36,
+        "quotes": 2,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-超敏感(澳大利亚)",
+        "state": "visible",
+        "rows": 1494,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": true
+      },
+      {
+        "name": "全球专线-超敏感(加拿大)",
+        "state": "visible",
+        "rows": 33,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-特敏感(欧美英)",
+        "state": "visible",
+        "rows": 70,
+        "quotes": 27,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-特敏感(墨西哥)",
+        "state": "visible",
+        "rows": 31,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-特敏感(澳大利亚)",
+        "state": "visible",
+        "rows": 1494,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": true
+      },
+      {
+        "name": "全球专线-特敏感(加拿大)",
+        "state": "visible",
+        "rows": 33,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-特敏感(巴西)",
+        "state": "hidden",
+        "rows": 34,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-特敏感(日本)",
+        "state": "visible",
+        "rows": 28,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "中美专线商派-预上网",
+        "state": "visible",
+        "rows": 54,
+        "quotes": 3,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "中美专线标快-预上网",
+        "state": "visible",
+        "rows": 42,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "中美专线特惠-预上网",
+        "state": "hidden",
+        "rows": 45,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "中美专线F-预上网",
+        "state": "hidden",
+        "rows": 43,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "中美专线标快-预上网(偏远)",
+        "state": "visible",
+        "rows": 42,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "欧洲敏感专线大包",
+        "state": "visible",
+        "rows": 64,
+        "quotes": 25,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-微敏感(欧美英)",
+        "state": "visible",
+        "rows": 70,
+        "quotes": 27,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-微敏感(加拿大)",
+        "state": "visible",
+        "rows": 33,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-微敏感(智利)",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-微敏感(墨西哥)",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-微敏感(巴西)",
+        "state": "hidden",
+        "rows": 34,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-微敏感(新西兰)",
+        "state": "visible",
+        "rows": 400,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-微敏感(新加坡)",
+        "state": "visible",
+        "rows": 20,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-微敏感(日本)",
+        "state": "hidden",
+        "rows": 28,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "全球快线虚拟仓(美国)",
+        "state": "hidden",
+        "rows": 56,
+        "quotes": 2,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-纯电(美国)",
+        "state": "visible",
+        "rows": 36,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-纯电(澳大利亚)",
+        "state": "visible",
+        "rows": 6184,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": true
+      },
+      {
+        "name": "全球专线-纯电(英国)",
+        "state": "visible",
+        "rows": 183,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-纯电(德国)",
+        "state": "visible",
+        "rows": 48,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-纯电(欧洲24国)",
+        "state": "visible",
+        "rows": 65,
+        "quotes": 24,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-纯电(加拿大)",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-纯电(巴西)",
+        "state": "hidden",
+        "rows": 32,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-纯电(墨西哥)",
+        "state": "visible",
+        "rows": 36,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-纯电(日本)",
+        "state": "visible",
+        "rows": 140,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-带电普货(美国)",
+        "state": "visible",
+        "rows": 34,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-带电普货(欧英)",
+        "state": "hidden",
+        "rows": 123,
+        "quotes": 21,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-带电普货(加拿大)",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "中美专线普货-预上网",
+        "state": "visible",
+        "rows": 43,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-普货(美国)",
+        "state": "visible",
+        "rows": 34,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-普货(澳大利亚)",
+        "state": "visible",
+        "rows": 1494,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": true
+      },
+      {
+        "name": "全球专线-普货(英国)",
+        "state": "hidden",
+        "rows": 38,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-普货(欧洲)",
+        "state": "hidden",
+        "rows": 505,
+        "quotes": 26,
+        "reason": "已提取可识别价格区块",
+        "sampled": true
+      },
+      {
+        "name": "全球专线-普货(欧英)",
+        "state": "hidden",
+        "rows": 124,
+        "quotes": 21,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-普货(加拿大)",
+        "state": "visible",
+        "rows": 30,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "全球专线-普货(墨西哥)",
+        "state": "visible",
+        "rows": 32,
+        "quotes": 1,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "福建特邮宝",
+        "state": "visible",
+        "rows": 48,
+        "quotes": 16,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "厦门EUB",
+        "state": "hidden",
+        "rows": 42,
+        "quotes": 10,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "佛山EUB",
+        "state": "visible",
+        "rows": 185,
+        "quotes": 153,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "福建敏感EUB",
+        "state": "hidden",
+        "rows": 43,
+        "quotes": 11,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "荷邮挂号-敏感",
+        "state": "visible",
+        "rows": 199,
+        "quotes": 165,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "荷邮挂号-纯电",
+        "state": "visible",
+        "rows": 48,
+        "quotes": 16,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "荷邮挂号-普货",
+        "state": "visible",
+        "rows": 199,
+        "quotes": 165,
+        "reason": "已提取可识别价格区块",
+        "sampled": false
+      },
+      {
+        "name": "荷邮分区",
+        "state": "visible",
+        "rows": 221,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": false
+      },
+      {
+        "name": "日本偏远邮编",
+        "state": "visible",
+        "rows": 10314,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      },
+      {
+        "name": "商派可达邮编",
+        "state": "visible",
+        "rows": 11708,
+        "quotes": 0,
+        "reason": "未识别价格表头或仅图片内容，需补充适配",
+        "sampled": true
+      },
+      {
+        "name": "邮政加拿大邮编分区表",
+        "state": "visible",
+        "rows": 1703,
+        "quotes": 0,
+        "reason": "目录/查询公式页/规则或地址参考页",
+        "sampled": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+analysis/
+.local/
+*.log
+*.tsbuildinfo
+*.xlsx
+*.xls
+*.XLSX
+__pycache__/
+.DS_Store

@@ -1,0 +1,821 @@
+{
+  "schemaVersion": "1.0",
+  "version": "2026.10.07-9298b7cd",
+  "generatedAt": "2026-10-07T07:40:14.669Z",
+  "files": [
+    {
+      "id": "27cb4ae325be",
+      "name": "20261008广东鸿莱国际价格表-平替快递_就选鸿莱(1).xlsx",
+      "providerId": "honglai",
+      "providerName": "广东鸿莱",
+      "sha256": "0d50dfdf777cce95a59a1d2d14c585689183cae45161b65dc118185843b07fed",
+      "sheets": 10,
+      "hiddenSheets": 0,
+      "quoteCount": 15,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "c75763427172",
+      "name": "B梁鑫国际-10月6号-VIP报价表.xlsx",
+      "providerId": "liangxin",
+      "providerName": "梁鑫国际",
+      "sha256": "b2b164ae062c4a2ae546c19a67f467350347c0351bb1a412a589a06ab712af04",
+      "sheets": 36,
+      "hiddenSheets": 10,
+      "quoteCount": 5737,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "5f1c74e85f37",
+      "name": "B梁鑫国际-10月6号-商卡报价表.xls",
+      "providerId": "liangxin",
+      "providerName": "梁鑫国际",
+      "sha256": "ace9387dd5cfc32e99f24fb35872ece141784bce2bab8a40c7cd2eb8fec76d52",
+      "sheets": 13,
+      "hiddenSheets": 1,
+      "quoteCount": 114,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "2d8323c35ec4",
+      "name": "中航环球欧加线9.28.xlsx",
+      "providerId": "zhonghang",
+      "providerName": "中航环球",
+      "sha256": "ef4d50a49c4e07d25c519e6f024e81ca3c45166ee839e495ae258f7f61983d83",
+      "sheets": 25,
+      "hiddenSheets": 11,
+      "quoteCount": 251,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "a9894752b75d",
+      "name": "中航美线报价表26.10.8更新.xlsx",
+      "providerId": "zhonghang",
+      "providerName": "中航环球",
+      "sha256": "a201a096ec35133f68d203dacf8c73ba28c1933f6a1ba3112d2412775246c267",
+      "sheets": 16,
+      "hiddenSheets": 0,
+      "quoteCount": 142,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "4ac5705f394d",
+      "name": "亿阳国际-一件代发-2026年10月7号执行价格表.xls",
+      "providerId": "yiyang",
+      "providerName": "亿阳国际",
+      "sha256": "919fcbd513cbd54062746d63b67b4245d19bf1919a99c43b9836e5a48f538199",
+      "sheets": 11,
+      "hiddenSheets": 0,
+      "quoteCount": 4,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "b160e8080a15",
+      "name": "亿阳国际-加拿大价格表2026年10月7号执行.xls",
+      "providerId": "yiyang",
+      "providerName": "亿阳国际",
+      "sha256": "dd70e1a5ca189b2face6dd19c2fa8b44b81186700287dfb6f02cd0dd49cb0b59",
+      "sheets": 11,
+      "hiddenSheets": 2,
+      "quoteCount": 104,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "0cd53d8e5f01",
+      "name": "亿阳国际-美国价格表2026年10月7号执行.xls",
+      "providerId": "yiyang",
+      "providerName": "亿阳国际",
+      "sha256": "1295ce24538f966c2b18e9c1a6806aac17f9369ef8ff40e1e790c1e5802520f8",
+      "sheets": 30,
+      "hiddenSheets": 2,
+      "quoteCount": 5652,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "9c756c7c801e",
+      "name": "全球顺集运同行VIP报价表-09-07号执行.xlsx",
+      "providerId": "quanqiushun",
+      "providerName": "全球顺集运",
+      "sha256": "8287cfd7951b072899963873af10ef0ac8d7b639728f3106167cd530336eb123",
+      "sheets": 4,
+      "hiddenSheets": 0,
+      "quoteCount": 12,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "bb632d35afea",
+      "name": "加捷达国际-加拿大VIP报价2026.10.6.xlsx",
+      "providerId": "jiajieda",
+      "providerName": "加捷达国际",
+      "sha256": "cbfff7ce2db4612e0c0ecf32f4dcfa688d5608d19ddca0a3e2a8813bc6ef1584",
+      "sheets": 9,
+      "hiddenSheets": 0,
+      "quoteCount": 50,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "9c99d9d078da",
+      "name": "卓凡英国欧洲海运卡航铁路最新报价10.5 14：00点生效.xlsx",
+      "providerId": "zhuofan",
+      "providerName": "卓凡国际",
+      "sha256": "f18cf27e29ac047bfe6f73d34da282283b160a7d31e3543d5876a3766c1f2bb6",
+      "sheets": 27,
+      "hiddenSheets": 0,
+      "quoteCount": 320,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "dcd822904600",
+      "name": "壹号小包价格2026.08.31VIP.xlsx",
+      "providerId": "yihao",
+      "providerName": "壹号小包",
+      "sha256": "83c5234e494d6198fd38042f5ed727ad4ce6932cfaf46181620ac1d51609515e",
+      "sheets": 45,
+      "hiddenSheets": 0,
+      "quoteCount": 227,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "211626268246",
+      "name": "星航物流-美国海运vip价-2026.10.6  V2.0.xlsx",
+      "providerId": "xinghang",
+      "providerName": "星航物流",
+      "sha256": "21038b9c5cdeb37b477ede9e475d8781bb88c3729bd539ad63f2ef69c29bef98",
+      "sheets": 24,
+      "hiddenSheets": 1,
+      "quoteCount": 635,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "2c338a3fe475",
+      "name": "枫舟供应链2026年10月6日报价.xlsx",
+      "providerId": "fengzhou",
+      "providerName": "枫舟供应链",
+      "sha256": "e8bd3d49ee860f41de80506fbfbe55a6a346bcd8bd8a7be4e80875181c524290",
+      "sheets": 14,
+      "hiddenSheets": 0,
+      "quoteCount": 70,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "e14c7bbb1f6d",
+      "name": "欧广云硕8.21美国特货VIP价格.xlsx",
+      "providerId": "ouguang",
+      "providerName": "欧广云硕",
+      "sha256": "84338ec23f2035b21900a42b5c39d5e4c9b49f1b1d134d0a48ee59db2d84d1ba",
+      "sheets": 1,
+      "hiddenSheets": 0,
+      "quoteCount": 6,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "002fa4d1a265",
+      "name": "浙江衡璇国际全国各网点加拿大专线报价表 2026.09.15.xlsx",
+      "providerId": "hengxuan",
+      "providerName": "浙江衡璇",
+      "sha256": "c162da3e8e8ec4c72088936d30d75709a3a27999b40f78a34f0ba9535c126d01",
+      "sheets": 8,
+      "hiddenSheets": 0,
+      "quoteCount": 80,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "055d42a0c51a",
+      "name": "浙江衡璇国际全国各网点美国专线报价表 2026.10.07.xlsx",
+      "providerId": "hengxuan",
+      "providerName": "浙江衡璇",
+      "sha256": "698400ad2dafb01e98e6e8bcf18ddf87150afb49367c8b6d6743a8d3f5f88064",
+      "sheets": 15,
+      "hiddenSheets": 0,
+      "quoteCount": 594,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "625a4ee3b4dc",
+      "name": "英美跨境-加拿大公布价-2026年10月7日 00：00生效.xlsx",
+      "providerId": "yingmei",
+      "providerName": "英美跨境",
+      "sha256": "ce111432fb387505c2d869125f8789515c018d3c524b1fa2c4f77deca1b58e79",
+      "sheets": 14,
+      "hiddenSheets": 0,
+      "quoteCount": 256,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "17297cca4940",
+      "name": "英美跨境-华南美线公布价-2026年10月7日 18：00生效.xlsx",
+      "providerId": "yingmei",
+      "providerName": "英美跨境",
+      "sha256": "2e014e2cc16e22d94a745d99abd5396e3d695789b96b7c261d5059ca619a8aaa",
+      "sheets": 32,
+      "hiddenSheets": 3,
+      "quoteCount": 1784,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "2b9732fcb160",
+      "name": "英美跨境-美线（华东东中华北区公布价）-2026年10月7日 09：00生效.XLSX",
+      "providerId": "yingmei",
+      "providerName": "英美跨境",
+      "sha256": "358dca0cb1767c403aa09bd156a7a988179972eadd03f75e212fd1e400b4acc7",
+      "sheets": 31,
+      "hiddenSheets": 3,
+      "quoteCount": 2445,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "79c80267d669",
+      "name": "英美跨境空派公布价 -2026年10月7日14：00生效1..xlsx",
+      "providerId": "yingmei",
+      "providerName": "英美跨境",
+      "sha256": "f5c1209ff6731338d6b2999b214d8e68bc3eeb3974b9425ad6acab26b33c82a6",
+      "sheets": 12,
+      "hiddenSheets": 0,
+      "quoteCount": 70,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "527a068001e8",
+      "name": "领航锦运-墨西哥VIP报价表-10月06日.xlsx",
+      "providerId": "linghang",
+      "providerName": "领航锦运",
+      "sha256": "51e78f571d1a4f384ede401b18f36e2211fada1151e281f76531a72a6d79ac30",
+      "sheets": 16,
+      "hiddenSheets": 0,
+      "quoteCount": 7,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    },
+    {
+      "id": "d1722d360486",
+      "name": "领讯-大客户价 20260914.xlsx",
+      "providerId": "lingxun",
+      "providerName": "领讯物流",
+      "sha256": "a9e0ba81fcbe02bfaa9029daae64da12e196f3258a10341fb8fc037b96e99a40",
+      "sheets": 61,
+      "hiddenSheets": 13,
+      "quoteCount": 744,
+      "status": "partial",
+      "warnings": [
+        "首版按可识别价格区块整理；完整附加费、颜色限制及大邮编库尚未全部计算"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "country": "AU",
+      "providerId": "lingxun",
+      "path": "quotes-au-lingxun-2463be7be8bd72c5.json",
+      "rulesPath": "rules-au-lingxun-5734406e6a13a178.json",
+      "count": 10
+    },
+    {
+      "country": "AU",
+      "providerId": "yihao",
+      "path": "quotes-au-yihao-f8e10dd661844ebd.json",
+      "rulesPath": "rules-au-yihao-621fbe3b196b6791.json",
+      "count": 20
+    },
+    {
+      "country": "BR",
+      "providerId": "lingxun",
+      "path": "quotes-br-lingxun-4cff8b0487f90adf.json",
+      "rulesPath": "rules-br-lingxun-6614aef1c63907aa.json",
+      "count": 6
+    },
+    {
+      "country": "CA",
+      "providerId": "fengzhou",
+      "path": "quotes-ca-fengzhou-fa6958aa3cc37cb5.json",
+      "rulesPath": "rules-ca-fengzhou-13273d2041c3f8aa.json",
+      "count": 70
+    },
+    {
+      "country": "CA",
+      "providerId": "hengxuan",
+      "path": "quotes-ca-hengxuan-f14852ec4c3e9405.json",
+      "rulesPath": "rules-ca-hengxuan-e708d9c7c829fa06.json",
+      "count": 80
+    },
+    {
+      "country": "CA",
+      "providerId": "jiajieda",
+      "path": "quotes-ca-jiajieda-bb277bb84f815086.json",
+      "rulesPath": "rules-ca-jiajieda-0fe7398ed6dce76e.json",
+      "count": 50
+    },
+    {
+      "country": "CA",
+      "providerId": "lingxun",
+      "path": "quotes-ca-lingxun-5b0132ad87e5c04a.json",
+      "rulesPath": "rules-ca-lingxun-e3da2001529d26e3.json",
+      "count": 24
+    },
+    {
+      "country": "CA",
+      "providerId": "yihao",
+      "path": "quotes-ca-yihao-e088725720e8f1ee.json",
+      "rulesPath": "rules-ca-yihao-07a001d1809b8057.json",
+      "count": 7
+    },
+    {
+      "country": "CA",
+      "providerId": "yingmei",
+      "path": "quotes-ca-yingmei-85a4babbee8d698e.json",
+      "rulesPath": "rules-ca-yingmei-36e97ffb7f175e71.json",
+      "count": 260
+    },
+    {
+      "country": "CA",
+      "providerId": "yiyang",
+      "path": "quotes-ca-yiyang-184ceff1a5450f3c.json",
+      "rulesPath": "rules-ca-yiyang-8a9d554ef1cf550f.json",
+      "count": 104
+    },
+    {
+      "country": "CA",
+      "providerId": "zhonghang",
+      "path": "quotes-ca-zhonghang-8e0e11bd431ba869.json",
+      "rulesPath": "rules-ca-zhonghang-7a2f375ed97971d0.json",
+      "count": 91
+    },
+    {
+      "country": "CZ",
+      "providerId": "lingxun",
+      "path": "quotes-cz-lingxun-b1695271cb0c6d31.json",
+      "rulesPath": "rules-cz-lingxun-f75254596d0dbbe8.json",
+      "count": 11
+    },
+    {
+      "country": "CZ",
+      "providerId": "yihao",
+      "path": "quotes-cz-yihao-1286060d113f082c.json",
+      "rulesPath": "rules-cz-yihao-b1d8c362875f67dd.json",
+      "count": 5
+    },
+    {
+      "country": "CZ",
+      "providerId": "yingmei",
+      "path": "quotes-cz-yingmei-79499b4e8c7d65e7.json",
+      "rulesPath": "rules-cz-yingmei-4d2477d1e2556dd6.json",
+      "count": 7
+    },
+    {
+      "country": "CZ",
+      "providerId": "zhonghang",
+      "path": "quotes-cz-zhonghang-845014fe77028ce8.json",
+      "rulesPath": "rules-cz-zhonghang-db9ad67eda27270a.json",
+      "count": 8
+    },
+    {
+      "country": "CZ",
+      "providerId": "zhuofan",
+      "path": "quotes-cz-zhuofan-91b13d6ce84ce55e.json",
+      "rulesPath": "rules-cz-zhuofan-0f9c2c25249532f5.json",
+      "count": 12
+    },
+    {
+      "country": "DE",
+      "providerId": "lingxun",
+      "path": "quotes-de-lingxun-ad2c8b0cf2bdc044.json",
+      "rulesPath": "rules-de-lingxun-c1872c14b886dda2.json",
+      "count": 14
+    },
+    {
+      "country": "DE",
+      "providerId": "yihao",
+      "path": "quotes-de-yihao-6e1721ffdc32bb94.json",
+      "rulesPath": "rules-de-yihao-b1d8c362875f67dd.json",
+      "count": 5
+    },
+    {
+      "country": "DE",
+      "providerId": "yingmei",
+      "path": "quotes-de-yingmei-560f068fa0c98619.json",
+      "rulesPath": "rules-de-yingmei-4d2477d1e2556dd6.json",
+      "count": 7
+    },
+    {
+      "country": "DE",
+      "providerId": "zhonghang",
+      "path": "quotes-de-zhonghang-e383c77a7e6a6a80.json",
+      "rulesPath": "rules-de-zhonghang-df02474eea897377.json",
+      "count": 12
+    },
+    {
+      "country": "DE",
+      "providerId": "zhuofan",
+      "path": "quotes-de-zhuofan-546a7aebe645c70b.json",
+      "rulesPath": "rules-de-zhuofan-1862c7df972129ae.json",
+      "count": 41
+    },
+    {
+      "country": "ES",
+      "providerId": "lingxun",
+      "path": "quotes-es-lingxun-40764494d82e849a.json",
+      "rulesPath": "rules-es-lingxun-ef23677f2071037d.json",
+      "count": 12
+    },
+    {
+      "country": "ES",
+      "providerId": "yihao",
+      "path": "quotes-es-yihao-7e1bf51442daada3.json",
+      "rulesPath": "rules-es-yihao-b1d8c362875f67dd.json",
+      "count": 5
+    },
+    {
+      "country": "ES",
+      "providerId": "yingmei",
+      "path": "quotes-es-yingmei-af8a8ec8e7434222.json",
+      "rulesPath": "rules-es-yingmei-4d2477d1e2556dd6.json",
+      "count": 7
+    },
+    {
+      "country": "ES",
+      "providerId": "zhonghang",
+      "path": "quotes-es-zhonghang-94ceaf874c037efa.json",
+      "rulesPath": "rules-es-zhonghang-df02474eea897377.json",
+      "count": 11
+    },
+    {
+      "country": "ES",
+      "providerId": "zhuofan",
+      "path": "quotes-es-zhuofan-12c704e00b893aeb.json",
+      "rulesPath": "rules-es-zhuofan-3f20f0c2d1250a96.json",
+      "count": 15
+    },
+    {
+      "country": "EU",
+      "providerId": "lingxun",
+      "path": "quotes-eu-lingxun-6bfa1c6ee47cc01d.json",
+      "rulesPath": "rules-eu-lingxun-605e721da120c6a5.json",
+      "count": 126
+    },
+    {
+      "country": "EU",
+      "providerId": "yihao",
+      "path": "quotes-eu-yihao-6dcd035f0105a9fe.json",
+      "rulesPath": "rules-eu-yihao-b1d8c362875f67dd.json",
+      "count": 120
+    },
+    {
+      "country": "EU",
+      "providerId": "yingmei",
+      "path": "quotes-eu-yingmei-30ef147576799bbf.json",
+      "rulesPath": "rules-eu-yingmei-5be40c8afae7f9f9.json",
+      "count": 6
+    },
+    {
+      "country": "EU",
+      "providerId": "zhonghang",
+      "path": "quotes-eu-zhonghang-9e9c0aa3ec3dab1b.json",
+      "rulesPath": "rules-eu-zhonghang-df02474eea897377.json",
+      "count": 59
+    },
+    {
+      "country": "EU",
+      "providerId": "zhuofan",
+      "path": "quotes-eu-zhuofan-f97fd828c0fbbe1a.json",
+      "rulesPath": "rules-eu-zhuofan-b0d2a87723b7a5c4.json",
+      "count": 78
+    },
+    {
+      "country": "FR",
+      "providerId": "lingxun",
+      "path": "quotes-fr-lingxun-6929723304e6e5ec.json",
+      "rulesPath": "rules-fr-lingxun-f31b7ff8cec3ba30.json",
+      "count": 13
+    },
+    {
+      "country": "FR",
+      "providerId": "yihao",
+      "path": "quotes-fr-yihao-ac1cfaefbbcf6670.json",
+      "rulesPath": "rules-fr-yihao-b1d8c362875f67dd.json",
+      "count": 5
+    },
+    {
+      "country": "FR",
+      "providerId": "yingmei",
+      "path": "quotes-fr-yingmei-781b7c5ad96e1ab2.json",
+      "rulesPath": "rules-fr-yingmei-4d2477d1e2556dd6.json",
+      "count": 7
+    },
+    {
+      "country": "FR",
+      "providerId": "zhonghang",
+      "path": "quotes-fr-zhonghang-624b2c5da7d3ec26.json",
+      "rulesPath": "rules-fr-zhonghang-df02474eea897377.json",
+      "count": 12
+    },
+    {
+      "country": "FR",
+      "providerId": "zhuofan",
+      "path": "quotes-fr-zhuofan-2bdb1aed4d04fc63.json",
+      "rulesPath": "rules-fr-zhuofan-890777a277e3d5ce.json",
+      "count": 16
+    },
+    {
+      "country": "GB",
+      "providerId": "lingxun",
+      "path": "quotes-gb-lingxun-8297bdb12441c3df.json",
+      "rulesPath": "rules-gb-lingxun-c905bc99d28d6811.json",
+      "count": 12
+    },
+    {
+      "country": "GB",
+      "providerId": "yihao",
+      "path": "quotes-gb-yihao-17c6d661589e4f60.json",
+      "rulesPath": "rules-gb-yihao-7a537417720b424b.json",
+      "count": 5
+    },
+    {
+      "country": "GB",
+      "providerId": "yingmei",
+      "path": "quotes-gb-yingmei-9cfdf41d5fe6c467.json",
+      "rulesPath": "rules-gb-yingmei-3e26cf8c639e5cfc.json",
+      "count": 9
+    },
+    {
+      "country": "GB",
+      "providerId": "zhonghang",
+      "path": "quotes-gb-zhonghang-a9526b67d0512f15.json",
+      "rulesPath": "rules-gb-zhonghang-3ad4cefa394c077d.json",
+      "count": 22
+    },
+    {
+      "country": "GB",
+      "providerId": "zhuofan",
+      "path": "quotes-gb-zhuofan-9f9bd58bca484e7f.json",
+      "rulesPath": "rules-gb-zhuofan-021a66c668b03501.json",
+      "count": 133
+    },
+    {
+      "country": "IT",
+      "providerId": "lingxun",
+      "path": "quotes-it-lingxun-5011d0ce45c6d4eb.json",
+      "rulesPath": "rules-it-lingxun-762c2e848631233c.json",
+      "count": 14
+    },
+    {
+      "country": "IT",
+      "providerId": "yihao",
+      "path": "quotes-it-yihao-e92fc38bf49cde5e.json",
+      "rulesPath": "rules-it-yihao-b1d8c362875f67dd.json",
+      "count": 5
+    },
+    {
+      "country": "IT",
+      "providerId": "yingmei",
+      "path": "quotes-it-yingmei-bf7166fff5b12f70.json",
+      "rulesPath": "rules-it-yingmei-4d2477d1e2556dd6.json",
+      "count": 7
+    },
+    {
+      "country": "IT",
+      "providerId": "zhonghang",
+      "path": "quotes-it-zhonghang-ae6113ed298f530a.json",
+      "rulesPath": "rules-it-zhonghang-df02474eea897377.json",
+      "count": 11
+    },
+    {
+      "country": "IT",
+      "providerId": "zhuofan",
+      "path": "quotes-it-zhuofan-d99f23dfed2949e2.json",
+      "rulesPath": "rules-it-zhuofan-b7eba1b4afe0433b.json",
+      "count": 13
+    },
+    {
+      "country": "MX",
+      "providerId": "linghang",
+      "path": "quotes-mx-linghang-fad6333ebcae4076.json",
+      "rulesPath": "rules-mx-linghang-37d51fe3c2d87128.json",
+      "count": 7
+    },
+    {
+      "country": "MX",
+      "providerId": "lingxun",
+      "path": "quotes-mx-lingxun-655c6ce809c06025.json",
+      "rulesPath": "rules-mx-lingxun-f53487c03ec98765.json",
+      "count": 7
+    },
+    {
+      "country": "MX",
+      "providerId": "yihao",
+      "path": "quotes-mx-yihao-f51d3b9d34f39b3a.json",
+      "rulesPath": "rules-mx-yihao-5bd6e551f4ac688b.json",
+      "count": 3
+    },
+    {
+      "country": "OTHER",
+      "providerId": "lingxun",
+      "path": "quotes-other-lingxun-bed24961c964550d.json",
+      "rulesPath": "rules-other-lingxun-692e331d29c5c779.json",
+      "count": 464
+    },
+    {
+      "country": "OTHER",
+      "providerId": "quanqiushun",
+      "path": "quotes-other-quanqiushun-4b80e8a6cfc3f1c5.json",
+      "rulesPath": "rules-other-quanqiushun-1c66344e1be2a9dd.json",
+      "count": 9
+    },
+    {
+      "country": "OTHER",
+      "providerId": "yihao",
+      "path": "quotes-other-yihao-510ac525f1287eeb.json",
+      "rulesPath": "rules-other-yihao-73811efc3b39e569.json",
+      "count": 14
+    },
+    {
+      "country": "OTHER",
+      "providerId": "yiyang",
+      "path": "quotes-other-yiyang-2c9e58a072877b85.json",
+      "rulesPath": "rules-other-yiyang-6e01acaf31a9b95e.json",
+      "count": 2
+    },
+    {
+      "country": "PL",
+      "providerId": "lingxun",
+      "path": "quotes-pl-lingxun-274595dc71ac815e.json",
+      "rulesPath": "rules-pl-lingxun-f75254596d0dbbe8.json",
+      "count": 11
+    },
+    {
+      "country": "PL",
+      "providerId": "yihao",
+      "path": "quotes-pl-yihao-982752931616b418.json",
+      "rulesPath": "rules-pl-yihao-b1d8c362875f67dd.json",
+      "count": 5
+    },
+    {
+      "country": "PL",
+      "providerId": "yingmei",
+      "path": "quotes-pl-yingmei-a01f68688c125db7.json",
+      "rulesPath": "rules-pl-yingmei-4d2477d1e2556dd6.json",
+      "count": 7
+    },
+    {
+      "country": "PL",
+      "providerId": "zhonghang",
+      "path": "quotes-pl-zhonghang-e186638edebfd37c.json",
+      "rulesPath": "rules-pl-zhonghang-df02474eea897377.json",
+      "count": 14
+    },
+    {
+      "country": "PL",
+      "providerId": "zhuofan",
+      "path": "quotes-pl-zhuofan-c98fbd884b05c858.json",
+      "rulesPath": "rules-pl-zhuofan-7b98f33115e6fff9.json",
+      "count": 12
+    },
+    {
+      "country": "US",
+      "providerId": "hengxuan",
+      "path": "quotes-us-hengxuan-ceb6a314760cf9a5.json",
+      "rulesPath": "rules-us-hengxuan-a8d008031e71b223.json",
+      "count": 594
+    },
+    {
+      "country": "US",
+      "providerId": "honglai",
+      "path": "quotes-us-honglai-76dbdc2909914deb.json",
+      "rulesPath": "rules-us-honglai-c052a1b8cf8a8d46.json",
+      "count": 15
+    },
+    {
+      "country": "US",
+      "providerId": "liangxin",
+      "path": "quotes-us-liangxin-8c681cfce98b67ef.json",
+      "rulesPath": "rules-us-liangxin-a6d92e903bcd4ed5.json",
+      "count": 5851
+    },
+    {
+      "country": "US",
+      "providerId": "lingxun",
+      "path": "quotes-us-lingxun-6a757d6298dc5874.json",
+      "rulesPath": "rules-us-lingxun-a9bd0beded69e710.json",
+      "count": 20
+    },
+    {
+      "country": "US",
+      "providerId": "ouguang",
+      "path": "quotes-us-ouguang-f73f3765009fca11.json",
+      "rulesPath": "rules-us-ouguang-444ce13324d55d1a.json",
+      "count": 6
+    },
+    {
+      "country": "US",
+      "providerId": "quanqiushun",
+      "path": "quotes-us-quanqiushun-31cc6050ec54bb6c.json",
+      "rulesPath": "rules-us-quanqiushun-129e124e64fb9f82.json",
+      "count": 3
+    },
+    {
+      "country": "US",
+      "providerId": "xinghang",
+      "path": "quotes-us-xinghang-b663f373152608ae.json",
+      "rulesPath": "rules-us-xinghang-9be13347198d9a8a.json",
+      "count": 635
+    },
+    {
+      "country": "US",
+      "providerId": "yihao",
+      "path": "quotes-us-yihao-c5fd18ff19c3a9d1.json",
+      "rulesPath": "rules-us-yihao-c6bfa278c023ab02.json",
+      "count": 28
+    },
+    {
+      "country": "US",
+      "providerId": "yingmei",
+      "path": "quotes-us-yingmei-acd4be4b9bf9328b.json",
+      "rulesPath": "rules-us-yingmei-da67d6c938ac3543.json",
+      "count": 4238
+    },
+    {
+      "country": "US",
+      "providerId": "yiyang",
+      "path": "quotes-us-yiyang-c1f984a307cecc91.json",
+      "rulesPath": "rules-us-yiyang-ad93b77cbe53247e.json",
+      "count": 5654
+    },
+    {
+      "country": "US",
+      "providerId": "zhonghang",
+      "path": "quotes-us-zhonghang-0cfa2578e7cf9a13.json",
+      "rulesPath": "rules-us-zhonghang-ce850090edf6735c.json",
+      "count": 153
+    }
+  ],
+  "stats": {
+    "quotes": 19319,
+    "providers": 15,
+    "countries": 14,
+    "sources": 23,
+    "cbmQuotes": 5483
+  }
+}
