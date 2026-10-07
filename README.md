@@ -18,6 +18,14 @@ pnpm preview
 
 构建结果在 `dist/`，可部署到任意静态站点。应用使用 Hash Router，部署到子路径时不需要服务器重写规则。
 
+## GitHub Pages 发布
+
+网站地址：https://wangchiwcb-dot.github.io/freight-forwarder-system/
+
+仓库 `Settings → Pages → Build and deployment → Source` 选择 **GitHub Actions**。推送到 `main` 后，`.github/workflows/ci.yml` 会依次校验报价数据、运行测试、执行 Vite 构建，并将 `dist/` 上传发布。所有检查通过后才更新网站；其他分支和 Pull Request 只执行检查，不发布。也可以在 Actions 中手动运行该工作流。
+
+不要使用 `Deploy from a branch` 发布源码根目录或 `/docs`：源码中的 `index.html` 引用 `src/main.tsx`，浏览器不能直接运行。`base: './'` 与 Hash Router 已支持 GitHub Pages 的仓库子路径，无需另外修改资源地址。更新报价后提交 JSON 并推送 `main` 即可触发网站更新。
+
 ## 数据架构
 
 - `public/data/catalog.json`：数据版本、文件清单、按国家拆分的 JSON 分片索引和覆盖统计。
@@ -50,4 +58,4 @@ pnpm build
 
 当前 23 份报价表均保留来源和解析覆盖记录；首版只对可识别区块自动提取，并非每一格价格和每一条费用规则都能完整计算。复杂邮编附表、颜色标记限制和未确认规则不支持完整自动计价。
 
-这是内部采购成本查询工具，不是面向客户的销售报价系统。当前未配置远程仓库地址，尚未推送；也没有登录或后端接口。静态站点能够读取到的 JSON 也能被访问者下载，因此成本数据只应部署在受控的内部环境。
+这是内部采购成本查询工具，不是面向客户的销售报价系统。当前仓库和 GitHub Pages 站点公开，没有登录或后端接口；随站点发布的报价 JSON 也能被访问者下载。
