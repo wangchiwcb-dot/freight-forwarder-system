@@ -5,6 +5,9 @@ dist/
 !.env.example
 analysis/
 .local/
+.wrangler/
+.dev.vars
+.dev.vars.*
 *.log
 *.tsbuildinfo
 *.xlsx

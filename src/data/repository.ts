@@ -10,14 +10,22 @@ const quoteStatuses = ['reference', 'needs_review', 'suspended'] as const;
 const dateKinds = ['explicit', 'filename', 'unknown'] as const;
 const reliabilityLevels = ['verified', 'concern', 'unknown'] as const;
 
+const taxSchema = z.object({mode:z.string(),duty:z.string(),vat:z.string(),settlement:z.string(),evidenceKind:z.string(),evidence:z.string()});
 const rateTierSchema = z.object({
+  id:z.string().optional(),tax:taxSchema.optional(),fixedFeeConfirmed:z.boolean().optional(),
+  fixedFeeBasis:z.enum(['shipment','piece','unknown']).optional(),
   label: z.string(), min: z.number().nullable(), max: z.number().nullable(),
   minInclusive: z.boolean().optional(), maxInclusive: z.boolean().optional(),
   price: z.number().nullable(), status: z.enum(['priced', 'inquiry', 'unavailable']),
   sourceCell: z.string(), fixedFee: z.number().optional(),
 }).passthrough();
 
-const quoteSchema = z.object({
+export const quoteSchema = z.object({
+  itemId:z.string().optional(),validTo:z.string().nullable().optional(),tax:taxSchema.optional(),
+  cargoAcceptance:z.array(z.object({type:z.enum(cargoTypes),acceptance:z.enum(['allowed','forbidden','conditional','unknown']),
+    evidenceKind:z.string(),conditions:z.array(z.string()),evidence:z.string()})).optional(),
+  charges:z.array(z.object({id:z.string(),label:z.string(),amount:z.string().nullable(),currency:z.string().nullable(),
+    basis:z.string(),reviewStatus:z.string(),conditions:z.record(z.string(),z.unknown()),evidence:z.string()})).optional(),
   id: z.string(), providerId: z.string(), providerName: z.string(), isOwn: z.boolean(),
   channelName: z.string(), countryCode: z.enum(countries), mode: z.enum(transportModes),
   delivery: z.enum(['amazon', 'commercial', 'residential', 'all', 'unknown']), origin: z.string(),
@@ -41,7 +49,7 @@ const sourceFileSchema = z.object({
   id: z.string(), name: z.string(), providerId: z.string(), providerName: z.string(), sha256: z.string(),
   sheets: z.number(), hiddenSheets: z.number(), quoteCount: z.number(), status: z.enum(['parsed', 'partial', 'failed']), warnings: z.array(z.string()),
 }).passthrough();
-const catalogSchema = z.object({
+export const catalogSchema = z.object({
   schemaVersion: z.literal('1.0'), version: z.string(), generatedAt: z.string(), files: z.array(sourceFileSchema),
   chunks: z.array(z.object({ country: z.enum(countries), path: z.string(), count: z.number(), rulesPath: z.string().optional() }).passthrough()),
   stats: z.object({ quotes: z.number(), providers: z.number(), countries: z.number(), sources: z.number(), cbmQuotes: z.number() }).passthrough(),

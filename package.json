@@ -4,15 +4,30 @@
   "version": "0.1.0",
   "type": "module",
   "packageManager": "pnpm@11.9.0",
-  "engines": { "node": ">=22.12.0" },
+  "engines": {
+    "node": ">=22.14.0"
+  },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && tsc -p tsconfig.worker.json && vite build",
+    "dev:api": "wrangler dev --port 8787",
+    "api:typecheck": "tsc -p tsconfig.worker.json",
+    "check": "pnpm data:validate && pnpm db:typecheck && pnpm api:typecheck && pnpm test",
+    "deploy": "pnpm build && wrangler deploy",
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:api:smoke": "node scripts/smoke-api.mjs",
     "typecheck": "tsc -b",
     "data:normalize": "node scripts/normalize-quotes.mjs",
-    "data:validate": "node scripts/validate-data.mjs"
+    "data:validate": "node scripts/validate-data.mjs",
+    "history:extract": "python -X utf8 scripts/prepare-history.py",
+    "db:build": "node --experimental-strip-types scripts/db/import-history.ts",
+    "db:verify": "node --experimental-strip-types scripts/db/verify-history.ts && python -X utf8 scripts/db/verify-workbooks.py && python -X utf8 scripts/db/verify-refinement.py --database .local/d1-import/freight-quotes.sqlite --output .local/d1-import/refinement-verification.json --if-applied",
+    "db:refine": "node --experimental-strip-types scripts/db/refine-history.ts",
+    "db:typecheck": "tsc -p tsconfig.db.json",
+    "db:migrate:local": "wrangler d1 migrations apply freight-quotes --local",
+    "db:migrate:remote": "wrangler d1 migrations apply freight-quotes --remote"
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
@@ -26,12 +41,14 @@
     "zod": "^4.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.0",
     "typescript": "~5.9.3",
     "vite": "^7.2.0",
-    "vitest": "^4.0.0"
+    "vitest": "^4.0.0",
+    "wrangler": "^4.151.1"
   }
 }

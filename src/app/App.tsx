@@ -21,7 +21,7 @@ function AppShell() {
       <Layout className="workspace-layout">
         <Header className="app-header">
           <Space size={12}><Button type="text" aria-label={collapsed ? '展开菜单' : '收起菜单'} className="collapse-btn" icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />} onClick={() => setCollapsed((value) => !value)} /><Typography.Text type="secondary">采购管理 <span className="breadcrumb-slash">/</span> <span className="breadcrumb-current">报价查询</span></Typography.Text></Space>
-          <Space size={14}><Tag className="header-data-tag" icon={<CloudDownloadOutlined />}>本地数据</Tag><span className="user-avatar">ZH</span></Space>
+          <Space size={14}><Tag className="header-data-tag" icon={<CloudDownloadOutlined />}>云端报价库</Tag><span className="user-avatar">ZH</span></Space>
         </Header>
         <Content className="app-content"><Routes><Route path="/" element={<QuoteSearchPage />} /><Route path="*" element={<Navigate to="/" replace />} /></Routes></Content>
       </Layout>

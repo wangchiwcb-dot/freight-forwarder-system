@@ -3,8 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import { Alert, Badge, Button, Card, Empty, Form, Input, InputNumber, Select, Space, Switch, Table, Tag, Tooltip, Typography } from 'antd';
 import type { TableColumnsType } from 'antd';
 import { ApartmentOutlined, ArrowRightOutlined, DatabaseOutlined, DownOutlined, EnvironmentOutlined, FilterOutlined, GlobalOutlined, ReloadOutlined, SearchOutlined, ShopOutlined, SwapOutlined } from '@ant-design/icons';
-import { cargoLabels, countryLabels, DEFAULT_CRITERIA, modeLabels, searchQuotes } from '../../domain/search';
-import { loadCatalog, loadQuotes } from '../../data/repository';
+import { cargoLabels, countryLabels, DEFAULT_CRITERIA, modeLabels } from '../../domain/search';
+import { fetchCatalog, fetchSearch } from '../../data/api';
 import type { CountryCode, QuoteResult, SearchCriteria } from '../../domain/types';
 import { BillingTag, formatDate, formatMoney, ReliabilityTag, unitLabel } from './display';
 import { QuoteDrawer } from './QuoteDrawer';
@@ -24,20 +24,23 @@ export function QuoteSearchPage() {
   const [sourcesOpen, setSourcesOpen] = useState(false);
   const [selected, setSelected] = useState<QuoteResult | null>(null);
   const [page, setPage] = useState(1);
-  const catalogQuery = useQuery({ queryKey: ['catalog'], queryFn: loadCatalog });
+  const [snapshotId, setSnapshotId] = useState<string>();
+  const catalogQuery = useQuery({ queryKey: ['catalog',snapshotId], queryFn: ({signal}) => fetchCatalog(snapshotId,signal) });
   const catalog = catalogQuery.data;
-  const quotesQuery = useQuery({ queryKey: ['quotes', catalog?.version, criteria.country], queryFn: () => loadQuotes(catalog!, criteria.country), enabled: Boolean(catalog) });
-  const quotes = quotesQuery.data ?? EMPTY_QUOTES;
-  const results = useMemo(() => searchQuotes(quotes, criteria), [quotes, criteria]);
+  const quotesQuery = useQuery({ queryKey: ['quotes', catalog?.snapshotId, criteria, page],
+    queryFn: ({signal}) => fetchSearch(criteria,catalog!.snapshotId!,page,signal), enabled: Boolean(catalog?.snapshotId) });
+  const results = quotesQuery.data?.items ?? EMPTY_QUOTES;
   const isLoading = catalogQuery.isPending || quotesQuery.isFetching;
   const dataError = catalogQuery.error || quotesQuery.error;
   const providers = useMemo(() => [{ value: '', label: '全部代理' }, ...Array.from(new Map(catalog?.files.map((file) => [file.providerId, file.providerName]) ?? []).entries()).map(([value, label]) => ({ value, label }))], [catalog]);
-  const computedCount = results.filter((result) => result.eligible && result.estimatedCost !== null).length;
-  const pendingCount = results.filter((result) => !result.eligible).length;
+  const computedCount = quotesQuery.data?.computedCount ?? 0;
+  const pendingCount = quotesQuery.data?.pendingCount ?? 0;
+  const total = quotesQuery.data?.total ?? 0;
   const hasCbm = (catalog?.stats.cbmQuotes ?? 0) > 0;
 
   function runSearch(values: Partial<SearchCriteria>) { setCriteria((current) => ({ ...current, ...values, destination: values.destination?.trim() ?? current.destination })); setPage(1); }
   function resetSearch() { form.resetFields(); setCriteria({ ...DEFAULT_CRITERIA }); setPage(1); }
+  function changeSnapshot(value: string) { setSnapshotId(value); resetSearch(); setSelected(null); }
   async function refresh() { await catalogQuery.refetch(); await quotesQuery.refetch(); }
 
   const columns: TableColumnsType<QuoteResult> = [
@@ -61,6 +64,9 @@ export function QuoteSearchPage() {
 
   return <>
     <div className="page-intro"><div><div className="page-kicker">QUOTE EXPLORER</div><Title level={2}>渠道报价台</Title><p>一处查找代理采购价，为每一票货找到合适的渠道。</p></div><Button icon={<DatabaseOutlined />} onClick={() => setSourcesOpen(true)}>数据源 <span className="button-count">{catalog?.files.length ?? '—'}</span></Button></div>
+    <div className="dataset-bar"><Space wrap><Text strong>报价资料集</Text><Select aria-label="报价资料集" value={catalog?.snapshotId} loading={catalogQuery.isFetching} onChange={changeSnapshot}
+      style={{minWidth:260}} options={catalog?.snapshots?.map(snapshot => ({value:snapshot.id,label:snapshot.sourceKind==='published_json' ? '已发布网站报价（数据库修正版）' : `历史资料 · ${snapshot.name}`}))} />
+      <Tag color="cyan">数据库查询</Tag></Space><Text type="secondary">按所选资料集检索；查询日期用于判断生效与过期，导入时间不代表当前价格。</Text></div>
     <div className="stats-grid">{stats.map((stat) => <Card key={stat.label} variant="borderless"><div className="stat-card"><div><span className="stat-label">{stat.label}</span><div className="stat-value">{stat.value?.toLocaleString('zh-CN') ?? '—'} <span>{stat.unit}</span></div></div><span className={`stat-icon ${stat.className}`}>{stat.icon}</span></div></Card>)}</div>
     {hasCbm && <div className="cbm-banner"><span className="cbm-banner-icon"><SwapOutlined /></span><div><strong>重量与体积，放在同一票货里比较</strong><span>填写实重和体积，可同时查看 KG 与 CBM 渠道的基准运费；中航美线普船支持按体积计费。</span></div><Tag color="cyan">CBM</Tag></div>}
     <Card className="search-card" variant="borderless" title={<Space size={9}><FilterOutlined /><span>筛选与计价条件</span></Space>} extra={<Text type="secondary" className="search-help">重量和体积选填，填写后可估算运费</Text>}>
@@ -86,9 +92,9 @@ export function QuoteSearchPage() {
       </Form>
     </Card>
     {dataError && <Alert style={{ marginBottom: 18 }} type="error" showIcon message="报价数据读取失败" description={dataError.message} action={<Button icon={<ReloadOutlined />} onClick={() => void refresh()}>重试</Button>} />}
-    <Card className="results-card" variant="borderless" title={<div className="result-title"><span>渠道列表</span><Badge count={results.length} overflowCount={999999} showZero color="#e9f3f1" style={{ color: '#0b887c', boxShadow: 'none' }} /></div>} extra={<Space size={10}><Select aria-label="结果排序" value={criteria.sort} options={sortOptions} onChange={(sort) => runSearch({ sort })} className="sort-select" variant="borderless" /><Tooltip title="重新读取数据"><Button type="text" aria-label="刷新报价数据" icon={<ReloadOutlined spin={isLoading} />} onClick={() => void refresh()} /></Tooltip></Space>}>
+    <Card className="results-card" variant="borderless" title={<div className="result-title"><span>渠道列表</span><Badge count={total} overflowCount={999999} showZero color="#e9f3f1" style={{ color: '#0b887c', boxShadow: 'none' }} /></div>} extra={<Space size={10}><Select aria-label="结果排序" value={criteria.sort} options={sortOptions} onChange={(sort) => runSearch({ sort })} className="sort-select" variant="borderless" /><Tooltip title="重新读取数据"><Button type="text" aria-label="刷新报价数据" icon={<ReloadOutlined spin={isLoading} />} onClick={() => void refresh()} /></Tooltip></Space>}>
       <div className="result-summary"><div><span>{criteria.country === 'ALL' ? '全部国家' : countryLabels[criteria.country as CountryCode]}</span><span>·</span><span>{criteria.mode === 'all' ? '全部运输方式' : modeLabels[criteria.mode]}</span><span>·</span><span>{cargoLabels[criteria.cargo]}</span><span className="summary-extra"> · {computedCount} 条可估算{pendingCount > 0 ? `，${pendingCount} 条需核对` : ''}</span></div><Text type="secondary">查询日期 {criteria.asOf}</Text></div>
-      <Table<QuoteResult> rowKey={(row) => row.quote.id} loading={isLoading} columns={columns} dataSource={results} scroll={{ x: 1180 }} pagination={{ current: page, pageSize: 15, showSizeChanger: false, onChange: setPage, showTotal: (total) => `共 ${total.toLocaleString('zh-CN')} 条报价` }} locale={{ emptyText: <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={dataError ? '数据读取失败，请重试' : '暂无匹配渠道，试试调整国家、货品或目的地'} /> }} />
+      <Table<QuoteResult> rowKey={(row) => row.quote.id} loading={isLoading} columns={columns} dataSource={results} scroll={{ x: 1180 }} pagination={{ current: page, pageSize: 15, total, showSizeChanger: false, onChange: setPage, showTotal: (total) => `共 ${total.toLocaleString('zh-CN')} 条报价` }} locale={{ emptyText: <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={dataError ? '数据读取失败，请重试' : '暂无匹配渠道，试试调整国家、货品或目的地'} /> }} />
     </Card>
     <div className="page-footer"><span>深圳中航环球国际货运代理有限公司</span><span>报价数据版本 {catalog?.version || '—'} · 仅供内部采购参考</span></div>
     <QuoteDrawer result={selected} onClose={() => setSelected(null)} /><SourceModal catalog={catalog} open={sourcesOpen} onClose={() => setSourcesOpen(false)} />

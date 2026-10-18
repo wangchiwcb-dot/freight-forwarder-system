@@ -19,8 +19,11 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm data:validate
+      - run: pnpm db:typecheck
       - run: pnpm test
       - run: pnpm build
+        env:
+          VITE_API_BASE_URL: https://freight-forwarder-system.wangchi-wcb.workers.dev
       - name: Upload Pages site
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3

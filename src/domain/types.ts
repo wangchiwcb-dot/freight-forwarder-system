@@ -3,6 +3,8 @@ export type TransportMode = 'sea' | 'air' | 'rail' | 'road' | 'express' | 'parce
 export type CargoType = 'general' | 'battery' | 'magnetic' | 'liquid' | 'powder' | 'pure_battery' | 'sensitive';
 export type BillingBasis = 'kg' | 'cbm' | 'parcel' | 'first_increment' | 'unknown';
 export interface RateTier {
+  id?: string;
+  tax?: TaxTerms;
   label: string;
   min: number | null;
   max: number | null;
@@ -12,6 +14,19 @@ export interface RateTier {
   status: 'priced' | 'inquiry' | 'unavailable';
   sourceCell: string;
   fixedFee?: number;
+  fixedFeeBasis?: 'shipment' | 'piece' | 'unknown';
+  fixedFeeConfirmed?: boolean;
+}
+export interface TaxTerms {
+  mode: string; duty: string; vat: string; settlement: string; evidenceKind: string; evidence: string;
+}
+export interface CargoAcceptance {
+  type: CargoType; acceptance: 'allowed' | 'forbidden' | 'conditional' | 'unknown';
+  evidenceKind: string; conditions: string[]; evidence: string;
+}
+export interface ChargeRule {
+  id: string; label: string; amount: string | null; currency: string | null; basis: string;
+  reviewStatus: string; conditions: Record<string, unknown>; evidence: string;
 }
 export interface QuoteSource {
   fileId: string;
@@ -21,6 +36,11 @@ export interface QuoteSource {
   hidden: boolean;
 }
 export interface Quote {
+  itemId?: string;
+  validTo?: string | null;
+  tax?: TaxTerms;
+  cargoAcceptance?: CargoAcceptance[];
+  charges?: ChargeRule[];
   id: string;
   providerId: string;
   providerName: string;
@@ -77,6 +97,17 @@ export interface Catalog {
   files: SourceFile[];
   chunks: { country: CountryCode; path: string; rulesPath?: string; count: number }[];
   stats: { quotes: number; providers: number; countries: number; sources: number; cbmQuotes: number };
+  snapshotId?: string;
+  snapshots?: { id: string; name: string; observedDate: string | null; sourceKind: string }[];
+}
+export interface SearchResponse {
+  items: QuoteResult[]; total: number; computedCount: number; pendingCount: number;
+  page: number; pageSize: number; snapshotId: string;
+}
+export interface HistoryEntry {
+  id: string; quotedOn: string | null; validFrom: string | null; validTo: string | null;
+  dateEvidence: string; fileName: string; sheet: string; taxMode: string;
+  snapshots: string[]; tiers: RateTier[];
 }
 export interface SearchCriteria {
   country: CountryCode | 'ALL';

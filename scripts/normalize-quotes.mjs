@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import { warehouseCodesFrom } from './warehouse-codes.mjs';
 
 const input = process.argv[2] || 'analysis/latest-extract.json';
-const output = 'public/data';
+const output = process.argv[3] || 'public/data';
 const source = JSON.parse(fs.readFileSync(input, 'utf8'));
 const quotes = [];
 const coverage = [];
@@ -19,6 +19,7 @@ const providers = [
   ['亿阳', 'yiyang', '亿阳国际'], ['英美', 'yingmei', '英美跨境'],
   ['衡璇', 'hengxuan', '浙江衡璇'], ['中航', 'zhonghang', '中航环球'],
   ['卓凡', 'zhuofan', '卓凡国际'],
+  ['环宇嘉美', 'huanyujiamei', '环宇嘉美'],
 ];
 const countries = [['加拿大','CA'],['墨西哥','MX'],['英国','GB'],['德国','DE'],['法国','FR'],['意大利','IT'],['西班牙','ES'],['波兰','PL'],['捷克','CZ'],['巴西','BR'],['澳大利亚','AU'],['美国','US']];
 const skipSheet = /目录|首页|封面|船期|查询|快捷|快查|自助查价|卡派价格汇总表|商私卡价格汇总表|^汇总$|^渠道汇总$|通讯|联系|地址库|附加|费用说明|赔偿|赔付|须知|必读|协议|产品目录|注意事项|禁寄|反倾销|操作费|偏远|分区|对照表|申报|更新|变动通知|渠道代码|下单代码|ERP|服务规则|仓库操作|增值服务|换单服务|退件服务|^Sheet\d*$/i;
@@ -282,12 +283,33 @@ function vertical(file,sheet,access){
   }
 }
 
+// Category-based CBM sheets have a unit-price column rather than weight tiers.
+// Preserve the category prices without inventing a minimum shipment or coverage.
+function categoryCbm(file,sheet,access){
+  if(!file.name.includes('中航')||!sheet.name.includes('美转墨海运专线'))return false;
+  const header=sheet.head.find(r=>r.cells.some(c=>/货物类型/.test(text(c)))&&r.cells.some(c=>/单价.*CBM/i.test(text(c))));
+  if(!header)return false;
+  const categoryCol=col(header.cells.find(c=>/货物类型/.test(text(c))).coord);
+  const rateCol=col(header.cells.find(c=>/单价.*CBM/i.test(text(c))).coord);
+  for(const row of sheet.head.filter(r=>r.row>header.row)){
+    const category=text(access.get(row.row,categoryCol));
+    if(!/^(普货|纺织品|敏感货|特敏货)$/.test(category))continue;
+    const cell=access.get(row.row,rateCol);const raw=text(cell);const price=numeric(val(cell));
+    const before=quotes.length;
+    makeQuote(file,sheet,access,{title:`墨西哥海运包税 · ${category}`,label:'墨西哥（具体目的仓与派送范围见原表）',basis:'cbm',
+      tiers:[{label:'元/CBM（起收条件待核）',min:null,max:null,price,status:price===null?'inquiry':'priced',sourceCell:cell.coord}],
+      row:row.row,headerRow:header.row,reviewReasonsExtra:['品类报价需核验货品明细、最低起收与派送条件',...(price===null?[`原价单元格为“${raw}”，未将附条件文本当作无条件价格`]:[])]});
+    for(const q of quotes.slice(before)){q.notes.push(`${cell.coord}原始单价：${raw}`);q.cargoCertainty='unknown';}
+  }
+  return true;
+}
+
 for(const file of source.files){
   const before=quotes.length;const sheets=[];
   for(const sheet of file.sheets||[]){
     const count=quotes.length;
     if(!skipSheet.test(sheet.name)&&!/暂停|关停/.test(sheet.name)){
-      const a=sheetAccess(sheet);vertical(file,sheet,a);horizontal(file,sheet,a);
+      const a=sheetAccess(sheet);if(!categoryCbm(file,sheet,a)){vertical(file,sheet,a);horizontal(file,sheet,a);}
     }
     sheets.push({name:sheet.name,state:sheet.state,rows:sheet.rows,quotes:quotes.length-count,reason:quotes.length>count?'已提取可识别价格区块':skipSheet.test(sheet.name)?'目录/查询公式页/规则或地址参考页':/暂停|关停/.test(sheet.name)?'渠道暂停，未加入报价':'未识别价格表头或仅图片内容，需补充适配',sampled:sheet.requires_deeper_read});
   }

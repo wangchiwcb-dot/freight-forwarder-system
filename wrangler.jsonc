@@ -1,8 +1,20 @@
 {
   "name": "freight-forwarder-system",
+  "main": "worker/index.ts",
+  "build": { "command": "pnpm check" },
   "compatibility_date": "2026-10-07",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "freight-quotes",
+      "database_id": "902a4a72-2f9b-41fb-a5b3-04590af31902",
+      "migrations_dir": "migrations"
+    }
+  ],
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api", "/api/*"],
     "not_found_handling": "none"
   }
 }

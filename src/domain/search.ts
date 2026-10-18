@@ -118,6 +118,14 @@ const originMatches = (quote: Quote, criteria: SearchCriteria): Match => {
 };
 
 const cargoMatches = (quote: Quote, cargo: CargoType): Match => {
+  if (quote.cargoAcceptance) {
+    const rule = quote.cargoAcceptance.find((item) => item.type === cargo);
+    if (rule?.acceptance === 'allowed') return { ok: true };
+    if (rule?.acceptance === 'forbidden') return { ok: false, warning: `原表明确不接${cargoLabels[cargo]}` };
+    return { ok: false, unknown: true, warning: rule?.acceptance === 'conditional'
+      ? `${cargoLabels[cargo]}有承运条件，需确认：${rule.conditions.join('；') || rule.evidence}`
+      : `尚无明确可接${cargoLabels[cargo]}的依据` };
+  }
   if (quote.cargoCertainty === 'unknown' || quote.cargoTypes.length === 0) {
     return { ok: false, unknown: true, warning: '货品适用性未可靠说明，未自动匹配' };
   }
@@ -258,6 +266,11 @@ export function searchQuotes(quotes: Quote[], criteria: SearchCriteria): QuoteRe
     const unknownCountry = quote.countryCode === 'EU' && criteria.country !== 'EU' && criteria.country !== 'ALL';
     if (unknownCountry) warnings.push(`原表仅标欧洲，尚未确认${countryLabels[criteria.country as CountryCode]}覆盖范围`);
     const future = isFuture(quote, criteria.asOf, today);
+    const expired = Boolean(quote.validTo && (quote.validTo.length === 10
+      ? quote.validTo <= criteria.asOf
+      : Date.parse(/[Zz]|[+-]\d\d:\d\d$/.test(quote.validTo) ? quote.validTo : `${quote.validTo.replace(' ', 'T')}+08:00`) <=
+        (criteria.asOf === today ? Date.now() : Date.parse(`${criteria.asOf}T23:59:59.999+08:00`))));
+    if (expired) warnings.push('该报价已超过有效期');
     if (future) warnings.push(`报价尚未到生效日期/时刻：${quote.effectiveAt ?? quote.priceDate}`);
     if (quote.effectiveAt && /[T ]\d{2}:\d{2}/.test(quote.effectiveAt)) warnings.push(`生效时刻：${quote.effectiveAt}；${criteria.asOf === today ? '今日按当前中国时间判断' : '非今日查询按该日末判断'}`);
     if (!quote.priceDate && !quote.effectiveAt) warnings.push('报价日期缺失，无法确认时效性');
@@ -278,7 +291,7 @@ export function searchQuotes(quotes: Quote[], criteria: SearchCriteria): QuoteRe
     let tier: RateTier | null = null;
     let estimatedCost: number | null = null;
     let label = quantity.quantity == null ? '查看档位' : '无法估算';
-    let blocked = Boolean(quantity.blocked) || future || quote.status !== 'reference' ||
+    let blocked = Boolean(quantity.blocked) || future || expired || quote.status !== 'reference' ||
       !destination.ok || !cargo.ok || !delivery.ok || !origin.ok || unknownCountry;
     if (quantity.quantity != null) {
       const selected = selectTier(quote, quantity.quantity);
@@ -287,10 +300,13 @@ export function searchQuotes(quotes: Quote[], criteria: SearchCriteria): QuoteRe
       if (tier?.status !== 'priced') {
         if (tier) { warnings.push(tier.status === 'inquiry' ? '该阶梯需询价' : '该阶梯不可用'); blocked = true; }
       } else if (tier.price == null || tier.price < 0) { warnings.push('该阶梯未提供有效价格'); blocked = true; }
+      else if (tier.fixedFeeConfirmed === false) { warnings.push('固定费用的单位、币种或适用分区尚未确认，未自动计价'); blocked = true; }
+      else if (tier.fixedFeeBasis === 'piece' && criteria.pieces == null) { warnings.push('固定费用按件收取，缺少件数，未自动计价'); blocked = true; }
       else if (quote.currency == null || quote.currencyEvidence === 'unconfirmed') warnings.push('币种不确定，保留档位单价但不估算费用');
       else if (!blocked) {
         const cost = new Decimal(tier.price).mul(quantity.quantity);
-        estimatedCost = cost.plus(tier.fixedFee ?? 0).toDecimalPlaces(6).toNumber();
+        const fixedFee = new Decimal(tier.fixedFee ?? 0).mul(tier.fixedFeeBasis === 'piece' ? criteria.pieces! : 1);
+        estimatedCost = cost.plus(fixedFee).toDecimalPlaces(6).toNumber();
         label = '基准运费（不含未确认费用）';
       }
     }
@@ -302,7 +318,3 @@ export function searchQuotes(quotes: Quote[], criteria: SearchCriteria): QuoteRe
   }
   return sortResults(results, criteria);
 }
-
-// Kept as a compatibility export for callers that used the original domain
-// seam before the static-data adapter was split into src/data/repository.ts.
-export { loadCatalog, loadQuotes } from '../data/repository';
