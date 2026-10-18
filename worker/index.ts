@@ -1,10 +1,12 @@
 import { z } from 'zod';
 import { idSchema, searchSchema } from '../src/api/contracts';
-import { ApiError, type Database } from './db';
+import { ApiError, observeDatabase, type Database } from './db';
 import { getCatalog, getHistory, requireQuote } from './repository';
 import { search } from './search';
+import { cacheForWorker, isReadQuotaError, nextQuotaReset, QueryCache } from './cache';
+import { PublishedRepository } from '../src/data/published';
 
-export interface Env { DB: Database; ASSETS?: { fetch(request: Request): Promise<Response> }; }
+export interface Env { DB: Database; ASSETS?: { fetch(request: Request): Promise<Response> }; REQUEST_CACHE?:Cache; }
 const corsOrigin = 'https://wangchiwcb-dot.github.io';
 const pagination = z.object({ page: z.coerce.number().int().min(1).max(100000).default(1), pageSize: z.coerce.number().int().min(1).max(100).default(15) }).strict();
 const querySchema = z.object({ snapshotId: idSchema.optional() }).strict();
@@ -34,6 +36,9 @@ export default {
     if (url.pathname !== '/api' && !url.pathname.startsWith('/api/'))
       return env.ASSETS ? env.ASSETS.fetch(request) : new Response('Not found',{ status:404 });
     const requestId = crypto.randomUUID();
+    const {db,usage}=observeDatabase(env.DB);
+    const cache=new QueryCache(env.DB,url.origin,env.REQUEST_CACHE??cacheForWorker());
+    const cached=async<T>(key:string,ttl:number,load:()=>Promise<T>)=>{const result=await cache.read(key,ttl,load);headers.set('X-Data-Cache',result.hit?'HIT':'MISS');return result.body;};
     const headers = new Headers({ 'Content-Type':'application/json; charset=utf-8', 'Cache-Control':'no-store',
       'X-Content-Type-Options':'nosniff', 'X-Request-Id':requestId, 'Vary':'Origin' });
     if (request.headers.get('origin') === corsOrigin) headers.set('Access-Control-Allow-Origin',corsOrigin);
@@ -56,34 +61,62 @@ export default {
       const params = Object.fromEntries(url.searchParams);
       if (path === '/api/health') {
         z.object({}).strict().parse(params);
-        await env.DB.prepare('SELECT 1').first();
+        await cache.assertQuotaAvailable();
+        await db.prepare('SELECT id FROM providers LIMIT 1').first();
         return reply({ status:'ok', database:'ok', apiVersion:'1' });
       }
       if (path === '/api/catalog' || path === '/api/sources') {
         const { snapshotId } = querySchema.parse(params);
-        const catalog = await getCatalog(env.DB,snapshotId);
+        const catalog = await cached(`catalog:${snapshotId??'default'}`,300,()=>getCatalog(db,snapshotId));
         return reply(path === '/api/catalog' ? catalog : { items:catalog.files,snapshotId:catalog.snapshotId });
       }
       if (path === '/api/quotes/search') {
         z.object({}).strict().parse(params);
-        return reply(await search(env.DB,searchSchema.parse(await jsonBody(request))));
+        const input=searchSchema.parse(await jsonBody(request));
+        // Today's eligibility uses the current instant, so never cache across a
+        // valid_from/valid_to boundary. Other dates have a fixed cutoff.
+        const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai'}).format(new Date());
+        return reply(await cached(`search:${JSON.stringify(input)}`,input.criteria.asOf===today?0:15,()=>search(db,input)));
       }
       if (detail) {
         const id = idSchema.parse(detail[1]);
         if (detail[2]) {
           const { page, pageSize } = pagination.parse(params);
-          return reply(await getHistory(env.DB,id,page,pageSize));
+          return reply(await cached(`history:${id}:${page}:${pageSize}`,300,()=>getHistory(db,id,page,pageSize)));
         }
         z.object({}).strict().parse(params);
-        return reply(await requireQuote(env.DB,id));
+        return reply(await cached(`quote:${id}`,300,()=>requireQuote(db,id)));
       }
       throw new ApiError(404,'NOT_FOUND','接口不存在');
     } catch (error) {
+      if(isReadQuotaError(error)){
+        await cache.markQuotaExceeded();
+        const retryAt=new Date(nextQuotaReset()).toISOString();
+        headers.set('Retry-After',String(Math.ceil((nextQuotaReset()-Date.now())/1000)));
+        const message='实时数据库今日读取额度已用尽，将于北京时间次日 08:00 重置；可继续查询已核对的发布快照。';
+        if(env.ASSETS && ['/api/catalog','/api/sources'].includes(url.pathname)){
+          try {
+            const published=new PublishedRepository(async path=>{
+              const response=await env.ASSETS!.fetch(new Request(`${url.origin}/published/${path}`));
+              if(!response.ok)throw new Error('Snapshot unavailable');return response.json();
+            });
+            const m=await published.getManifest();
+            const id=url.searchParams.get('snapshotId')??m.defaultSnapshotId;
+            if(!m.snapshots.includes(id))throw new ApiError(404,'SNAPSHOT_NOT_FOUND','报价资料集不存在');
+            const catalog=await published.catalog(id);
+            headers.set('X-Data-Source','published-snapshot');
+            return reply(url.pathname==='/api/catalog'?catalog:{items:catalog.files,snapshotId:catalog.snapshotId,provenance:catalog.provenance});
+          }catch(fallbackError){if(fallbackError instanceof ApiError)return reply({error:{code:fallbackError.code,message:fallbackError.message,requestId}},fallbackError.status);}
+        }
+        return reply({error:{code:'D1_READ_QUOTA_EXCEEDED',message,retryAt,requestId}},503);
+      }
       if (error instanceof z.ZodError) return reply({ error:{ code:'VALIDATION_ERROR',message:'请求参数无效',
         details:error.issues.map(issue => ({ path:issue.path.join('.'),message:issue.message })),requestId } },400);
       if (error instanceof ApiError) return reply({ error:{ code:error.code,message:error.message,requestId } },error.status);
       console.error(JSON.stringify({ requestId,message:error instanceof Error ? error.message : 'Unknown error' }));
       return reply({ error:{ code:'INTERNAL_ERROR',message:'报价服务暂时不可用，请稍后重试',requestId } },503);
+    } finally {
+      if(usage.rowsRead)console.info(JSON.stringify({event:'d1_usage',requestId,path:url.pathname,...usage}));
     }
   },
 };

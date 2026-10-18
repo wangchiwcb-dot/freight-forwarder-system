@@ -18,6 +18,7 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "test:api:smoke": "node scripts/smoke-api.mjs",
+    "snapshot:build": "vite build --ssr scripts/export-published.ts --outDir .local/snapshot-builder && node .local/snapshot-builder/export-published.js",
     "typecheck": "tsc -b",
     "data:normalize": "node scripts/normalize-quotes.mjs",
     "data:validate": "node scripts/validate-data.mjs",

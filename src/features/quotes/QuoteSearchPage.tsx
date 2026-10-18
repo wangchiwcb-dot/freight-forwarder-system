@@ -37,6 +37,7 @@ export function QuoteSearchPage() {
   const pendingCount = quotesQuery.data?.pendingCount ?? 0;
   const total = quotesQuery.data?.total ?? 0;
   const hasCbm = (catalog?.stats.cbmQuotes ?? 0) > 0;
+  const provenance=quotesQuery.data?.provenance??catalog?.provenance;
 
   function runSearch(values: Partial<SearchCriteria>) { setCriteria((current) => ({ ...current, ...values, destination: values.destination?.trim() ?? current.destination })); setPage(1); }
   function resetSearch() { form.resetFields(); setCriteria({ ...DEFAULT_CRITERIA }); setPage(1); }
@@ -66,7 +67,8 @@ export function QuoteSearchPage() {
     <div className="page-intro"><div><div className="page-kicker">QUOTE EXPLORER</div><Title level={2}>渠道报价台</Title><p>一处查找代理采购价，为每一票货找到合适的渠道。</p></div><Button icon={<DatabaseOutlined />} onClick={() => setSourcesOpen(true)}>数据源 <span className="button-count">{catalog?.files.length ?? '—'}</span></Button></div>
     <div className="dataset-bar"><Space wrap><Text strong>报价资料集</Text><Select aria-label="报价资料集" value={catalog?.snapshotId} loading={catalogQuery.isFetching} onChange={changeSnapshot}
       style={{minWidth:260}} options={catalog?.snapshots?.map(snapshot => ({value:snapshot.id,label:snapshot.sourceKind==='published_json' ? '已发布网站报价（数据库修正版）' : `历史资料 · ${snapshot.name}`}))} />
-      <Tag color="cyan">数据库查询</Tag></Space><Text type="secondary">按所选资料集检索；查询日期用于判断生效与过期，导入时间不代表当前价格。</Text></div>
+      <Tag color={provenance?'gold':'cyan'}>{provenance?'已核对发布快照':'数据库查询'}</Tag></Space><Text type="secondary">按所选资料集检索；查询日期用于判断生效与过期，导入时间不代表当前价格。</Text></div>
+    {provenance && <Alert style={{marginBottom:18}} type="warning" showIcon message="实时服务读取额度已用尽，当前使用已核对发布快照" description={`${provenance.message} 核对时间：${new Date(provenance.verifiedAt).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})}。数据库额度在北京时间每日 08:00 重置。`} />}
     <div className="stats-grid">{stats.map((stat) => <Card key={stat.label} variant="borderless"><div className="stat-card"><div><span className="stat-label">{stat.label}</span><div className="stat-value">{stat.value?.toLocaleString('zh-CN') ?? '—'} <span>{stat.unit}</span></div></div><span className={`stat-icon ${stat.className}`}>{stat.icon}</span></div></Card>)}</div>
     {hasCbm && <div className="cbm-banner"><span className="cbm-banner-icon"><SwapOutlined /></span><div><strong>重量与体积，放在同一票货里比较</strong><span>填写实重和体积，可同时查看 KG 与 CBM 渠道的基准运费；中航美线普船支持按体积计费。</span></div><Tag color="cyan">CBM</Tag></div>}
     <Card className="search-card" variant="borderless" title={<Space size={9}><FilterOutlined /><span>筛选与计价条件</span></Space>} extra={<Text type="secondary" className="search-help">重量和体积选填，填写后可估算运费</Text>}>

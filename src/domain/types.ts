@@ -1,6 +1,6 @@
 export type CountryCode = 'US' | 'CA' | 'MX' | 'GB' | 'DE' | 'FR' | 'IT' | 'ES' | 'PL' | 'CZ' | 'EU' | 'BR' | 'AU' | 'OTHER';
 export type TransportMode = 'sea' | 'air' | 'rail' | 'road' | 'express' | 'parcel' | 'unknown';
-export type CargoType = 'general' | 'battery' | 'magnetic' | 'liquid' | 'powder' | 'pure_battery' | 'sensitive';
+export type CargoType = 'general' | 'battery' | 'magnetic' | 'liquid' | 'powder' | 'pure_battery' | 'sensitive' | 'health_supplement';
 export type BillingBasis = 'kg' | 'cbm' | 'parcel' | 'first_increment' | 'unknown';
 export interface RateTier {
   id?: string;
@@ -91,6 +91,7 @@ export interface SourceFile {
   warnings: string[];
 }
 export interface Catalog {
+  provenance?: {source:'published-snapshot';version:string;verifiedAt:string;message:string};
   schemaVersion: '1.0';
   version: string;
   generatedAt: string;
@@ -101,6 +102,7 @@ export interface Catalog {
   snapshots?: { id: string; name: string; observedDate: string | null; sourceKind: string }[];
 }
 export interface SearchResponse {
+  provenance?: Catalog['provenance'];
   items: QuoteResult[]; total: number; computedCount: number; pendingCount: number;
   page: number; pageSize: number; snapshotId: string;
 }

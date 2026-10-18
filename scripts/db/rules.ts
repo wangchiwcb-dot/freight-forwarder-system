@@ -32,7 +32,7 @@ export function taxTerms(title: string) {
     evidence: title, conflict: excluded && included };
 }
 
-const cargoPatterns: Record<CargoType, string> = {
+const cargoPatterns: Partial<Record<CargoType, string>> = {
   general: '普货', battery: '带电', magnetic: '带磁', pure_battery: '纯电',
   liquid: '液体', powder: '粉末', sensitive: '敏感|特货|杂货',
 };
@@ -44,8 +44,8 @@ export function cargoRules(quote: Quote) {
   }
   return [...types].sort().map(type => {
     const token = cargoPatterns[type];
-    const negative = new RegExp(`(?:不(?:接|收|可接|可收)?|禁(?:收|运)?|不可|不能|拒收)(?:[^，,；;。/·]{0,6})?(?:${token})`).test(title);
-    const explicit = new RegExp(token).test(title) && !negative;
+    const negative = !!token && new RegExp(`(?:不(?:接|收|可接|可收)?|禁(?:收|运)?|不可|不能|拒收)(?:[^，,；;。/·]{0,6})?(?:${token})`).test(title);
+    const explicit = !!token && new RegExp(token).test(title) && !negative;
     const conditional = explicit && /需|仅|限|提供|鉴定/.test(title);
     return { type, acceptance: negative ? 'forbidden' : conditional ? 'conditional' : explicit ? 'allowed' : 'unknown',
       evidenceKind: negative || explicit ? 'explicit' : quote.cargoCertainty === 'unknown' ? 'unknown' : 'inferred',

@@ -3,7 +3,7 @@ import type { Catalog, CountryCode, Quote } from '../domain/types';
 
 const transportModes = ['sea', 'air', 'rail', 'road', 'express', 'parcel', 'unknown'] as const;
 const countries = ['US', 'CA', 'MX', 'GB', 'DE', 'FR', 'IT', 'ES', 'PL', 'CZ', 'EU', 'BR', 'AU', 'OTHER'] as const;
-const cargoTypes = ['general', 'battery', 'magnetic', 'liquid', 'powder', 'pure_battery', 'sensitive'] as const;
+const cargoTypes = ['general', 'battery', 'magnetic', 'liquid', 'powder', 'pure_battery', 'sensitive', 'health_supplement'] as const;
 const billingBases = ['kg', 'cbm', 'parcel', 'first_increment', 'unknown'] as const;
 const currencies = ['CNY', 'USD', 'EUR', 'GBP'] as const;
 const quoteStatuses = ['reference', 'needs_review', 'suspended'] as const;

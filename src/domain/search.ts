@@ -22,7 +22,7 @@ export const modeLabels: Record<TransportMode, string> = {
 
 export const cargoLabels: Record<CargoType, string> = {
   general: '普货', battery: '带电', magnetic: '带磁', liquid: '液体', powder: '粉末',
-  pure_battery: '纯电', sensitive: '敏感货',
+  pure_battery: '纯电', sensitive: '敏感货', health_supplement: '保健品',
 };
 
 const chinaDate = (): string => {

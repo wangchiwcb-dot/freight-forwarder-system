@@ -1,6 +1,6 @@
 # 报价查询 API v1
 
-基础路径 `/api`。Cloudflare 站点同源访问；GitHub Pages 使用构建变量 `VITE_API_BASE_URL` 指向正式 Worker。所有业务请求只读；SQL 参数绑定，响应不缓存，不返回数据库错误、原始导入 JSON 或本地文件路径。
+基础路径 `/api`。Cloudflare 站点同源访问；GitHub Pages 使用构建变量 `VITE_API_BASE_URL` 指向正式 Worker。所有业务请求只读；SQL 参数绑定，浏览器 API 响应为 `no-store`，服务器缓存部分成功查询，不返回内部 SQL、原始导入 JSON 或本地文件路径。
 
 | 方法 | 路径 | 用途 |
 | --- | --- | --- |
@@ -54,8 +54,21 @@
 - 400：参数或 JSON 无效；413：请求体过大；415：内容类型错误。
 - 404：接口、资料集或已发布报价不存在；405：方法不支持。
 - 503：数据库不可用或计算校验失败。服务器记录请求 ID 与诊断，响应不透出内部 SQL。
+- 503 / `D1_READ_QUOTA_EXCEEDED`：D1 当天免费读行额度耗尽，响应含 `retryAt`（UTC）和 `Retry-After`（秒），北京时间次日 08:00 重置。`/health` 读取真实业务表，避免 `SELECT 1` 在额度耗尽时误报健康。
 
 本期没有用户认证，也没有写入接口。只为现有 GitHub Pages 域名返回跨域许可；这不构成数据访问控制。后续写入能力必须单独建立身份与权限校验。
+
+## 缓存与故障降级
+
+目录、来源共用 300 秒服务器缓存，详情和历史缓存 300 秒。固定查询日期的搜索缓存 15 秒；查询今天时按当前时刻判断生效/失效，不缓存搜索结果，避免跨时间边界复用。数据更正或撤销的最长缓存延迟为上述 TTL。`X-Data-Cache` 标明命中与否。缓存服务故障不影响健康数据库请求；失败响应不当作成功数据缓存。
+
+数据库返回明确读行额度错误后，同一运行实例和边缘缓存记住该状态直到 UTC 零点，避免反复撞库。目录与来源可从经验证的静态发布快照返回 200，并附 `provenance`（source、version、verifiedAt、message）及 `X-Data-Source: published-snapshot`。实时搜索、详情和历史在无成功缓存时仍返回明确的 503；客户端不能将其误解为实时数据库恢复。
+
+页面仅在该明确错误或目录快照标识出现时切换到已核对快照，使用共享十进制计算器在浏览器中筛选、排序和分页，按国家加载分片并复用。普通网络故障、参数错误和未知服务器错误不自动降级。页面提示快照核对时间和数据可能滞后；刷新会重新检查实时目录。
+
+`public/published/manifest.json` 不缓存，哈希版本目录内的文件不可变缓存。导出流程为 `pnpm snapshot:build`：必须有本地规范数据库和云端核对通过且零差异的记录，核对数据库 SHA-256 后导出已发布记录。每次数据更新必须重新核对、导出并提交新快照，生产构建只使用提交的产物，不连接私有数据源。旧的 `public/data` 不参与降级。
+
+已将费用关联改为利用 `idx_charges_version`，查询条件避免无条件 OR。本地查询计划可用 `scripts/inspect-search-plan.ts` 只读检查；本地耗时不能替代 D1 实际读行量。服务器以 `d1_usage` 事件记录 requestId、path、statements、rowsRead、durationMs，供额度恢复后评估读行预算；不会自动升级付费服务。
 
 ## 验证与发布
 
@@ -63,6 +76,8 @@
 pnpm check
 pnpm build
 pnpm test:api:smoke https://freight-forwarder-system-preview.wangchi-wcb.workers.dev
+# 明确预期当天读行额度耗尽时，单独验收降级模式（不是实时接口通过）：
+pnpm test:api:smoke https://freight-forwarder-system-preview.wangchi-wcb.workers.dev --expect-quota
 # 环境变量 E2E_BASE_URL 指向待验收站点，再运行：
 pnpm test:e2e
 pnpm deploy

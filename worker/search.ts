@@ -56,8 +56,8 @@ export function searchQuery(input: SearchRequest, snapshotId: string, now = new 
       EXISTS(SELECT 1 FROM quote_charge_rules f WHERE f.quote_version_id=v.id AND f.fee_code='legacy_fixed_fee') has_fixed
     ${joins} JOIN snapshot_batches sb ON sb.batch_id=b.id JOIN quote_rules r ON r.id=v.rule_id CROSS JOIN x
     WHERE ${visible} AND sb.snapshot_id=x.snapshot
-      AND (x.country='ALL' OR i.country_code=x.country OR (i.country_code='EU' AND x.country IN ('DE','FR','IT','ES','PL','CZ')))
-      AND (x.mode='all' OR c.transport_mode=x.mode) AND (x.provider='' OR p.id=x.provider) AND (x.own=0 OR p.is_own=1)
+      AND ${c.country==='ALL'?'1':['DE','FR','IT','ES','PL','CZ'].includes(c.country)?"i.country_code IN (x.country,'EU')":'i.country_code=x.country'}
+      AND ${c.mode==='all'?'1':'c.transport_mode=x.mode'} AND ${c.providerId?'p.id=x.provider':'1'} AND ${c.onlyOwn?'p.is_own=1':'1'}
   ), quantities AS MATERIALIZED (
     SELECT b.*,
       CASE WHEN billing_basis='kg' THEN CASE WHEN x.kg IS NULL OR (has_fixed=1 AND coalesce(x.pieces,0)<>1) THEN NULL
@@ -87,7 +87,7 @@ export function searchQuery(input: SearchRequest, snapshotId: string, now = new 
           AND (f.id IS NULL OR (f.review_status='verified' AND f.charge_basis IN ('piece','shipment')
             AND json_extract(f.conditions_json,'$.delivery_zone') IS NULL AND f.currency=m.currency
             AND (f.charge_basis<>'piece' OR x.pieces IS NOT NULL)))))) eligible
-    FROM matched m CROSS JOIN x LEFT JOIN quote_charge_rules f ON f.tier_id=m.tier_id AND f.fee_code='legacy_fixed_fee'
+    FROM matched m CROSS JOIN x LEFT JOIN quote_charge_rules f ON f.quote_version_id=m.id AND f.tier_id=m.tier_id AND f.fee_code='legacy_fixed_fee'
   ), results AS MATERIALIZED (
     SELECT e.*,CASE WHEN eligible=1 AND quantity IS NOT NULL AND currency IS NOT NULL AND currency_evidence<>'unconfirmed'
       THEN round(tier_price*quantity+coalesce(fixed_fee,0)*CASE WHEN fixed_basis='piece' THEN x.pieces ELSE 1 END,6) ELSE NULL END cost

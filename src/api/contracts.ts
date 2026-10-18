@@ -12,7 +12,7 @@ export const criteriaSchema = z.object({
   mode: z.enum(['all','sea','air','rail','road','express','parcel','unknown']),
   delivery: z.enum(['all','amazon','commercial','residential']).optional(),
   destination: z.string().trim().max(100),
-  cargo: z.enum(['general','battery','magnetic','liquid','powder','pure_battery','sensitive']),
+  cargo: z.enum(['general','battery','magnetic','liquid','powder','pure_battery','sensitive','health_supplement']),
   cargoShape: z.enum(['all','dense','bulky']),
   actualKg: z.number().positive().max(1_000_000).nullable(),
   volumeCbm: z.number().positive().max(100_000).nullable(),

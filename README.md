@@ -32,7 +32,7 @@ pnpm preview
 
 仓库 `Settings → Pages → Build and deployment → Source` 选择 **GitHub Actions**。推送到 `main` 后，`.github/workflows/ci.yml` 会依次校验报价数据、运行测试、执行 Vite 构建，并将 `dist/` 上传发布。所有检查通过后才更新网站；其他分支和 Pull Request 只执行检查，不发布。也可以在 Actions 中手动运行该工作流。
 
-不要使用 `Deploy from a branch` 发布源码根目录或 `/docs`。GitHub Actions 构建时已设置正式 Worker 的 API 地址；Worker 只为现有 GitHub Pages 来源返回 CORS 响应头。报价更新必须经过数据库核对与批次发布，单独更新静态 JSON 不再改变网页查询结果。
+不要使用 `Deploy from a branch` 发布源码根目录或 `/docs`。GitHub Actions 构建时已设置正式 Worker 的 API 地址；Worker 和发布快照资源只为现有 GitHub Pages 来源返回 CORS 响应头。报价更新必须经过数据库核对与批次发布，并重新生成对应的备用快照。
 
 ## Cloudflare Workers 发布
 
@@ -59,6 +59,10 @@ Cloudflare 的 Git 构建设置：
 - `public/data/coverage.json`：文件级解析覆盖和警告，页面的“数据源”弹窗可查看。
 
 `public/data` 仍保留用于离线解析与核对，页面不再读取这些 JSON。`worker/search.ts` 在数据库中筛选和全量排序，仅读取当前页详情；共享的 `src/domain/search.ts` 再用十进制计算核对本页基准运费。同一票货的 KG 与 CBM 渠道可按同币种比较；单价排序按币种、计费单位分组。首续重缺少完整进位规则时不估算，未知货品能力及条件承运保留为待核候选，不同币种不直接混排为最低价。稳定性目前只展示人工评价状态。
+
+D1 免费额度按扫描的行数累计，不是按返回条数或请求次数计算。耗尽后实时接口返回 `D1_READ_QUOTA_EXCEEDED` 和恢复时间，健康检查也会如实报错。额度在北京时间每日 08:00 重置。页面此时使用 `public/published` 中与云端核对一致的发布快照，明确展示快照版本和核对时间；搜索、翻页、详情、来源和历史仍可使用，快照后的数据变化待实时服务恢复后读取。刷新页面或点击刷新可重新尝试实时服务。不会自动开通付费计划。
+
+备用快照由 `pnpm snapshot:build` 从本地已核对的只读数据库生成，生成前校验 `.local/d1-refinement/sync-completion.json` 的数据库哈希和零差异记录。只导出已发布报价，不上传数据库文件、原始导入记录或本地路径。生成产物随代码提交；CI 校验所有快照分片，不需要私有数据库。数据变更后必须重新核对、导出、测试和部署；不要手工修改版本目录中的文件。详见 [缓存与故障降级](docs/api.md#缓存与故障降级)。
 
 中航部分普船按方结算使用 `max(体积, 实重 / 500, 最低体积)`，仅在该渠道原表明确给出密度换算时采用；义乌最低 1 CBM、特价渠道最低 5 CBM 单独保存。其它按方渠道不继承这些条件。详情保留赔付、限制和附加费用原文。
 
