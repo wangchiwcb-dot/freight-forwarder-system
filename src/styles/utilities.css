@@ -1,0 +1,12 @@
+/* Ant Design owns component resets. Deliberately omit Tailwind Preflight. */
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source("../");
+
+@theme inline {
+  --font-sans: var(--font-app);
+  --color-brand: var(--color-primary);
+  --color-brand-soft: var(--color-primary-soft);
+  --color-content: var(--color-text);
+  --color-muted: var(--color-text-secondary);
+}

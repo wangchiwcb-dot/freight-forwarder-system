@@ -9,6 +9,8 @@ import type { CountryCode, QuoteResult, SearchCriteria } from '../../domain/type
 import { BillingTag, formatDate, formatMoney, ReliabilityTag, unitLabel } from './display';
 import { QuoteDrawer } from './QuoteDrawer';
 import { SourceModal } from './SourceModal';
+import { colors } from '../../theme/tokens';
+import './quotes.css';
 
 const { Text, Title } = Typography;
 const EMPTY_QUOTES: never[] = [];
@@ -57,7 +59,7 @@ export function QuoteSearchPage() {
   ];
 
   const stats = [
-    { label: '报价代理', value: catalog?.stats.providers, unit: '家', icon: <ShopOutlined />, className: 'teal' },
+    { label: '报价代理', value: catalog?.stats.providers, unit: '家', icon: <ShopOutlined />, className: 'primary' },
     { label: '收录报价', value: catalog?.stats.quotes, unit: '条', icon: <DatabaseOutlined />, className: 'blue' },
     { label: '覆盖国家 / 地区', value: catalog?.stats.countries, unit: '个', icon: <GlobalOutlined />, className: 'purple' },
     { label: '按体积计费', value: catalog?.stats.cbmQuotes, unit: '条', icon: <ApartmentOutlined />, className: 'amber' },
@@ -66,11 +68,11 @@ export function QuoteSearchPage() {
   return <>
     <div className="page-intro"><div><div className="page-kicker">QUOTE EXPLORER</div><Title level={2}>渠道报价台</Title><p>一处查找代理采购价，为每一票货找到合适的渠道。</p></div><Button icon={<DatabaseOutlined />} onClick={() => setSourcesOpen(true)}>数据源 <span className="button-count">{catalog?.files.length ?? '—'}</span></Button></div>
     <div className="dataset-bar"><Space wrap><Text strong>报价资料集</Text><Select aria-label="报价资料集" value={catalog?.snapshotId} loading={catalogQuery.isFetching} onChange={changeSnapshot}
-      style={{minWidth:260}} options={catalog?.snapshots?.map(snapshot => ({value:snapshot.id,label:snapshot.sourceKind==='published_json' ? '已发布网站报价（数据库修正版）' : `历史资料 · ${snapshot.name}`}))} />
+      className="dataset-select" options={catalog?.snapshots?.map(snapshot => ({value:snapshot.id,label:snapshot.sourceKind==='published_json' ? '已发布网站报价（数据库修正版）' : `历史资料 · ${snapshot.name}`}))} />
       <Tag color={provenance?'gold':'cyan'}>{provenance?'已核对发布快照':'数据库查询'}</Tag></Space><Text type="secondary">按所选资料集检索；查询日期用于判断生效与过期，导入时间不代表当前价格。</Text></div>
-    {provenance && <Alert style={{marginBottom:18}} type="warning" showIcon message="实时服务读取额度已用尽，当前使用已核对发布快照" description={`${provenance.message} 核对时间：${new Date(provenance.verifiedAt).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})}。数据库额度在北京时间每日 08:00 重置。`} />}
+    {provenance && <Alert className="dataset-alert" type="warning" showIcon message="实时服务读取额度已用尽，当前使用已核对发布快照" description={`${provenance.message} 核对时间：${new Date(provenance.verifiedAt).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})}。数据库额度在北京时间每日 08:00 重置。`} />}
     <div className="stats-grid">{stats.map((stat) => <Card key={stat.label} variant="borderless"><div className="stat-card"><div><span className="stat-label">{stat.label}</span><div className="stat-value">{stat.value?.toLocaleString('zh-CN') ?? '—'} <span>{stat.unit}</span></div></div><span className={`stat-icon ${stat.className}`}>{stat.icon}</span></div></Card>)}</div>
-    {hasCbm && <div className="cbm-banner"><span className="cbm-banner-icon"><SwapOutlined /></span><div><strong>重量与体积，放在同一票货里比较</strong><span>填写实重和体积，可同时查看 KG 与 CBM 渠道的基准运费；中航美线普船支持按体积计费。</span></div><Tag color="cyan">CBM</Tag></div>}
+    {hasCbm && <div className="cbm-banner"><span className="cbm-banner-icon"><SwapOutlined /></span><div><strong>重量与体积，放在同一票货里比较</strong><span>填写实重和体积，可同时查看 KG 与 CBM 渠道的基准运费；中航美线普船支持按体积计费。</span></div><Tag className="own-tag">CBM</Tag></div>}
     <Card className="search-card" variant="borderless" title={<Space size={9}><FilterOutlined /><span>筛选与计价条件</span></Space>} extra={<Text type="secondary" className="search-help">重量和体积选填，填写后可估算运费</Text>}>
       <Form<SearchCriteria> layout="vertical" form={form} initialValues={DEFAULT_CRITERIA} onFinish={runSearch} requiredMark={false}>
         <div className="search-grid">
@@ -93,8 +95,8 @@ export function QuoteSearchPage() {
         <div className="search-actions"><Space size={10}><Button type="primary" htmlType="submit" icon={<SearchOutlined />}>搜索报价</Button><Button onClick={resetSearch}>重置</Button><Button type="text" className="advanced-toggle" icon={<DownOutlined rotate={advancedOpen ? 180 : 0} />} onClick={() => setAdvancedOpen((value) => !value)}>高级筛选</Button></Space><Space size={9}><Text type="secondary">仅看自有采购</Text><Switch aria-label="仅看自有采购" checked={criteria.onlyOwn} onChange={(onlyOwn) => runSearch({ onlyOwn })} size="small" /></Space></div>
       </Form>
     </Card>
-    {dataError && <Alert style={{ marginBottom: 18 }} type="error" showIcon message="报价数据读取失败" description={dataError.message} action={<Button icon={<ReloadOutlined />} onClick={() => void refresh()}>重试</Button>} />}
-    <Card className="results-card" variant="borderless" title={<div className="result-title"><span>渠道列表</span><Badge count={total} overflowCount={999999} showZero color="#e9f3f1" style={{ color: '#0b887c', boxShadow: 'none' }} /></div>} extra={<Space size={10}><Select aria-label="结果排序" value={criteria.sort} options={sortOptions} onChange={(sort) => runSearch({ sort })} className="sort-select" variant="borderless" /><Tooltip title="重新读取数据"><Button type="text" aria-label="刷新报价数据" icon={<ReloadOutlined spin={isLoading} />} onClick={() => void refresh()} /></Tooltip></Space>}>
+    {dataError && <Alert className="dataset-alert" type="error" showIcon message="报价数据读取失败" description={dataError.message} action={<Button icon={<ReloadOutlined />} onClick={() => void refresh()}>重试</Button>} />}
+    <Card className="results-card" variant="borderless" title={<div className="result-title"><span>渠道列表</span><Badge count={total} overflowCount={999999} showZero color={colors.primarySoft} styles={{ indicator: { color: colors.primary, boxShadow: 'none' } }} /></div>} extra={<Space size={10}><Select aria-label="结果排序" value={criteria.sort} options={sortOptions} onChange={(sort) => runSearch({ sort })} className="sort-select" variant="borderless" /><Tooltip title="重新读取数据"><Button type="text" aria-label="刷新报价数据" icon={<ReloadOutlined spin={isLoading} />} onClick={() => void refresh()} /></Tooltip></Space>}>
       <div className="result-summary"><div><span>{criteria.country === 'ALL' ? '全部国家' : countryLabels[criteria.country as CountryCode]}</span><span>·</span><span>{criteria.mode === 'all' ? '全部运输方式' : modeLabels[criteria.mode]}</span><span>·</span><span>{cargoLabels[criteria.cargo]}</span><span className="summary-extra"> · {computedCount} 条可估算{pendingCount > 0 ? `，${pendingCount} 条需核对` : ''}</span></div><Text type="secondary">查询日期 {criteria.asOf}</Text></div>
       <Table<QuoteResult> rowKey={(row) => row.quote.id} loading={isLoading} columns={columns} dataSource={results} scroll={{ x: 1180 }} pagination={{ current: page, pageSize: 15, total, showSizeChanger: false, onChange: setPage, showTotal: (total) => `共 ${total.toLocaleString('zh-CN')} 条报价` }} locale={{ emptyText: <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={dataError ? '数据读取失败，请重试' : '暂无匹配渠道，试试调整国家、货品或目的地'} /> }} />
     </Card>

@@ -7,3 +7,10 @@
 
 /published/manifest.json
   Cache-Control: no-cache
+
+/transit/*
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=86400
+
+/transit/manifest.json
+  Cache-Control: no-cache

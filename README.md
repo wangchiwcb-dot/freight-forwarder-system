@@ -1,10 +1,29 @@
 # 中航环球渠道报价台
 
+前端长期维护约定见 [主题、样式、路由与状态管理](docs/frontend-theme.md)：Tailwind CSS 4 + Ant Design 共享设计变量，沿用 React Router / TanStack Query，图表保留原生布局与交互。
+
 面向深圳中航环球内部采购的报价查询工具。页面通过 Cloudflare Worker 接口读取 D1 数据库，支持分页检索、基准运费比较、来源证据、税费与货品条件、历史报价查看。
 
 2026-10-18 接入已核对的数据库与第二轮解析修正结果。本期只提供查询能力，不含上传页、登录页或数据写入接口。见 [接口文档](docs/api.md) 和 [D1 数据库说明](docs/d1-database.md)。
 
 ## 本地启动
+
+新增页面：`/#/transit`（左侧“渠道时效”）。默认展示渠道 × 区域总览及截至数据日近 180 天的历史表现；输入目的仓后，首屏同时比较各渠道，点击渠道查看线路摘要。更多筛选、月/周趋势、环节耗时、仓库分布和来源明细按需展开，支持客户报告 PNG/打印 PDF。读取仓库中的 `public/transit/` JSON，独立于报价 API/D1，使用 Ant Design Charts 绘图。趋势与仓库分布共享时间粒度和每页 12 期的时间窗口，周一至周日按开船日期归组。旧分享链接的查询范围保持不变。详见 [时效页面与口径说明](docs/transit-performance-plan.md)。
+
+时效数据更新（完整读取指定明细表，不读取 Sheet1、透视表）：
+
+```bash
+pnpm transit:extract "新版本时效表.xlsx"
+pnpm transit:validate
+pnpm check
+pnpm build
+```
+
+提取脚本仅需 Python 3 标准库，不修改原 Excel。公开文件只包含最小必要字段；原始柜号、内部备注和质量报告保存在已忽略的 `.local/transit/`。请核对新版本报告及来源后再提交生成的 JSON。数据截至日期使用最新已记录到仓日，不代表全部批次已回填。前端保留未回填、异常和疑似重复状态，不自动修正或删除真实慢件。
+
+仓址与范围清理规则保存在 `scripts/transit-warehouse-review.json`：排除已确认的非亚马逊目的地和非具体仓库标记，按有来源的实际仓址修正待核项，补充中文州/省名和邮编。不能确定的代码保留待核，业务组合不从地理位置猜填。提取会将旧分片移入 `.local/transit/archive/`，避免旧地址仍随站点发布；全部原始行和排除原因分别留在本地 `source-rows.json`、`excluded-rows.json`。`transit:validate` 同时运行映射回归测试和全量 JSON 校验，源表逐行对账见 [核对记录](docs/transit-data-reconciliation.md)。
+
+仓址规则的 `warehouseReviewSha256` 按 UTF-8 文本统一为 LF 换行后计算，以兼容 Windows 与 Linux 检出；Excel 原件和数据分片仍按原始字节校验。
 
 ```bash
 pnpm install

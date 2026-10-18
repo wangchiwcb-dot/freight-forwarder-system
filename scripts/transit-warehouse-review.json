@@ -1,0 +1,619 @@
+{
+  "reviewedAt": "2026-10-18",
+  "scope": "仅亚马逊目的仓；已确认非亚马逊或无具体亚马逊仓址的记录不进入时效数据。未确认的仓库代码保留待核。",
+  "excludedCodes": {
+    "ATL1": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "ATL3": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "DFW2N": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "DFW5S": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "DFW6S": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "KY1": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "KY1-": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "LAX1": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "LAX1T": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "LAX2": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "LAX2T": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "MCI1N": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "ORD1S": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "PHL5S": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "PHL5S-": {
+      "category": "non_amazon",
+      "reason": "沃尔玛 WFS 仓库（含本表尾缀/末尾连字符写法）",
+      "sources": [
+        "https://www.jiufanglogistics.com/walmart-wfs-warehouse/"
+      ]
+    },
+    "08016-": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "08817-": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "08902-": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "11735": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "40165": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "60185-ZH260680611": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "70420-SELF": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "CA92337-ZH260792477": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "ERICK": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "FBM-95125": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "FEDEX/UPS": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "ZH25089472": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "ZH260787002-改快递": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "ZH260788080-改快递": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "ZH260788446-改快递": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    },
+    "快递": {
+      "category": "non_warehouse",
+      "reason": "仅邮编、私人收件人、FBM、快递或业务号，未指向具体亚马逊目的仓；按用户清理范围排除",
+      "sources": []
+    }
+  },
+  "overrides": {
+    "ORF2": {
+      "city": "Chesapeake",
+      "state": "VA",
+      "country": "US",
+      "postalCode": "23321-1425",
+      "address": "5045 PORTSMOUTH BLVD",
+      "region": "美东",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.autochina-logistics.com/fbacangku/meiguo/21468.html",
+        "https://www.autochina-logistics.com/zixun/c3/fbatoucheng/1339.html",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "实际亚马逊仓为 Chesapeake；Richmond 9603 Coach Road / 23297 为 UPS 专用转运地址，不作为主仓址。"
+    },
+    "MCO1": {
+      "city": "Orlando",
+      "state": "FL",
+      "country": "US",
+      "postalCode": "32824",
+      "address": "12340 Boggy Creek Rd",
+      "region": "美东",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按亚马逊仓址 Orlando 32824 核对；Davenport 33897 为沃尔玛同名仓。本表业务行未区分运营商，保留原始代码供追溯。"
+    },
+    "IND3": {
+      "city": "Plainfield",
+      "state": "IN",
+      "country": "US",
+      "postalCode": "46168",
+      "address": "717 Airtech Pkwy",
+      "region": "美中",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按亚马逊仓址 Plainfield 46168 核对；McCordsville 46055 为沃尔玛同名仓。门牌公开资料有 715/717 差异，城市与邮编一致。"
+    },
+    "PSP3": {
+      "city": "Desert Hot Springs",
+      "state": "CA",
+      "country": "US",
+      "postalCode": "92240",
+      "address": "64165 19th AVE",
+      "region": "美西",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按公开亚马逊仓址核对；业务组合沿用源表，缺项不推断。"
+    },
+    "MCC1": {
+      "city": "Rancho Cordova",
+      "state": "CA",
+      "country": "US",
+      "postalCode": "95742",
+      "address": "3300 Rancho Cordova Pkwy",
+      "region": "美西",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按公开亚马逊仓址核对；业务组合沿用源表，缺项不推断。"
+    },
+    "IUSW": {
+      "city": "Hesperia",
+      "state": "CA",
+      "country": "US",
+      "postalCode": "92344",
+      "address": "8130 Caliente Rd",
+      "region": "美西",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按公开亚马逊仓址核对；业务组合沿用源表，缺项不推断。"
+    },
+    "IUTE": {
+      "city": "Goodyear",
+      "state": "AZ",
+      "country": "US",
+      "postalCode": "85338",
+      "address": "16155 W Elwood St",
+      "region": "美西",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按公开亚马逊仓址核对；业务组合沿用源表，缺项不推断。"
+    },
+    "IUSR": {
+      "city": "Cowpens",
+      "state": "SC",
+      "country": "US",
+      "postalCode": "29330",
+      "address": "1120 Mt Olive Rd",
+      "region": "美东",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按公开亚马逊仓址核对；业务组合沿用源表，缺项不推断。"
+    },
+    "XEW5": {
+      "city": "Cinnaminson",
+      "state": "NJ",
+      "country": "US",
+      "postalCode": "08077",
+      "address": "995 Taylors Ln",
+      "region": "美东",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按公开亚马逊仓址核对；业务组合沿用源表，缺项不推断。"
+    },
+    "HEA2": {
+      "city": "Breinigsville",
+      "state": "PA",
+      "country": "US",
+      "postalCode": "18031-1536",
+      "address": "650 BOULDER DR",
+      "region": "美东",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按公开亚马逊仓址核对；业务组合沿用源表，缺项不推断。"
+    },
+    "XPB2": {
+      "city": "Apopka",
+      "state": "FL",
+      "country": "US",
+      "postalCode": "32712",
+      "address": "4661 Apopka Logistics Pkwy",
+      "region": "美东",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按公开亚马逊仓址核对；业务组合沿用源表，缺项不推断。"
+    },
+    "TEB9": {
+      "city": "Somerset",
+      "state": "NJ",
+      "country": "US",
+      "postalCode": "08873",
+      "address": "601 Randolph Road",
+      "region": "美东",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "Somerset / NJ / 08873，地理区域修正为美东；邮编前导零补齐，业务组合保持组合-9。"
+    },
+    "DTM1": {
+      "city": "Werne",
+      "state": "NW",
+      "stateNameZh": "北莱茵-威斯特法伦州",
+      "country": "DE",
+      "postalCode": "59368",
+      "address": "Raiffeisenstrasse 7",
+      "region": "欧洲",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E5%BE%B7%E5%9B%BD"
+      ],
+      "note": "德国亚马逊仓；保留，单列欧洲区域，不混入美西/美中/美东。"
+    },
+    "DTM2": {
+      "city": "Dortmund",
+      "state": "NW",
+      "stateNameZh": "北莱茵-威斯特法伦州",
+      "country": "DE",
+      "postalCode": "44145",
+      "address": "Kaltbandstrasse 4",
+      "region": "欧洲",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E5%BE%B7%E5%9B%BD"
+      ],
+      "note": "德国亚马逊仓；保留，单列欧洲区域，不混入美西/美中/美东。"
+    },
+    "KSF7": {
+      "city": "Wolfhagen",
+      "state": "HE",
+      "stateNameZh": "黑森州",
+      "country": "DE",
+      "postalCode": "34466",
+      "address": "Otto-Hahn-Strasse 3",
+      "region": "欧洲",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E5%BE%B7%E5%9B%BD"
+      ],
+      "note": "德国亚马逊仓；保留，单列欧洲区域，不混入美西/美中/美东。"
+    },
+    "HAJ1": {
+      "city": "Helmstedt",
+      "state": "NI",
+      "stateNameZh": "下萨克森州",
+      "country": "DE",
+      "postalCode": "38350",
+      "address": "Zur Alten Molkerei 1",
+      "region": "欧洲",
+      "sources": [
+        "https://www.jiufanglogistics.com/amazon-fba-warehouse-locations/",
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E5%BE%B7%E5%9B%BD"
+      ],
+      "note": "德国亚马逊仓；保留，单列欧洲区域，不混入美西/美中/美东。"
+    },
+    "QZZ7": {
+      "city": "Mesa",
+      "state": "AZ",
+      "country": "US",
+      "postalCode": "85212-9608",
+      "address": "8560 E ELLIOT RD MESA, AZ 85212-9608",
+      "region": "美西",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "TOL3": {
+      "city": "Perrysburg",
+      "state": "OH",
+      "country": "US",
+      "postalCode": "43551-4210",
+      "address": "9240 Fremont Pike",
+      "region": "美中",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "MCI4": {
+      "city": "Kansas City",
+      "state": "MO",
+      "country": "US",
+      "postalCode": "64163",
+      "address": "10501 NW 136th Street",
+      "region": "美中",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "BJC1": {
+      "city": "Aurora",
+      "state": "CO",
+      "country": "US",
+      "postalCode": "80019",
+      "address": "6300 N Powhaton Road",
+      "region": "美西",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "IUTL": {
+      "city": "Moreno Valley",
+      "state": "CA",
+      "country": "US",
+      "postalCode": "92551",
+      "address": "24405 Krameria Ave",
+      "region": "美西",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "IUTJ": {
+      "city": "Fontana",
+      "state": "CA",
+      "country": "US",
+      "postalCode": "92335",
+      "address": "9253 Dreamland Drive",
+      "region": "美西",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "IMO1": {
+      "city": "Liberty",
+      "state": "MO",
+      "country": "US",
+      "postalCode": "64068-8933",
+      "address": "2361 S Withers RD",
+      "region": "美中",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "ITX3": {
+      "city": "Amarillo",
+      "state": "TX",
+      "country": "US",
+      "postalCode": "79108-7749",
+      "address": "8590 NE 24th Ave",
+      "region": "美中",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "IMS1": {
+      "city": "Olive Branch",
+      "state": "MS",
+      "country": "US",
+      "postalCode": "38654-2510",
+      "address": "11505 Progress Way",
+      "region": "美东",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "IMI1": {
+      "city": "Lansing",
+      "state": "MI",
+      "country": "US",
+      "postalCode": "48917-8539",
+      "address": "6500 W Mt Hope Hwy",
+      "region": "美中",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "IGA3": {
+      "city": "Macon",
+      "state": "GA",
+      "country": "US",
+      "postalCode": "31216-6427",
+      "address": "7001 Skipper Rd",
+      "region": "美东",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "IAZ1": {
+      "city": "Goodyear",
+      "state": "AZ",
+      "country": "US",
+      "postalCode": "85395-4515",
+      "address": "4660 N COTTON LN",
+      "region": "美西",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "IWA6": {
+      "city": "Pasco",
+      "state": "WA",
+      "country": "US",
+      "postalCode": "99301-6161",
+      "address": "1202 S Road 40 E",
+      "region": "美西",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "INC1": {
+      "city": "Fayetteville",
+      "state": "NC",
+      "country": "US",
+      "postalCode": "28303-2215",
+      "address": "6309 Bragg Blvd",
+      "region": "美东",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E7%BE%8E%E5%9B%BD"
+      ],
+      "note": "按大森林公开 FBA 地址查询核对实际仓址；内部业务组合缺项不推断。"
+    },
+    "BER8": {
+      "city": "Schönefeld",
+      "state": "BB",
+      "stateNameZh": "勃兰登堡州",
+      "country": "DE",
+      "postalCode": "12529",
+      "address": "Am Möllenpfuhl 2",
+      "region": "欧洲",
+      "sources": [
+        "http://fba.90tb.cn/search.php"
+      ],
+      "note": "货代链 FBA 查询代码 BER8 返回 Schönefeld / Am Möllenpfuhl 2 / 12529；德国亚马逊仓保留，区域单列欧洲。"
+    },
+    "CDG7": {
+      "city": "Senlis",
+      "state": "Oise",
+      "stateNameZh": "瓦兹省",
+      "country": "FR",
+      "postalCode": "60300",
+      "address": "Parc d'activites des Portes de Senlis, 1 avenue Alain Boucher",
+      "region": "欧洲",
+      "sources": [
+        "https://www.forestshipping.cn/api/sys/fbacode/getFbaListByCountryAndAddressType?country=%E6%B3%95%E5%9B%BD"
+      ],
+      "note": "公开目录邮编存在差异；本次采用 Forest Shipping FBA 查询中与该街道地址对应的 60300。"
+    }
+  },
+  "pendingNotes": {
+    "LTL1": "尚未找到可交叉核实的亚马逊实际仓址；不凭代码猜填城市。",
+    "P0C1": "疑似 POC1 的字母/数字或顺序误写；原业务行无地址佐证，暂不合并。",
+    "P0C2": "疑似 POC2 的字母/数字或顺序误写；原业务行无地址佐证，暂不合并。",
+    "1GQ2": "疑似 IGQ2 的字母/数字或顺序误写；原业务行无地址佐证，暂不合并。",
+    "MC14": "疑似 MCI4 的字母/数字或顺序误写；原业务行无地址佐证，暂不合并。",
+    "PB13": "疑似 PBI3 的字母/数字或顺序误写；原业务行无地址佐证，暂不合并。",
+    "HIL2": "疑似 HLI2 的字母/数字或顺序误写；原业务行无地址佐证，暂不合并。",
+    "IM11": "疑似 IMI1 的字母/数字或顺序误写；原业务行无地址佐证，暂不合并。",
+    "SKC8": "疑似 SCK8 的字母/数字或顺序误写；原业务行无地址佐证，暂不合并。",
+    "WRO5": "公开目录出现德国转运址与波兰本仓址混用，暂不采用转运城市作为实际亚马逊仓址。",
+    "XPO1": "公开目录出现德国转运址与波兰本仓址混用，暂不采用转运城市作为实际亚马逊仓址。",
+    "DTM9/ITM9": "原始值包含两个代码，无法唯一确定目的仓；不拆分或猜测。"
+  },
+  "operatorAmbiguousCodes": [
+    "MCO1",
+    "IND3"
+  ]
+}

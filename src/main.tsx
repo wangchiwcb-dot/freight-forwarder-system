@@ -3,8 +3,10 @@ import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { App } from './app/App';
+import { installThemeVariables } from './theme/tokens';
 import './styles/global.css';
 
+installThemeVariables(document.documentElement);
 const queryClient = new QueryClient({ defaultOptions: { queries: { staleTime: 5 * 60 * 1000, retry: 1 } } });
 
 createRoot(document.getElementById('root')!).render(
