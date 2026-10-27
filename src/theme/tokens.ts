@@ -1,4 +1,4 @@
-/** Shared by Ant Design, CSS/Tailwind, canvas charts and exported reports. */
+/** Shared by Ant Design and application styles. */
 export const colors = {
   primary: '#3478f6',
   primaryHover: '#2463d6',
@@ -23,12 +23,6 @@ export const colors = {
   purpleSoft: '#f2effb',
   cyan: '#2698bb',
   cyanSoft: '#ecf7fb',
-  chartRange: '#c3d6f7',
-  chartNeutral: '#dce3ef',
-  chartLine: '#a8b4c8',
-  chartHeatLow: '#eaf2ff',
-  chartHeatMid: '#82b0fa',
-  chartHeatHigh: '#285db9',
 } as const;
 
 export const radii = { sm: 6, md: 8, lg: 12 } as const;

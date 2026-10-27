@@ -1,0 +1,14 @@
+.git
+node_modules
+dist
+dist-server
+.local
+.wrangler
+analysis
+.env
+.env.*
+deploy/v2/.env
+deploy/v2/source-data
+deploy/v2/backups
+*.log
+*.tsbuildinfo

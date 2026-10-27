@@ -1,0 +1,30 @@
+.v2-page { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 18px; }
+.v2-page > *, .v2-page .ant-tabs-content-holder, .v2-page .ant-tabs-tabpane { min-width: 0; }
+.v2-page .ant-tabs-tabpane > .ant-card, .v2-page .ant-tabs-tabpane > .ant-alert { margin-bottom: 18px; }
+.v2-page .ant-card .ant-alert { margin-bottom: 16px; }
+.v2-form-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 16px; }
+.v2-form-grid .ant-input-number, .v2-package-row .ant-input-number { width: 100%; }
+.v2-package-scroll { overflow-x: auto; margin-top: 12px; }
+.v2-package-head, .v2-package-row { display: grid; grid-template-columns: 90px repeat(4, minmax(100px, 1fr)) 40px; gap: 12px; min-width: 640px; }
+.v2-package-head { margin-bottom: 8px; color: var(--color-text-secondary); }
+.v2-package-row .ant-form-item { margin-bottom: 12px; }
+.v2-extra { margin: 18px 0; }
+.v2-reference-settings { margin-bottom: 20px; padding: 16px; border: 1px solid var(--color-border-subtle); border-radius: 10px; }
+.v2-reference-settings .v2-form-grid { margin-top: 12px; }
+.v2-detail-link { padding: 0; height: auto; white-space: normal; text-align: left; }
+.v2-details { width: 100%; }
+.v2-details > .ant-space-item { width: 100%; }
+.v2-history { display: flex; gap: 10px; margin-top: 18px; max-width: 620px; }
+.v2-search-filters { display: grid; grid-template-columns: 180px 200px 180px minmax(220px,1fr); gap: 12px; margin: 18px 0; }
+.v2-editor-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 16px; }
+.v2-editor-grid .ant-input-number { width: 100%; }
+.v2-editor-block { border: 1px solid var(--color-border-subtle); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+.v2-offer-editor .ant-alert { margin: 12px 0; }
+.v2-editor-actions { position: sticky; bottom: 0; padding: 16px 0; background: white; z-index: 2; }
+.v2-condition { border-left: 2px solid var(--color-border-subtle); padding: 8px 12px; margin: 6px 0; }
+.v2-condition-children { padding-left: 12px; }
+.v2-calculation-status { margin-top: 12px; color: var(--color-text-secondary); }
+@media (max-width: 1100px) { .v2-search-filters { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 600px) { .v2-search-filters, .v2-editor-grid { grid-template-columns: minmax(0,1fr); } }
+@media (max-width: 1000px) { .v2-form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .v2-form-grid { grid-template-columns: minmax(0, 1fr); } .v2-reference-settings { padding: 12px; } }

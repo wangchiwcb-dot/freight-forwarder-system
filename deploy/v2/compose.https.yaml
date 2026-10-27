@@ -1,0 +1,9 @@
+# Activate only after certificate issuance: copy to compose.override.yaml.
+# Keep this override and the persistent certificate directory when updating.
+services:
+  web:
+    ports:
+      - "${HTTPS_PORT:-0.0.0.0:443}:443"
+    volumes:
+      - ./nginx.https.conf:/etc/nginx/conf.d/default.conf:ro
+      - ${LETSENCRYPT_DIR:-/etc/letsencrypt}:/etc/letsencrypt:ro

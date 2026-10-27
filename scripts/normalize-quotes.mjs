@@ -4,8 +4,8 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { warehouseCodesFrom } from './warehouse-codes.mjs';
 
-const input = process.argv[2] || 'analysis/latest-extract.json';
-const output = process.argv[3] || 'public/data';
+const input = process.argv[2] || '.local/v2/price-extract.json';
+const output = process.argv[3] || '.local/v2/normalized';
 const source = JSON.parse(fs.readFileSync(input, 'utf8'));
 const quotes = [];
 const coverage = [];

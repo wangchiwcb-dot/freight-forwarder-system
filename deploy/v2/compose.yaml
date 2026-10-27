@@ -1,0 +1,59 @@
+name: freight-quotes-v2
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: freight
+      POSTGRES_USER: freight
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U freight -d freight]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+    mem_limit: 1g
+  api:
+    build:
+      context: ../..
+      dockerfile: deploy/v2/Dockerfile
+      target: api
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://freight:${POSTGRES_PASSWORD}@postgres:5432/freight
+      V2_SEED_EXAMPLES: "false"
+      V2_PREPARE_OWN_US: "true"
+      V2_IMPORT_MANIFEST: ${V2_IMPORT_MANIFEST:-}
+      V2_PRICE_DRAFTS: ${V2_PRICE_DRAFTS:-}
+    volumes:
+      - ./source-data:/data/sources:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    mem_limit: 768m
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:8790/api/v2/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      start_period: 120s
+      retries: 12
+  web:
+    build:
+      context: ../..
+      dockerfile: deploy/v2/Dockerfile
+      target: web
+    restart: unless-stopped
+    ports:
+      - "${PUBLIC_HTTP_PORT:-0.0.0.0:80}:80"
+      - "${HTTP_PORT:-127.0.0.1:8080}:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ${ACME_WEBROOT_DIR:-./acme-webroot}:/var/www/acme:ro
+    depends_on:
+      api:
+        condition: service_healthy
+    mem_limit: 128m
+volumes:
+  postgres-data:
