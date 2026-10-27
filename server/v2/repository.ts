@@ -8,11 +8,14 @@ import { ENGINE_VERSION } from '../../src/domain/v2/pricing';
 import type { Database } from './database';
 
 const json = (value: unknown) => JSON.stringify(value);
-export async function saveDraft(db: Database, raw: unknown, sourceDraftId: string | null = null): Promise<Offer> {
+export async function saveDraft(db: Database, raw: unknown, sourceDraftId: string | null = null, inTransaction = false): Promise<Offer> {
   const offer = offerSchema.parse(raw);
   if (offer.status !== 'draft') throw new Error('请先保存草稿，再单独发布');
   if (new Set(offer.rules.map(rule => rule.id)).size !== offer.rules.length || offer.rules.some(rule => rule.id === 'base')) throw new Error('规则编号重复或使用了保留编号');
-  await db.transaction(async tx => {
+  let storedRevision: number | undefined;
+  const write = async (tx:Database) => {
+    await tx.exec('LOCK TABLE quotation_v2.price_drafts IN ROW EXCLUSIVE MODE');
+    if(offer.sourceKind==='workbook' && (await tx.query(`SELECT id FROM quotation_v2.source_files WHERE pricing_state='pending' AND id=ANY($1::text[])`,[offer.sourceEvidence.map(e=>e.sourceId).filter(Boolean)])).rows.length) throw new Error('请先在每周报价更新中确认原表生效，再建立规则版本');
     if (sourceDraftId) {
       const source = (await tx.query<{ source_id: string }>('SELECT source_id FROM quotation_v2.price_drafts WHERE id=$1', [sourceDraftId])).rows[0];
       if (!source || !offer.sourceEvidence.some(evidence => evidence.sourceId === source.source_id)) throw new Error('规则草稿必须保留所选价格草稿的原件关联');
@@ -27,6 +30,7 @@ export async function saveDraft(db: Database, raw: unknown, sourceDraftId: strin
     if (channel.provider_id !== offer.providerId || channel.mode !== offer.mode || channel.last_mile !== offer.lastMile) throw new Error('渠道身份或运输方式冲突');
     if ((await tx.query('SELECT id FROM quotation_v2.channel_releases WHERE id=$1', [offer.id])).rows.length) throw new Error('版本编号已存在；修改请创建新版本');
     const revision = (await tx.query<{ next: number }>('SELECT coalesce(max(revision),0)+1 AS next FROM quotation_v2.channel_releases WHERE channel_id=$1', [offer.channelId])).rows[0].next;
+    storedRevision=revision;
     await tx.query(`INSERT INTO quotation_v2.channel_releases
       (id,channel_id,provider_id,revision,name,country,origin,scope_key,service_description,currency,cost_basis,status,source_kind,
        valid_from,valid_to,reviewed,cargo_reviewed,accepted_attributes,review_reasons,billing,notes,transit_text)
@@ -45,8 +49,9 @@ export async function saveDraft(db: Database, raw: unknown, sourceDraftId: strin
       await tx.query('INSERT INTO quotation_v2.draft_release_links(price_draft_id,release_id) VALUES($1,$2)', [sourceDraftId, offer.id]);
       await tx.query("UPDATE quotation_v2.price_drafts SET status='mapped' WHERE id=$1", [sourceDraftId]);
     }
-  });
-  return offer;
+  };
+  if(inTransaction) await write(db); else await db.transaction(write);
+  return {...offer,revision:storedRevision};
 }
 
 export async function getOffers(db: Database, filters: { country?: string; modes?: string[]; id?: string } = {}): Promise<Offer[]> {
@@ -55,7 +60,8 @@ export async function getOffers(db: Database, filters: { country?: string; modes
   if (filters.country) { args.push(filters.country); where.push(`r.country=$${args.length}`); }
   if (filters.modes) { args.push(filters.modes); where.push(`c.mode=ANY($${args.length}::text[])`); }
   if (filters.id) { args.push(filters.id); where.push(`r.id=$${args.length}`); }
-  const { rows } = await db.query<Record<string, any>>(`SELECT r.*,to_char(r.valid_from,'YYYY-MM-DD') AS starts,to_char(r.valid_to,'YYYY-MM-DD') AS ends,
+  const { rows } = await db.query<Record<string, any>>(`SELECT r.*,to_char(period.valid_from,'YYYY-MM-DD') AS starts,to_char(period.valid_to,'YYYY-MM-DD') AS ends,
+    period.source_draft_id,period.source_state,period.version_label,
     p.name AS provider_name,p.is_own,c.mode,c.last_mile,
     coalesce((SELECT jsonb_agg(jsonb_build_object('kind',t.kind,'value',t.value)) FROM quotation_v2.release_targets t WHERE t.release_id=r.id),'[]'::jsonb) AS targets,
     coalesce((SELECT jsonb_agg(jsonb_build_object('id',t.id,'min',t.min_quantity::text,'max',t.max_quantity::text,
@@ -64,13 +70,15 @@ export async function getOffers(db: Database, filters: { country?: string; modes
     coalesce((SELECT jsonb_agg(t.definition ORDER BY t.ordinal) FROM quotation_v2.release_rules t WHERE t.release_id=r.id),'[]'::jsonb) AS rules,
     coalesce((SELECT jsonb_agg(jsonb_build_object('sourceId',e.source_id,'sheet',e.sheet,'cells',e.cells,'text',e.evidence_text) ORDER BY e.id)
       FROM quotation_v2.source_evidence e WHERE e.release_id=r.id),'[]'::jsonb) AS evidence
-    FROM quotation_v2.channel_releases r JOIN quotation_v2.channels c ON c.id=r.channel_id JOIN quotation_v2.providers p ON p.id=r.provider_id
+    FROM quotation_v2.channel_releases r JOIN quotation_v2.release_periods period ON period.release_id=r.id
+    JOIN quotation_v2.channels c ON c.id=r.channel_id JOIN quotation_v2.providers p ON p.id=r.provider_id
     WHERE ${where.join(' AND ')} ORDER BY r.id`, args);
   return rows.map(row => offerSchema.parse({ id: row.id, providerId: row.provider_id, providerName: row.provider_name,
     isOwn: row.is_own, channelId: row.channel_id, name: row.name, mode: row.mode, lastMile: row.last_mile,
     country: row.country, origin: row.origin, targets: row.targets, scopeKey: row.scope_key,
     serviceDescription: row.service_description, currency: row.currency, costBasis: row.cost_basis,
     status: row.status, sourceKind: row.source_kind, validFrom: row.starts, validTo: row.ends,
+    revision: row.revision, versionLabel: row.version_label, sourceDraftId: row.source_draft_id, sourceReady: row.source_state !== 'pending',
     reviewed: row.reviewed, cargoReviewed: row.cargo_reviewed, acceptedAttributes: row.accepted_attributes,
     reviewReasons: row.review_reasons, billing: row.billing, tiers: row.tiers, rules: row.rules, notes: row.notes, transitText: row.transit_text,
     sourceEvidence: row.evidence }));
@@ -78,6 +86,8 @@ export async function getOffers(db: Database, filters: { country?: string; modes
 
 export function publicationIssues(offer: Offer): string[] {
   const issues: string[] = [];
+  if (offer.sourceReady === false) issues.push('报价原表尚未确认生效，请先完成每周报价更新');
+  if (offer.validFrom && offer.validTo && offer.validTo <= offer.validFrom) issues.push('失效日期必须晚于生效日期');
   if (offer.sourceKind === 'example') issues.push('示例不得作为正式渠道发布');
   if (offer.sourceKind === 'workbook' && !offer.sourceEvidence.some(evidence => evidence.sourceId && evidence.sheet && evidence.cells.length)) issues.push('缺少原表与价格单元格关联');
   if (!offer.reviewed || !offer.cargoReviewed || offer.reviewReasons.length) issues.push('收费及承运复核未完成');
@@ -115,11 +125,17 @@ export function publicationIssues(offer: Offer): string[] {
 
 export async function publishRelease(db: Database, id: string) {
   return db.transaction(async tx => {
-    await tx.query('SELECT id FROM quotation_v2.channel_releases WHERE id=$1 FOR UPDATE', [id]);
+    // Use the same channel lock as saveDraft, before locking individual releases.
+    await tx.query(`SELECT c.id FROM quotation_v2.channels c JOIN quotation_v2.channel_releases r ON r.channel_id=c.id WHERE r.id=$1 FOR UPDATE OF c`, [id]);
     const offer = (await getOffers(tx, { id }))[0];
     if (!offer || offer.status !== 'draft') throw new Error('找不到可发布草稿');
     const issues = publicationIssues(offer);
     if (issues.length) throw new Error(issues.join('；'));
+    const prior = (await getOffers(tx, {country:offer.country})).filter(other => other.channelId===offer.channelId && other.scopeKey===offer.scopeKey && other.status==='published');
+    if (prior.some(other => other.validFrom && other.validFrom>=offer.validFrom!)) throw new Error('Overlapping：已有同日或更晚的已发布版本，请刷新版本并核对生效日期');
+    for (const other of prior.filter(other => !other.validTo || other.validTo>offer.validFrom!)) {
+      await tx.query(`INSERT INTO quotation_v2.release_successions(predecessor_id,successor_id,effective_from) VALUES($1,$2,$3)`,[other.id,offer.id,offer.validFrom]);
+    }
     await tx.query("UPDATE quotation_v2.channel_releases SET status='published',published_at=now() WHERE id=$1", [id]);
     await tx.query('INSERT INTO quotation_v2.audit_logs(action,entity_id,detail) VALUES($1,$2,$3)', ['published', id, '{}']);
     return { id, status: 'published' };
@@ -156,8 +172,8 @@ export async function importManifest(db: Database, manifestPath: string) {
       const archiveHash = createHash('sha256');
       for await (const block of createReadStream(archivePath)) archiveHash.update(block);
       if (archiveHash.digest('hex') !== file.sha256) throw new Error(`原件归档校验失败：${file.name}`);
-      await tx.query(`INSERT INTO quotation_v2.source_files(id,sha256,original_name,byte_size,storage_path,evidence_path,extraction_status,metadata)
-        VALUES($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT(sha256) DO NOTHING`,
+      await tx.query(`INSERT INTO quotation_v2.source_files(id,sha256,original_name,byte_size,storage_path,evidence_path,extraction_status,metadata,pricing_state)
+        VALUES($1,$2,$3,$4,$5,$6,$7,$8,'pending') ON CONFLICT(sha256) DO NOTHING`,
         [file.sha256, file.sha256, file.name, file.size_bytes, archivePath, evidencePath, file.status, json(file)]);
       await tx.query('INSERT INTO quotation_v2.import_batch_sources VALUES($1,$2,$3)', [hash, file.sha256, file.name]);
       await tx.query('INSERT INTO quotation_v2.review_tasks(id,source_id,code,detail) VALUES($1,$2,$3,$4) ON CONFLICT(id) DO NOTHING',
@@ -177,12 +193,15 @@ export async function importPriceDrafts(db: Database, directory: string) {
   let count = 0;
   await db.transaction(async tx => {
     const noteIds = new Set<string>();
+    await tx.exec('LOCK TABLE quotation_v2.price_drafts IN SHARE ROW EXCLUSIVE MODE');
+    const frozenSources=new Set((await tx.query<{source_id:string}>(`SELECT DISTINCT d.source_id FROM quotation_v2.price_drafts d JOIN quotation_v2.price_periods p ON p.draft_id=d.id`)).rows.map(row=>row.source_id));
     for (const chunk of catalog.chunks) {
       const quotes = JSON.parse(await readFile(resolve(directory, chunk.path), 'utf8'));
       const rules = chunk.rulesPath ? JSON.parse(await readFile(resolve(directory, chunk.rulesPath), 'utf8')) : {};
       for (const quote of quotes) {
         const sourceId = files.get(quote.source.fileId);
         if (!sourceId) throw new Error('标准化报价缺少对应原件摘要');
+        if(frozenSources.has(sourceId)) {count++;continue;}
         if (quote.ruleRef && !Array.isArray(rules[quote.ruleRef])) throw new Error('标准化报价缺少原备注分片');
         const notes = quote.ruleRef ? rules[quote.ruleRef] : quote.notes ?? [];
         const noteId = createHash('sha256').update(json(notes)).digest('hex');
@@ -195,7 +214,7 @@ export async function importPriceDrafts(db: Database, directory: string) {
         await tx.query(`INSERT INTO quotation_v2.price_drafts(id,source_id,source_quote_id,parser_version,provider_hint,channel_hint,country_hint,mode_hint,proposed_data,note_set_id)
           VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) ON CONFLICT(id) DO UPDATE SET
             proposed_data=EXCLUDED.proposed_data,note_set_id=EXCLUDED.note_set_id,parser_version=EXCLUDED.parser_version
-          WHERE price_drafts.status='needs_review'`,
+           WHERE price_drafts.status='needs_review' AND NOT EXISTS(SELECT 1 FROM quotation_v2.price_periods WHERE draft_id=price_drafts.id)`,
           [draftId, sourceId, quote.id, parserVersion, quote.providerName, quote.channelName, quote.countryCode, quote.mode, json({ ...quote, notes: [] }), noteId]);
         count++;
       }

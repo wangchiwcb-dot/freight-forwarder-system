@@ -15,6 +15,7 @@ export async function quotationApi<T>(path: string, body?: unknown): Promise<T> 
 }
 
 export const countryNames: Record<string, string> = { US: '美国', CA: '加拿大', MX: '墨西哥', GB: '英国', DE: '德国', FR: '法国', IT: '意大利', ES: '西班牙', PL: '波兰', CZ: '捷克', AU: '澳大利亚', BR: '巴西', EU: '欧洲（国家待核）', OTHER: '其他（国家待核）' };
+export const todayInChina = () => new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 export const cargoOptions = [
   { value: 'built_in_battery', label: '内置电池' }, { value: 'pure_battery', label: '纯电池' },
   { value: 'magnetic', label: '带磁' }, { value: 'liquid', label: '液体' }, { value: 'powder', label: '粉末' },

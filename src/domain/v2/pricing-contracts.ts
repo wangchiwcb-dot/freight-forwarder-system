@@ -51,6 +51,8 @@ export const offerSchema = z.object({
   currency: z.enum(['CNY', 'USD', 'EUR', 'GBP', 'CAD', 'AUD']), costBasis: costBasisSchema,
   status: z.enum(['draft', 'published', 'revoked']), sourceKind: z.enum(['example', 'workbook', 'manual']),
   validFrom: date.nullable(), validTo: date.nullable(),
+  revision: z.number().int().positive().optional(), versionLabel: z.string().nullable().optional(),
+  sourceDraftId: id.nullable().optional(), sourceReady: z.boolean().optional(),
   reviewed: z.boolean(), cargoReviewed: z.boolean(), acceptedAttributes: z.array(text).max(100),
   reviewReasons: z.array(text).max(100),
   billing: billingSchema, tiers: z.array(tierSchema).min(1).max(1000),

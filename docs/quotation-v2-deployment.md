@@ -109,6 +109,39 @@ docker compose exec -T postgres pg_dump -U freight -d freight -Fc > "backups/fre
 
 ## 后续数据工作
 
+### 每周新报价导入（2026-10-27）
+
+数据库迁移 `0008_weekly_versions.sql` 新增报价期、原表价格适用期间和已发布渠道的版本衔接记录。迁移将现有来源保留为可用状态；以后导入的新来源先进入待生效区，不会直接替换线上价格。
+
+每期使用独立目录保存归档、证据与标准化输出，例如：
+
+```powershell
+python -X utf8 scripts/v2/intake.py --root '本周报价目录' --output .local/v2/weeks/2026-10-28/intake
+python -X utf8 scripts/extract_workbooks.py --root '本周报价目录' --output .local/v2/weeks/2026-10-28/extract.json
+node scripts/normalize-quotes.mjs .local/v2/weeks/2026-10-28/extract.json .local/v2/weeks/2026-10-28/normalized
+pnpm v2:build
+pnpm v2:import --manifest .local/v2/weeks/2026-10-28/intake/manifest.json --prices .local/v2/weeks/2026-10-28/normalized
+```
+
+本地导入遵循 `DATABASE_URL` 或 `V2_DATA_DIR` 的数据库配置。不要在本地 API 正占用同一 PGlite 目录时另开导入进程；可先停止本地 API，导入后再启动。真实 PostgreSQL 可在服务运行时导入。
+
+更新现有阿里云时，先将本期 `intake` 与 `normalized` 上传到当前部署的 `deploy/v2/source-data/weeks/2026-10-28/` 下，保留所有历史目录，再利用 API 容器已有的数据库连接执行：
+
+```bash
+cd /opt/freight-quotes/current/deploy/v2
+sudo docker compose exec -T \
+  -e V2_IMPORT_ONLY=true \
+  -e V2_IMPORT_MANIFEST=/data/sources/weeks/2026-10-28/intake/manifest.json \
+  -e V2_PRICE_DRAFTS=/data/sources/weeks/2026-10-28/normalized \
+  api node dist-server/index.js
+```
+
+该命令导入后退出，不重启 API，也不自动确认报价生效或发布规则。随后在网页“每周报价更新”中预览和确认。相同来源与目录重复执行可复用导入；已经进入报价期的原表数据会冻结，不能通过重新解析覆盖历史。
+
+渠道采用保守的业务字段匹配，不以文件名、单元格位置或单价作为渠道身份。同一表内无法唯一匹配的记录需要用户选择；代理未提供新表、或旧渠道没有匹配到新记录时继续保留旧价。规则继承后仍需复核，已发布历史内容和保存的快照不修改。
+
+本地周更浏览器验收可用 `e2e/seed-weekly.ts`，仅允许向 `.local/v2/weekly-tests/` 内、由 `E2E_WEEKLY_DATA_DIR` 指定且 API 已停止的独立 PGlite 库写入验收记录；不得设置 `DATABASE_URL`。启动该库后设置 `E2E_WEEKLY_FIXTURES=1` 执行 `e2e/weekly-updates.spec.ts`。生产验收不启用此开关。
+
 优先从自有渠道和高频同行确认稳定渠道身份、交仓点、服务及税费范围、主干方式、材积系数、进位规则和附加费。确认后的渠道保存为正式草稿，经发布校验后加入真实比价。
 
 原始报价中“快递”“小包”等字样不能直接替代主干运输方式。旧解析器的推断只作为草稿提示；未确认前不会擅自归入海运或空运。真实报价日期由文件和原表核对，目录名 2026.10.21 不作为所有文件的统一生效日期。

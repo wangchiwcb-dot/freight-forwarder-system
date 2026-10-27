@@ -5,7 +5,8 @@ import { calculateOffers } from '../../src/domain/v2/pricing';
 import { id, offerSchema, requestSchema } from '../../src/domain/v2/pricing-contracts';
 import type { Database } from './database';
 import { getOffers, loadRun, publicationIssues, publishRelease, saveDraft, saveRun } from './repository';
-import { getPriceDraft, prepareOffer, readiness, searchDrafts } from './review';
+import { getPriceDraft, readiness, searchDrafts } from './review';
+import { activateUpdate, prepareVersionOffer, previewUpdate, updateCandidates, updateInputSchema } from './updates';
 import { transportModeSchema } from '../../src/domain/v2/contracts';
 import { comparisonInputSchema } from '../../src/domain/v2/comparison-contracts';
 import { createComparison, loadComparison } from './comparison';
@@ -34,6 +35,24 @@ export function createApp(db: Database) {
   });
   app.get('/api/v2/offers', async () => ({ items: await getOffers(db) }));
   app.get('/api/v2/readiness', async () => readiness(db));
+  app.post('/api/v2/quote-updates/preview', async(request,reply)=>{
+    const body=z.object({update:updateInputSchema,page:z.number().int().min(1).default(1)}).strict().parse(request.body);
+    try { return await previewUpdate(db,body.update,body.page); }
+    catch(error) { return reply.code(409).send({error:{message:(error as Error).message}}); }
+  });
+  app.post('/api/v2/quote-updates/activate', async(request,reply)=>{
+    const body=z.object({update:updateInputSchema,token:z.string().regex(/^[a-f0-9]{64}$/)}).strict().parse(request.body);
+    try { return await activateUpdate(db,body.update,body.token); }
+    catch(error) { return reply.code(409).send({error:{message:(error as Error).message}}); }
+  });
+  app.post('/api/v2/quote-updates/candidates',async(request,reply)=>{
+    const body=z.object({update:updateInputSchema,draftId:id,q:z.string().max(100).default(''),page:z.number().int().min(1).default(1)}).strict().parse(request.body);
+    try {return await updateCandidates(db,body.update,body.draftId,body.q,body.page);}
+    catch(error){return reply.code(409).send({error:{message:(error as Error).message}});}
+  });
+  app.get('/api/v2/quote-updates',async()=>({items:(await db.query(`SELECT u.id,u.label,to_char(u.effective_from,'YYYY-MM-DD') AS effective_from,
+    u.summary,u.created_at,s.original_name AS source_name FROM quotation_v2.quote_updates u JOIN quotation_v2.source_files s ON s.id=u.source_id
+    ORDER BY u.created_at DESC LIMIT 100`)).rows}));
   app.get('/api/v2/price-drafts', async request => searchDrafts(db, request.query));
   app.get('/api/v2/price-drafts/:id', async (request, reply) => {
     const draft = await getPriceDraft(db, id.parse((request.params as any).id));
@@ -42,8 +61,9 @@ export function createApp(db: Database) {
   app.post('/api/v2/price-drafts/:id/prepare', async (request, reply) => {
     const draft = await getPriceDraft(db, id.parse((request.params as any).id));
     if (!draft) return reply.code(404).send({ error: { message: '价格草稿不存在' } });
+    if(draft.pricing_state==='pending') return reply.code(409).send({error:{message:'请先在每周报价更新中确认新原表的生效日期'}});
     const selection = z.object({ mode: transportModeSchema, country: z.string().regex(/^[A-Z]{2}$/) }).strict().parse(request.body);
-    try { const offer = prepareOffer(draft, selection); return { offer, issues: publicationIssues(offer) }; }
+    try { const offer = await prepareVersionOffer(db,draft,selection); return { offer, issues: publicationIssues(offer) }; }
     catch (error) { return reply.code(409).send({ error: { message: (error as Error).message } }); }
   });
   app.get('/api/v2/review/offers', async () => ({ items: (await getOffers(db)).filter(offer => offer.sourceKind !== 'example').map(offer => ({ offer, issues: publicationIssues(offer) })) }));
@@ -68,7 +88,9 @@ export function createApp(db: Database) {
       coalesce(jsonb_array_length(metadata->'sheets'),0) AS sheets,
       coalesce(jsonb_array_length(metadata->'pages'),0) AS pages,
       'needs_review' AS pricing_readiness,
-      (SELECT count(*)::int FROM quotation_v2.price_drafts d WHERE d.source_id=source_files.id) AS price_drafts
+      (SELECT count(*)::int FROM quotation_v2.price_drafts d WHERE d.source_id=source_files.id) AS price_drafts,
+      pricing_state,(SELECT label FROM quotation_v2.quote_updates WHERE source_id=source_files.id) AS version_label,
+      (SELECT to_char(effective_from,'YYYY-MM-DD') FROM quotation_v2.quote_updates WHERE source_id=source_files.id) AS effective_from
       FROM quotation_v2.source_files ORDER BY original_name`)).rows;
     return { items: rows };
   });

@@ -5,9 +5,10 @@ import { saveDraft } from './repository';
 // This source was inspected against its original workbook. Only the billing
 // parameters explicitly confirmed by the user are prefilled; no publication.
 export async function prepareOwnUs(db: Database) {
-  const rows = (await db.query<{ id:string }>(`SELECT d.id FROM quotation_v2.price_drafts d
+  const rows = (await db.query<{ id:string }>(`SELECT d.id FROM quotation_v2.price_drafts d JOIN quotation_v2.source_files s ON s.id=d.source_id
     WHERE d.source_id='97ea96986ab72065d60b6707adf3d6502ba4be724b5e72c38b7d5aa78981caf3'
       AND d.proposed_data->'source'->>'sheet'='美国海派'
+      AND s.pricing_state<>'pending'
       AND NOT EXISTS(SELECT 1 FROM quotation_v2.draft_release_links l WHERE l.price_draft_id=d.id)
     ORDER BY d.id`)).rows;
   let created=0;

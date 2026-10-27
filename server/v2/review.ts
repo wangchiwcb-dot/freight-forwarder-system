@@ -5,12 +5,15 @@ import type { Database } from './database';
 import { offerSchema, type Offer } from '../../src/domain/v2/pricing-contracts';
 import type { PriceDraftRecord, Readiness } from '../../src/domain/v2/review-contracts';
 import type { TransportMode } from '../../src/domain/v2/contracts';
+import { date } from '../../src/domain/v2/pricing-contracts';
+import { pricePeriodFields, pricePeriodJoins, todayInChina, visiblePriceSql } from './periods';
 
 export const draftQuerySchema = z.object({
   country: z.string().regex(/^[A-Z]{2,5}$/).optional(), provider: z.string().max(200).optional(),
   mode: z.enum(['sea','rail','road','air','unknown']).optional(),
   q: z.string().trim().max(100).default(''),
   page: z.coerce.number().int().min(1).default(1), pageSize: z.coerce.number().int().min(1).max(50).default(15),
+  asOf: date.optional(), history: z.enum(['true','false']).default('false'),
 }).strict();
 
 export async function readiness(db: Database): Promise<Readiness> {
@@ -29,15 +32,16 @@ export async function searchDrafts(db: Database, raw: unknown) {
   const query = draftQuerySchema.parse(raw);
   const values: unknown[] = [];
   const where: string[] = [];
+  if (query.history !== 'true') { values.push(query.asOf ?? todayInChina()); where.push(visiblePriceSql(`$${values.length}`)); }
   const term = (column: string, value?: string) => { if (value) { values.push(value); where.push(`${column}=$${values.length}`); } };
   term('d.country_hint', query.country); term('d.provider_hint', query.provider);
   if (query.mode === 'unknown') where.push("d.mode_hint NOT IN ('sea','rail','road','air')");
   else term('d.mode_hint', query.mode);
   if (query.q) { values.push(`%${query.q.replace(/[\\%_]/g, '\\$&')}%`); where.push(`(d.channel_hint ILIKE $${values.length} OR d.proposed_data->>'destinationLabel' ILIKE $${values.length} OR d.proposed_data->>'origin' ILIKE $${values.length} OR s.original_name ILIKE $${values.length})`); }
   const filter = where.length ? `WHERE ${where.join(' AND ')}` : '';
-  const total = (await db.query<{ count: number }>(`SELECT count(*)::int AS count FROM quotation_v2.price_drafts d JOIN quotation_v2.source_files s ON s.id=d.source_id ${filter}`, values)).rows[0].count;
+  const total = (await db.query<{ count: number }>(`SELECT count(*)::int AS count FROM quotation_v2.price_drafts d JOIN quotation_v2.source_files s ON s.id=d.source_id ${pricePeriodJoins} ${filter}`, values)).rows[0].count;
   const rows = await db.query<PriceDraftRecord>(`SELECT d.id,d.source_id,s.original_name AS source_name,d.provider_hint,d.channel_hint,d.country_hint,d.mode_hint,d.status,
-    d.proposed_data - 'notes' AS proposed_data FROM quotation_v2.price_drafts d JOIN quotation_v2.source_files s ON s.id=d.source_id
+    d.proposed_data - 'notes' AS proposed_data,${pricePeriodFields} FROM quotation_v2.price_drafts d JOIN quotation_v2.source_files s ON s.id=d.source_id ${pricePeriodJoins}
     ${filter} ORDER BY d.provider_hint,d.channel_hint,d.id LIMIT $${values.length+1} OFFSET $${values.length+2}`,
     [...values, query.pageSize, (query.page - 1) * query.pageSize]);
   return { items: rows.rows, total, page: query.page, pageSize: query.pageSize };
@@ -45,8 +49,8 @@ export async function searchDrafts(db: Database, raw: unknown) {
 
 export async function getPriceDraft(db: Database, id: string) {
   return (await db.query<PriceDraftRecord>(`SELECT d.id,d.source_id,s.original_name AS source_name,d.provider_hint,d.channel_hint,d.country_hint,d.mode_hint,d.status,
-    d.proposed_data || jsonb_build_object('notes',coalesce(n.notes,d.proposed_data->'notes','[]'::jsonb)) AS proposed_data
-    FROM quotation_v2.price_drafts d JOIN quotation_v2.source_files s ON s.id=d.source_id LEFT JOIN quotation_v2.draft_note_sets n ON n.id=d.note_set_id WHERE d.id=$1`, [id])).rows[0] ?? null;
+    d.proposed_data || jsonb_build_object('notes',coalesce(n.notes,d.proposed_data->'notes','[]'::jsonb)) AS proposed_data,${pricePeriodFields}
+    FROM quotation_v2.price_drafts d JOIN quotation_v2.source_files s ON s.id=d.source_id LEFT JOIN quotation_v2.draft_note_sets n ON n.id=d.note_set_id ${pricePeriodJoins} WHERE d.id=$1`, [id])).rows[0] ?? null;
 }
 
 const decimal = (value: number | null | undefined, fallback: string | null = null) => value == null ? fallback : new Decimal(value).toFixed();

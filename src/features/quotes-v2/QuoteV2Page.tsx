@@ -60,7 +60,7 @@ export default function QuoteV2Page() {
     }catch(error){setError((error as Error).message);}
   }
   const columns:ColumnsType<ComparisonItem>=[
-    {title:'代理 / 渠道',key:'channel',width:210,render:(_,row)=><Space direction="vertical" size={2}><Text strong>{row.provider}</Text><Button type="link" className="v2-detail-link" onClick={()=>setSelected(row)}>{row.channel}</Button><Text type="secondary">{transportLabels[row.mode as TransportMode]??'运输方式待核'} · {row.destination}</Text><Text type="secondary">交仓：{row.origin??'待核'}</Text></Space>},
+    {title:'代理 / 渠道',key:'channel',width:210,render:(_,row)=><Space direction="vertical" size={2}><Text strong>{row.provider}</Text><Button type="link" className="v2-detail-link" onClick={()=>setSelected(row)}>{row.channel}</Button>{row.versionLabel&&<Tag color="blue">{row.versionLabel}</Tag>}{row.validFrom&&<Text type="secondary">{row.validFrom} 起{row.validTo?`，至 ${row.validTo} 前`:''}</Text>}<Text type="secondary">{transportLabels[row.mode as TransportMode]??'运输方式待核'} · {row.destination}</Text><Text type="secondary">交仓：{row.origin??'待核'}</Text></Space>},
     {title:'单价 / 计费量',key:'unit',width:180,render:(_,row)=>row.unitPrice!==null?<>{price(row.unitPrice,row.currency)}/{row.basis}<br/><Text>计费 {row.quantity?Number(row.quantity).toLocaleString('zh-CN',{maximumFractionDigits:3}):'待核'} {row.basis}</Text><br/><Text type="secondary">{row.tierLabel}</Text></>:<>{row.tiers.slice(0,3).map((tier,index)=><div key={index}>{tier.label}：{tier.price===null?'询价':`${tier.price} ${row.currency??''}/${row.basis}`}</div>)}{row.tiers.length>3&&<Button type="link" onClick={()=>setSelected(row)}>全部档位</Button>}</>},
     {title:'基础运费 / 附加费',key:'base',width:175,render:(_,row)=><Space direction="vertical" size={3}><Text>运费 {price(row.baseFreight,row.currency)}</Text><Text type="secondary">附加费 {row.knownSurcharges===null?row.status==='complete'?'无另收费用':'待核':price(row.knownSurcharges,row.currency)}</Text></Space>},
     {title:'费用合计',key:'cost',width:180,render:(_,row)=><Space direction="vertical" size={3}><Text strong>{row.status==='unavailable'?'不适用':price(row.completeCost??row.knownCost,row.currency)}</Text><Tag color={row.status==='complete'?'green':row.status==='reference'?'blue':'gold'}>{statusText[row.status]}</Tag>{row.lowestComplete?<Tag color="green">同口径最低完整成本</Tag>:row.lowestReference&&<Tag color="cyan">同币种已知费用最低</Tag>}</Space>},
@@ -135,7 +135,7 @@ export default function QuoteV2Page() {
           {error&&<Alert type="error" message={error}/>}
         </Card></div>
       </>},
-      {key:'prices',label:'原表价格查询',children:<ReviewWorkspace initialCountry={catalogCountry} selectedIds={selectedIds} onCompare={(ids,country)=>{setSelectedIds(ids);form.setFieldValue('country',country);setDirty(true);setActiveTab('calculate');}}/>},
+      {key:'prices',label:'原表价格查询',children:<ReviewWorkspace initialCountry={catalogCountry} selectedIds={selectedIds} onCompare={(ids,country,asOf)=>{setSelectedIds(ids);form.setFieldsValue({country,asOf});setDirty(true);setActiveTab('calculate');}}/>},
       {key:'rules',label:'渠道规则维护',children:<ReviewWorkspace view="rules"/>},
     ]}/>
     <Drawer title={selected?`${selected.provider} · ${selected.channel}`:''} open={Boolean(selected)} onClose={()=>setSelected(null)} width="min(850px, 100vw)">

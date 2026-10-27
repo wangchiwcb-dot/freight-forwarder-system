@@ -28,3 +28,7 @@
 @media (max-width: 600px) { .v2-search-filters, .v2-editor-grid { grid-template-columns: minmax(0,1fr); } }
 @media (max-width: 1000px) { .v2-form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .v2-form-grid { grid-template-columns: minmax(0, 1fr); } .v2-reference-settings { padding: 12px; } }
+@media (max-width: 600px) {
+  .v2-review-prices .ant-card-head-wrapper { align-items: flex-start; flex-direction: column; gap: 8px; padding: 12px 0; }
+  .v2-review-prices .ant-card-extra { margin-inline-start: 0; }
+}

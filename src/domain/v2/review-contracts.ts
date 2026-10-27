@@ -77,6 +77,8 @@ export interface PriceDraftRecord {
   id: string; source_id: string; source_name: string;
   provider_hint: string; channel_hint: string; country_hint: string; mode_hint: string;
   status: 'needs_review' | 'mapped' | 'excluded'; proposed_data: DraftQuote;
+  version_from?: string | null; version_to?: string | null; version_label?: string | null;
+  pricing_state?: 'legacy' | 'pending' | 'versioned';
 }
 export interface Readiness {
   sources: number; priceDrafts: number; published: number; examples: number; ruleDrafts: number;

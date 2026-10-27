@@ -37,7 +37,11 @@ pnpm dev --port 5177
 python -X utf8 scripts/v2/intake.py --root '报价原件目录' --output .local/v2/intake
 python scripts/extract_workbooks.py --root '报价原件目录' --output .local/v2/price-extract.json
 node scripts/normalize-quotes.mjs .local/v2/price-extract.json .local/v2/normalized
+pnpm v2:build
+pnpm v2:import --manifest .local/v2/intake/manifest.json --prices .local/v2/normalized
 ```
+
+新原表导入后先进入待生效区。在“原表价格查询 → 每周报价更新”中选择上一期、预览变化并确认生效日期，匹配的渠道才会按日期切换。没有新表的代理继续沿用旧价，历史报价与比价记录保留。原件归档目录需要长期保存，避免原表下载链接失效。详细操作见 [每周报价更新与规则维护](docs/quotation-v2-review-guide.md)。
 
 ## 检查与构建
 

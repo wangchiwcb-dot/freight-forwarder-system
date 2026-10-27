@@ -42,7 +42,7 @@ await cp('docs/quotation-v2-https.md', resolve(release, 'quotation-v2-https.md')
 const manifest = JSON.parse(await readFile('.local/v2/intake/manifest.json', 'utf8'));
 const catalog = JSON.parse(await readFile('.local/v2/normalized/catalog.json', 'utf8'));
 await writeFile(resolve(release, 'release.json'), JSON.stringify({ createdAt: new Date().toISOString(),
-  applicationOnly, requiresExistingSources: applicationOnly, engineVersion: 'quotation-v2/2026-10-26.4',
+  applicationOnly, requiresExistingSources: applicationOnly, engineVersion: 'quotation-v2/2026-10-27.1',
   authentication: 'none', originalFiles: manifest.files.length, priceDrafts: catalog.stats.quotes,
   livePublishedOffers: 0, exampleOffers: 0, preparedOwnUsDrafts: 12, priceDraftsRequireReview: true }, null, 2));
 const archive = resolve(outputRoot, `${releaseName}.tar.gz`);

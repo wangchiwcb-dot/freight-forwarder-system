@@ -7,7 +7,7 @@ const D = Decimal.clone({ precision: 60, rounding: Decimal.ROUND_HALF_UP });
 const ceil = (value: Decimal, step: string) => new D(step).isZero() ? value : value.div(step).ceil().mul(step);
 const total = (values: Decimal[]) => values.reduce((sum, value) => sum.add(value), new D(0));
 const money = (value: Decimal) => value.toDecimalPlaces(2).toFixed(2);
-export const ENGINE_VERSION = 'quotation-v2/2026-10-26.4';
+export const ENGINE_VERSION = 'quotation-v2/2026-10-27.1';
 const factLabels: Record<string, string> = {
   'package.actualKg': '单箱实重', 'package.longestCm': '最长边', 'package.secondCm': '次长边',
   'package.girthCm': '完整箱规（用于计算围长）', 'cargo.intellectualProperty': '侵权仿牌情况',
@@ -92,6 +92,7 @@ function calculate(offer: Offer, input: PricingRequest): QuoteResult {
   let rejected = false;
   const reject = (message: string) => { rejected = true; reasons.push(message); };
   if (offer.status === 'revoked') reject('该报价已撤销');
+  if (offer.sourceReady === false) reject('新报价表尚未确认生效');
   if (!trial && offer.status !== 'published') reasons.push('报价尚未发布');
   if (!trial && (!offer.reviewed || !offer.cargoReviewed)) reasons.push('渠道承运与收费范围尚未核实');
   if (!trial && !offer.validFrom) reasons.push('报价生效日期尚未确认');

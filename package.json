@@ -15,6 +15,7 @@
     "v2:typecheck": "tsc -p tsconfig.server.json",
     "v2:build": "pnpm v2:typecheck && vite build --config vite.server.config.ts && node scripts/v2/copy-runtime.mjs",
     "v2:start": "node dist-server/index.js",
+    "v2:import": "node scripts/v2/import-prices.mjs",
     "v2:package": "pnpm typecheck && pnpm v2:build && node scripts/v2/package-release.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",

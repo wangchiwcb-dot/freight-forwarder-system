@@ -13,6 +13,7 @@ export type ComparisonOptions=z.infer<typeof comparisonOptionsSchema>;
 export type ComparisonInput=z.infer<typeof comparisonInputSchema>;
 export interface ComparisonItem {
   id:string; draftId:string|null; offerId:string|null;
+  versionLabel?:string|null; validFrom?:string|null; validTo?:string|null;
   provider:string; channel:string; mode:string; country:string; destination:string; origin:string|null;
   currency:string|null; basis:string; quantity:string|null; unitPrice:string|null; tierLabel:string|null;
   baseFreight:string|null; knownSurcharges:string|null; knownCost:string|null; completeCost:string|null;

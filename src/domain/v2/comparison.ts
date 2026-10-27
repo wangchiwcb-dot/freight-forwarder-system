@@ -32,7 +32,9 @@ export function estimateSource(draft:PriceDraftRecord,input:PricingRequest,optio
   if (blocked) warnings.unshift('邮编或仓码不在本条报价覆盖范围');
   if (eligibility==='unknown') warnings.unshift('目的地覆盖待核，填写准确邮编或仓码可缩小范围');
   if (draft.status==='excluded' || quote.source.hidden || quote.status==='suspended') { blocked=true;warnings.unshift('排除、隐藏或暂停渠道，暂不参与比价'); }
-  const start=quote.effectiveAt?.slice(0,10),end=quote.validTo?.slice(0,10);
+  const start=[draft.version_from,quote.effectiveAt?.slice(0,10)].filter((v):v is string=>Boolean(v)).sort().at(-1);
+  const end=[draft.version_to,quote.validTo?.slice(0,10)].filter((v):v is string=>Boolean(v)).sort()[0];
+  if (draft.pricing_state==='pending') { blocked=true;warnings.unshift('新报价表尚未确认生效'); }
   if (start && input.asOf<start || end && input.asOf>=end) { blocked=true;warnings.unshift('报价不在适用日期内'); }
   if (!start) warnings.push('生效日期待核');
   if (quote.delivery && quote.delivery!=='all' && quote.delivery!=='unknown' && input.addressType!=='unknown') {
@@ -54,6 +56,7 @@ export function estimateSource(draft:PriceDraftRecord,input:PricingRequest,optio
   if (input.addressType==='unknown') warnings.push('地址类型未确认，地址附加费待核');
   warnings.push('附加费、进位、服务及税费范围未完整复核，参考费用不代表最终结算价');
   const row:ComparisonItem={id:`source_${draft.id}`,draftId:draft.id,offerId:null,provider:draft.provider_hint,channel:draft.channel_hint,
+    versionLabel:draft.version_label??null,validFrom:start??null,validTo:end??null,
     mode:draft.mode_hint,country:draft.country_hint,destination:quote.destinationLabel??'',origin:quote.origin||null,
     currency:quote.currency??null,basis:quote.billingBasis,quantity:null,unitPrice:null,tierLabel:null,baseFreight:null,knownSurcharges:null,knownCost:null,completeCost:null,
     status:'needs_parameters',coverage:eligibility,lowestReference:false,lowestComplete:false,comparisonKey:null,warnings,assumptions,lines:[],
@@ -118,6 +121,7 @@ export function fromRuleResult(result:QuoteResult,draft:PriceDraftRecord|null):C
   const extra=result.lines.filter(line=>line.ruleId!=='base'&&line.amount!==null).reduce((sum,line)=>sum.add(line.amount!),new D(0));
   const destination=offer.targets.map(target=>target.value).join('、')||offer.country;
   return {id:`offer_${offer.id}`,draftId:draft?.id??null,offerId:offer.id,provider:offer.providerName,channel:offer.name,mode:offer.mode,country:offer.country,destination,
+    versionLabel:offer.versionLabel??null,validFrom:offer.validFrom,validTo:offer.validTo,
     origin:offer.origin,currency:offer.currency,basis:offer.billing.basis,quantity:result.chargeableQuantity,
     unitPrice:base?.unitPrice??null,tierLabel:null,baseFreight:base?.amount??null,knownSurcharges:result.lines.some(line=>line.ruleId!=='base'&&line.amount!==null)?money(extra):null,
     knownCost:base?.amount!==undefined&&base.amount!==null?result.knownSubtotal:null,completeCost:result.total,status:result.state==='rejected'?'unavailable':result.state==='complete'?'complete':base?.amount?'reference':'needs_parameters',
